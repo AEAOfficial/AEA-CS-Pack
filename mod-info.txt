@@ -1,5 +1,5 @@
 [mod]
-title: AEA Mod Pack 1.4.8
+title: AEA SP Pack v1.0.0
 description: A combination of all your favorite mods, balanced together for super fun and dynamic gameplay!
 
 tags: Units
