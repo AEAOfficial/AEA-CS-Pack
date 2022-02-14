@@ -7,11 +7,11 @@ if %ANSWER% == NUL GOTO A:
 if %ANSWER% == n GOTO A:
 if %ANSWER% == y GOTO B:
 :B
-git diff
 echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 echo Testing for Changes
 echo TimeStamp: %time%
 echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+git reset
 git fetch origin
 git pull origin
 timeout 10 > NUL
