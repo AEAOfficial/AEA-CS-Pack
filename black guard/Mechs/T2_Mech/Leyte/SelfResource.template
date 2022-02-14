@@ -1,0 +1,31 @@
+#Command - SelfResource
+[core]
+name: NULL
+class: CustomUnitMetadata
+dont_load: true
+
+[global_resource_MechCarrier]
+displayName:Mech Carrier
+hidden:false
+
+[global_resource_Drone_I]
+displayName:Drone
+hidden:true
+[global_resource_Drone_II]
+@copyFromSection: global_resource_Drone_I
+[global_resource_Drone_III]
+@copyFromSection: global_resource_Drone_I
+[global_resource_Drone_IV]
+@copyFromSection: global_resource_Drone_I
+[global_resource_Drone_V]
+@copyFromSection: global_resource_Drone_I
+[global_resource_Drone_VI]
+@copyFromSection: global_resource_Drone_I
+[global_resource_Drone_VII]
+@copyFromSection: global_resource_Drone_I
+[global_resource_Drone_VIII]
+@copyFromSection: global_resource_Drone_I
+[global_resource_Drone_IX]
+@copyFromSection: global_resource_Drone_I
+[global_resource_Drone_X]
+@copyFromSection: global_resource_Drone_I

@@ -1,0 +1,392 @@
+[effect_flameSmall]
+life:40
+
+
+hOffset: 0
+dirOffset: 0
+
+fadeInTime: 0
+fadeOut: false
+
+attachedToUnit: true
+
+
+image:ROOT:Ekfaction\Ekdata/effects/flameLarge.png
+total_frames: 4
+animateFrameStart: 0
+animateFrameEnd: 3
+animateFramePingPong: false
+animateFrameSpeed:0.5
+scaleFrom:0.4
+scaleTo:0.4
+
+
+
+[effect_attachedFlame]
+priority:high
+
+
+frameIndex: 3
+stripIndex: projectiles
+
+
+life: 120
+fadeOut: true
+attachedToUnit: true
+#color: #fdc14d
+color: #FFFFFF
+
+fadeInTime:10
+scaleFrom: 0.6
+scaleTo: 1.5
+alpha:1
+drawUnderUnits:false
+liveAfterAttachedDies: false
+
+
+[effect_attachedLight]
+priority:high
+
+image: SHARED:light_50.png
+life: 80
+fadeOut: true
+attachedToUnit: true
+color: #ffb200 
+fadeInTime:4
+scaleFrom: 0.4
+scaleTo: 0.8
+alpha: 0.6 
+drawUnderUnits:false
+liveAfterAttachedDies: false
+
+
+
+[effect_hitFlame]
+
+
+frameIndex: 3
+stripIndex: projectiles
+
+spawnChance:0.5
+life: 40
+fadeOut: true
+attachedToUnit: false
+#color: #fdc14d
+color: #FFFFFF
+
+scaleFrom:0.8
+scaleTo:1.1
+alpha: 0.5
+drawUnderUnits:false
+liveAfterAttachedDies: false
+
+physics: true
+ySpeedRelative:0.4
+hSpeed: 0.4 
+
+
+[effect_smoke]
+#priority:high
+
+frameIndex: 0
+stripIndex: smoke_black
+
+spawnChance: 0.6
+
+life:90
+fadeOut: true
+attachedToUnit: false
+#color: #fdc14d
+color: #FFFFFF
+
+fadeInTime:15
+scaleFrom: 0.3
+scaleTo: 0.8
+alpha:0.8
+drawUnderUnits:false
+liveAfterAttachedDies: false
+
+hSpeed:0.5
+
+dirOffsetRandom:180
+
+
+atmospheric: true
+
+
+[effect_projectileTrail]
+
+stripIndex: effects
+frameIndex: 0
+
+
+priority: verylow 
+
+life:50
+fadeOut: true
+attachedToUnit: false
+color: #FFFFFF
+fadeInTime:5
+scaleFrom:0.2
+scaleTo:1
+alpha: 0.3
+drawUnderUnits:false
+ySpeedRelative:0 
+atmospheric:true
+
+dirOffsetRandom:180
+
+shadow:true
+
+xSpeedAbsoluteRandom: 0.01
+ySpeedAbsoluteRandom: 0.01 
+
+
+[effect_gunSmoke]
+#priority:high
+
+frameIndex: 0
+stripIndex: smoke_black
+
+spawnChance: 0.8
+
+life:90
+fadeOut: true
+attachedToUnit: false
+#color: #fdc14d
+color: #FFFFFF
+
+fadeInTime:15
+scaleFrom: 0.3
+scaleTo:1
+alpha:0.8
+drawUnderUnits:false
+liveAfterAttachedDies: false
+
+hSpeed:0.2
+
+dirOffsetRandom:180
+ySpeedRelative:0.5
+ySpeedRelativeRandom:0.2
+atmospheric: true
+
+
+
+[effect_afterRocket]
+
+stripIndex: effects
+frameIndex: 0
+
+
+life:70
+fadeOut: true
+attachedToUnit: false
+color: #FFFFFF
+fadeInTime:5
+scaleFrom: 0.2
+scaleTo:1.1
+alpha:0.35
+drawUnderUnits:false
+ySpeedRelative:-0.4
+atmospheric:true
+
+dirOffsetRandom:180
+
+shadow:true
+
+xSpeedAbsoluteRandom: 0.15
+ySpeedAbsoluteRandom: 0.1
+
+yOffsetRelative:-4
+
+hSpeed:0
+
+
+
+
+[effect_sparks]
+
+stripIndex: effects
+frameIndex: 0
+image:ROOT:Ekfaction/Ekdata/effects/engine.png
+
+
+priority:high
+
+life:200
+fadeOut: true
+attachedToUnit: false
+
+fadeInTime:5
+scaleFrom:1
+scaleTo:0.2
+alpha:0.8
+drawUnderUnits:false
+atmospheric:true
+
+dirOffsetRandom:180
+
+shadow:false 
+
+ySpeedRelative:-0.6
+
+total_frames:5
+animateFrameStart: 0
+animateFrameEnd:4
+animateFramePingPong: false
+animateFrameSpeed:0.3
+
+xOffsetRelativeRandom:2
+
+[effect_engineTrail]
+
+stripIndex: effects
+frameIndex: 0
+
+
+priority:low
+
+life:100
+fadeOut: true
+attachedToUnit: false
+color:#000000
+fadeInTime:5
+scaleFrom: 0.7
+scaleTo: 2
+alpha: 0.5
+drawUnderUnits:false
+atmospheric:true
+
+dirOffsetRandom:180
+
+shadow:false 
+
+xSpeedAbsoluteRandom: 0.03
+ySpeedAbsoluteRandom: 0.03
+hSpeed:0.1
+
+
+[effect_flare] 
+life: 5
+lifeRandom: 5
+alwayStartDirAtZero: true
+image:ROOT:Ekfaction/Ekdata/effects/sunshineFlare.png 
+scaleFrom: 0.2 
+scaleTo: 0.2
+alpha:0.8 
+priority:veryhigh 
+
+[effect_cartridge]
+
+
+priority: low 
+
+image:ROOT:Ekfaction/Ekdata/effects/cartridge.png
+imageShadow: SHADOW:ROOT:Ekdata/effects/cartridge.png
+
+life: 200 
+fadeOut: true
+attachedToUnit: false
+#color: #fdc14d
+color: #FFFFFF
+
+scaleFrom: 1
+scaleTo: 1
+alpha: 2
+fadeInTime: 3
+drawUnderUnits:false
+liveAfterAttachedDies: false
+
+physics: true
+
+createWhenZoomedOut: false
+
+
+xSpeedRelative: 0.5 
+xSpeedRelativeRandom: 0.2 
+
+
+ySpeedRelative: -0.7 
+ySpeedRelativeRandom: 0.3 
+
+yOffsetRelative: -62 
+xOffsetRelative: 0 
+
+hSpeed: 1.4 
+
+dirSpeedRandom: 5 
+
+[effect_cartridgeSmall]
+
+
+priority: low
+
+image:ROOT:Ekfaction/Ekdata/effects/cartridgeSmall.png
+imageShadow:SHADOW:ROOT:Ekdata/effects/cartridgeSmall.png
+
+life: 200 
+fadeOut: true
+attachedToUnit: false
+#color: #fdc14d
+color: #FFFFFF
+
+scaleFrom: 0.55
+scaleTo: 0.55
+alpha:10
+fadeInTime: 3
+drawUnderUnits:false
+liveAfterAttachedDies: false
+
+physics: true
+
+createWhenZoomedOut: false
+
+
+xSpeedRelative: 2
+xSpeedRelativeRandom: 0.3 
+
+ySpeedRelativeRandom: 0.25
+
+yOffsetRelative: -28
+xOffsetRelative: 8.5 
+
+hSpeed: 1
+
+dirSpeedRandom: 30 
+
+[effect_plasmaExplode]
+
+
+priority: low
+
+image:ROOT:Ekfaction/Ekdata/effects/plasmaExplode.png 
+#imageShadow:SHADOW:ROOT:Ekfaction/Ekdata/effects/plasmaExplode.png
+
+life: 200 
+fadeOut: true
+attachedToUnit: true 
+#color: #fdc14d
+color: #FFFFFF
+
+scaleFrom: 1
+scaleTo: 1
+alpha: 1 
+fadeInTime: 1
+drawUnderUnits:false
+liveAfterAttachedDies: false
+total_frames:9
+animateFrameStart:0
+animateFrameEnd:8 
+animateFrameSpeed:0.3
+
+
+createWhenZoomedOut: false
+
+[effect_svist]
+
+life:0
+alsoPlaySound:ROOT:Ekfaction/Ekdata/effects/svist.ogg
+scaleFrom:0.001
+scaleTo:0.001
+alpha:0
+attachedToUnit:true

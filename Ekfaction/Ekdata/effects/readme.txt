@@ -1,0 +1,1 @@
+all shared images will get a redirectory code in their image folder for all custom effect templates and shared turret Png's

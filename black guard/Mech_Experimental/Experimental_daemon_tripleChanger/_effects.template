@@ -1,0 +1,1007 @@
+
+#_effects.template
+[core]
+
+#----------------------Arm Cannon Effect
+[effect_trail_adv]
+life: 10
+priority:high
+image: advTrail.png
+attachedToUnit: false
+drawUnderUnits: false
+alpha:2
+fadeOut: true
+scaleFrom: 0.7
+scaleTo: 0.3
+atmospheric: true
+xOffsetRelative:0
+yOffsetRelative:-3
+
+color: #00f4ff
+teamColorRatio: 0.8
+[effect_trail]
+life: 40
+alsoEmitEffects: CUSTOM:trail_A, CUSTOM:trail_B
+priority:verylow
+image: ROOT:data\images\torpTrail.png
+attachedToUnit: false
+drawUnderUnits: false
+alpha:0.5
+fadeOut: true
+scaleFrom: 1.5
+scaleTo: 0.2
+atmospheric: true
+xOffsetRelative:0
+yOffsetRelative:-9
+
+color: #00f4ff
+teamColorRatio: 0
+[effect_trail_A]
+@copyFromSection: effect_trail
+life: 30
+alsoEmitEffects: NONE
+scaleFrom: 0.8
+scaleTo: 0.2
+xOffsetRelative:6
+alpha:1
+[effect_trail_B]
+@copyFromSection: effect_trail
+life: 30
+alsoEmitEffects: NONE
+scaleFrom: 0.8
+scaleTo: 0.2
+xOffsetRelative:-6
+alpha:1
+[effect_smoke]
+priority: low
+
+frameIndex: 0
+stripIndex: smoke_black
+
+createWhenZoomedOut: false
+
+life: 90
+fadeOut: true
+attachedToUnit: false
+color: #FFFFFF
+
+fadeInTime:1
+scaleFrom: 0.2
+scaleTo: 0.7
+alpha: 1
+drawUnderUnits:false
+liveAfterAttachedDies: false
+
+hSpeed:0.15
+hSpeedRandom: 0.05
+
+dirOffsetRandom:180
+dirSpeedRandom:5
+
+xSpeedRelativeRandom: 0.1
+ySpeedRelative: 0.1
+
+
+atmospheric: true
+
+#------------------------
+[effect_trailMod2]
+alsoEmitEffects: CUSTOM:trail2Mod2, CUSTOM:trail3Mod2
+createWhenZoomedOut: false
+priority:high
+xOffsetRelative:0
+yOffsetRelative:-10
+image: ROOT:data\images\trail_A.png
+life: 20
+fadeOut: true
+attachedToUnit: false
+color: #48ffee
+fadeInTime:1
+scaleFrom: 1
+scaleTo: 1
+alpha: 0.8
+drawUnderUnits:true
+ySpeedRelative:0.2
+[effect_trail2Mod2]
+@copyFromSection: effect_trailMod2
+alsoEmitEffects: NONE
+yOffsetRelative:-5
+[effect_trail3Mod2]
+@copyFromSection: effect_trailMod2
+alsoEmitEffects: NONE
+yOffsetRelative:-10
+[effect_BlueLight]
+priority: veryhigh
+spawnChance: 0.4
+life: 11
+fadeOut: true
+image: ROOT:data\images\light_2.png
+#ySpeedRelative: 1
+alpha: 2
+xOffsetRelativeRandom: 3
+yOffsetRelativeRandom: 3
+xSpeedRelativeRandom: 0.1
+yOffsetRelative:-7
+delayedStartTimer: 0
+scaleFrom: 0.04
+scaleTo: 0.04
+
+[effect_Shooov]
+priority: veryhigh
+life: 130
+scaleFrom:0
+scaleTo:0
+alsoPlaySound: launch_mm.ogg: 0.5
+[effect_ShooovTrail]
+alsoEmitEffects: CUSTOM:ShooovTrail2
+stripIndex: effects
+frameIndex: 0
+life: 120
+fadeOut: true
+attachedToUnit: false
+color: #FFFFFF
+fadeInTime:5
+scaleFrom: 0.5
+scaleTo: 2
+alpha: 0.6
+drawUnderUnits:false
+ySpeedRelative:-0.5
+atmospheric:true
+
+dirOffsetRandom:180
+
+shadow:true
+
+xSpeedAbsoluteRandom: 0.2
+ySpeedAbsoluteRandom: 0.2
+[effect_ShooovTrail2]
+@copyFromSection: effect_ShooovTrail
+ySpeedRelative:-1
+delayedStartTimer: 5
+[effect_ShooovTrail3]
+@copyFromSection: effect_ShooovTrail
+life: 90
+ySpeedRelative: -0.1
+scaleFrom: 0.5
+scaleTo: 3
+
+[effect_areaShock]
+alsoEmitEffects: CUSTOM:areaShock2,  CUSTOM:areaShock3
+life: 10
+priority: high
+image: ROOT:data\images\blue_shockwave.png
+fadeOut: true
+attachedToUnit: FALSE
+#color: #00ffff
+scaleTo: 0.5
+scaleFrom: 0.1
+alpha:2
+[effect_areaShock2]
+alsoEmitEffects: NONE
+@copyFromSection: effect_areaShock
+image: ROOT:data\images\shield_mid_3.png
+life: 20
+scaleTo: 1.5
+scaleFrom: 1
+delayedStartTimer: 5
+alpha:0.4
+[effect_areaShock3]
+@copyFromSection: effect_areaShock
+image: ROOT:data\images\shield_mid_3.png
+life: 10
+scaleTo: 2
+scaleFrom: 0.1
+alpha:0.3
+
+[effect_Boom]
+image:ROOT:data\images\blue_explosion.png
+scaleTo: 2
+scaleFrom: 1
+total_frames: 14
+animateFrameStart: 0
+animateFrameEnd: 13
+animateFramePingPong: false
+animateFrameSpeed: 0.35
+[effect_scrootMark]
+attachedToUnit: false
+life: 60
+physics: false
+image: ROOT:data\images\scorchmark.png
+
+hOffset: 1
+
+priority: low
+
+createWhenOverLiquid: false
+
+alwayStartDirAtZero: true
+
+fadeInTime: 20
+
+scaleFrom: 0.5
+scaleTo: 0.5
+
+alpha: 3
+
+drawUnderUnits: true
+[effect_projectileTrailNyuk]
+
+stripIndex: effects
+frameIndex: 0
+
+
+life: 120
+fadeOut: true
+attachedToUnit: false
+color: #FFFFFF
+fadeInTime:5
+scaleFrom: 0.5
+scaleTo: 2
+alpha: 0.6
+drawUnderUnits:false
+#ySpeedRelative:-1
+atmospheric:true
+
+dirOffsetRandom:180
+
+shadow:true
+
+xSpeedAbsoluteRandom: 0.2
+ySpeedAbsoluteRandom: 0.2
+#----------------------------------------
+[effect_backblast]
+#priority:high
+
+frameIndex: 0
+stripIndex: effects
+
+spawnChance: 1
+
+priority: verylow
+
+createWhenZoomedOut: false
+
+life: 60
+fadeOut: true
+attachedToUnit: false
+#color: #fdc14d
+color: #FFFFFF
+
+fadeInTime:10
+scaleFrom: 0.25
+scaleTo: 1.25
+alpha: 0.65
+drawUnderUnits:false
+liveAfterAttachedDies: false
+
+hSpeed: 0.01
+
+dirOffsetRandom:180
+
+ySpeedRelative: -0.7
+ySpeedRelativeRandom: 0.05
+xSpeedRelativeRandom: 0.25
+
+yOffsetRelative: -10
+
+
+atmospheric: true
+[effect_backblast_not]
+@copyFromSection: effect_backblast
+
+ySpeedRelative: 0.7
+yOffsetRelative: 5
+#---------------------------Engine Trail
+[comment_effect_projectileTrail]
+createWhenZoomedOut: false
+priority:low
+
+image: SHARED:light_50.png
+life: 30
+fadeOut: true
+attachedToUnit: false
+
+#color: #63e6e8
+color: #fcbe03
+
+fadeInTime:2
+scaleFrom: 0.7
+scaleTo: 1.2
+alpha: 0.4
+drawUnderUnits:true
+ySpeedRelative:-0.4
+atmospheric: true
+
+
+[effect_trailL]
+
+createWhenZoomedOut: false
+priority:low
+
+life: 30
+
+image: SHARED:glow_sharp.png
+
+scaleFrom: 0.7
+scaleTo: 1.4
+alpha: 0.7
+atmospheric:true
+#dirOffsetRandom:180
+xSpeedAbsoluteRandom: 0.1
+ySpeedAbsoluteRandom: 0.1
+ySpeedRelative:-0.2
+#hSpeed:0.1
+xOffsetRelative:10
+yOffsetRelative:-22
+#drawUnderUnits:true
+attachedToUnit: false
+
+color: #ffe32b
+
+fadeInTime: 6
+
+[effect_trailR]
+@copyFromSection: effect_trailL
+xOffsetRelative:-10
+
+#-------------------------
+[effect_EngineFire]
+life: 70
+alsoEmitEffects: CUSTOM:EngineparticleBooster_0*2, CUSTOM:EngineparticleSmuk_0, CUSTOM:EngineFire_A, CUSTOM:EngineFire_B
+image: ROOT:data\images\light2.png
+color: #FFAA00
+alpha: 5
+
+createWhenOffscreen: true
+createWhenZoomedOut: true
+drawUnderUnits: true
+yOffsetRelative:-22
+ySpeedRelative: -2.5
+scaleFrom: 0.8
+scaleTo: 0.2
+[effect_EngineFireblue]
+@copyFromSection: effect_EngineFire
+alsoEmitEffects: CUSTOM:EngineFireblue2
+life: 50
+color: #00b4f0
+drawUnderUnits: false
+scaleFrom: 0.6
+alpha: 0.8
+[effect_EngineFireblue2]
+@copyFromSection: effect_EngineFire
+alsoEmitEffects: NONE
+life: 15
+color: #00ffff
+drawUnderUnits: false
+scaleFrom: 0.4
+alpha: 6
+[effect_EngineFire_A]
+@copyFromSection: effect_EngineFire
+alsoEmitEffects: NONE
+life: 25
+color: #00ffff
+scaleFrom: 0.5
+alpha: 0.8
+yOffsetRelative:-33
+xOffsetRelative: -40
+drawUnderUnits: false
+[effect_EngineFire_B]
+@copyFromSection: effect_EngineFire
+alsoEmitEffects: NONE
+life: 25
+color: #00ffff
+scaleFrom: 0.5
+alpha: 0.8
+yOffsetRelative:-33
+xOffsetRelative: 40
+drawUnderUnits: false
+[effect_EngineparticleBooster_0]
+createWhenZoomedOut: false
+priority:low
+#spawnChance: 0.8
+life: 200
+fadeOut: False
+attachedToUnit: false
+drawUnderUnits: true
+
+
+image: ROOT:data\images\engine_particle.png
+total_frames: 4
+animateFrameStart: 0
+animateFrameEnd: 3
+animateFramePingPong: false
+animateFrameSpeed: 0.1
+
+#fadeInTime:1
+scaleFrom: 2
+scaleTo: 0.2
+alpha: 1
+
+xSpeedRelativeRandom:0.2
+xOffsetRelativeRandom: 15
+dirOffsetRandom: 100
+
+ySpeedRelative: -2.5
+
+yOffsetRelative: 10
+
+atmospheric: false
+
+stripIndex:effects
+frameIndex: 0
+[effect_EngineparticleSmuk_0]
+stripIndex: effects
+frameIndex: 0
+alsoEmitEffects: CUSTOM:EngineparticleSmuk_A, CUSTOM:EngineparticleSmuk_B
+
+life: 240
+fadeOut: true
+attachedToUnit: false
+color: #FFFFFF
+fadeInTime:5
+scaleFrom: 4
+scaleTo: 2
+alpha: 0.1
+drawUnderUnits:false
+#ySpeedRelative:-1
+
+dirOffsetRandom:180
+shadow:true
+
+xSpeedAbsoluteRandom: 0.2
+ySpeedAbsoluteRandom: 0.2
+
+ySpeedRelative: -1
+yOffsetRelative: -30
+
+[effect_EngineparticleSmuk_01]
+@copyFromSection: effect_EngineparticleSmuk_0
+alsoEmitEffects: NONE
+life: 140
+scaleFrom: 2
+
+[effect_EngineparticleSmuk_A]
+@copyFromSection: effect_EngineparticleSmuk_0
+alsoEmitEffects: NONE
+life: 140
+scaleFrom: 2.3
+xOffsetRelative: -40
+[effect_EngineparticleSmuk_B]
+@copyFromSection: effect_EngineparticleSmuk_0
+alsoEmitEffects: NONE
+life: 140
+scaleFrom: 2.3
+xOffsetRelative: 40
+[effect_Canistersmoke]
+#priority:high
+
+frameIndex: 0
+stripIndex: effects
+
+spawnChance: 1
+
+priority: verylow
+
+createWhenZoomedOut: false
+
+life: 60
+fadeOut: true
+attachedToUnit: false
+#color: #fdc14d
+color: #FFFFFF
+
+fadeInTime:10
+scaleFrom: 1
+scaleTo: 2
+alpha: 0.65
+drawUnderUnits:false
+liveAfterAttachedDies: false
+
+hSpeed: 0.01
+
+dirOffsetRandom:180
+
+ySpeedRelative: 0.7
+ySpeedRelativeRandom: 0.05
+xSpeedRelativeRandom: 0.25
+
+yOffsetRelative: -0.5
+delayedStartTimer: 15
+
+atmospheric: true
+#--------------------------
+
+[effect_deathMark]
+attachedToUnit: false
+life: 400
+physics: false
+image: ROOT:data\images\scorchmark.png
+
+hOffset: 1
+
+priority: critical
+
+alsoPlaySound: ROOT:data\soundFx\explosion_05.ogg: 0.6
+createWhenOverLiquid: false
+
+alwayStartDirAtZero: true
+
+fadeInTime: 20
+
+scaleFrom: 0.6
+scaleTo: 0.6
+
+alpha: 3
+
+drawUnderUnits: true
+
+[effect_waveSSS]
+priority:high
+
+stripIndex:shockwave
+life: 25
+scaleFrom: 1.2
+scaleTo: 2
+alpha: 0.5
+
+[effect_deathCannon]
+image: dead_sample_Cb.png
+imageShadow: dead_sample_Cb.png
+priority: critical
+
+spawnChance: 0.9
+
+attachedToUnit: false
+life: 1500
+physics: true
+physicsGravity: 0.8
+shadow: true
+
+xOffsetRelative: 0
+xOffsetRelativeRandom: 4
+yOffsetRelativeRandom: 4
+
+dirOffsetRandom: 180
+
+xSpeedRelative: 0.8
+xSpeedRelativeRandom: 0.2
+ySpeedRelativeRandom: 1.2
+
+hSpeed: 2.2
+hSpeedRandom: 0.3
+
+dirSpeedRandom: 10
+
+
+alpha: 2
+
+drawUnderUnits: true
+[effect_deathHEAD]
+@copyFromSection: effect_deathCannon
+image: dead_daemon_head.png
+imageShadow: dead_daemon_head.png
+xSpeedRelative: 1.5
+[effect_deathdrive]
+@copyFromSection: effect_deathCannon
+image: dead_daemon_GNDrive_B.png
+imageShadow: dead_daemon_GNDrive_B.png
+#---------------------------------------------------
+[effect_B]
+#light
+priority:low
+image: SHARED:light_50.png
+life:9
+color:#63e6e8
+fadeInTime:1.5
+scaleFrom:0.6
+scaleTo:1
+alpha:1.2
+#---------------------------#lightparticle
+[effect_E]
+#lightparticle
+delayedStartTimerRandom:4
+delayedStartTimer:2
+priority:verylow
+image:ROOT:data\images\light_particle.png
+color:#94d8db
+life:80
+scaleFrom:0.4
+scaleTo:0.3
+alpha:1.2
+ySpeedRelative:0.2
+ySpeedRelativeRandom:0.2
+xSpeedRelative:-0.6
+xSpeedRelativeRandom:-0.4
+dirOffset:0
+dirOffsetRandom:360
+dirSpeedRandom:0.2
+hOffset:1
+fadeInTime:1
+attachedToUnit:false
+[effect_E2]
+#lightparticle
+delayedStartTimerRandom:20
+delayedStartTimer:15
+priority:verylow
+image:ROOT:data\images\light_particle.png
+color:#94d8db
+life:80
+scaleFrom:0.4
+scaleTo:0.3
+alpha:1.2
+ySpeedRelative:0.2
+ySpeedRelativeRandom:0.2
+xSpeedRelative:-0.6
+xSpeedRelativeRandom:-0.4
+dirOffset:0
+dirOffsetRandom:360
+dirSpeedRandom:0.2
+hOffset:1
+fadeInTime:1
+attachedToUnit:false
+[effect_F]
+#lightparticle
+delayedStartTimerRandom:4
+delayedStartTimer:2
+priority:verylow
+image:ROOT:data\images\light_particle.png
+color:#94d8db
+life:80
+scaleFrom:0.4
+scaleTo:0.3
+alpha:1.2
+ySpeedRelative:0.2
+ySpeedRelativeRandom:0.2
+xSpeedRelative:0.6
+xSpeedRelativeRandom:-0.4
+dirOffset:0
+dirOffsetRandom:360
+dirSpeedRandom:0.2
+hOffset:1
+fadeInTime:1
+attachedToUnit:false
+[effect_F2]
+#lightparticle
+delayedStartTimerRandom:20
+delayedStartTimer:15
+priority:verylow
+image:ROOT:data\images\light_particle.png
+color:#94d8db
+life:80
+scaleFrom:0.4
+scaleTo:0.3
+alpha:1.2
+ySpeedRelative:0.2
+ySpeedRelativeRandom:0.2
+xSpeedRelative:0.6
+xSpeedRelativeRandom:-0.4
+dirOffset:0
+dirOffsetRandom:360
+dirSpeedRandom:0.2
+hOffset:1
+fadeInTime:1
+attachedToUnit:false
+[effect_G]
+delayedStartTimerRandom:12
+delayedStartTimer:6
+priority:verylow
+image:ROOT:data\images\light_particle.png
+color:#94d8db
+life:85
+scaleFrom:0.3
+scaleTo:0.3
+alpha:1.1
+ySpeedRelative:1
+ySpeedRelativeRandom:0.2
+xSpeedRelative:-0.08
+xSpeedRelativeRandom:-0.08
+dirOffset:0
+dirOffsetRandom:360
+dirSpeedRandom:0.2
+hOffset:1
+fadeInTime:1
+attachedToUnit:false
+[effect_G2]
+delayedStartTimerRandom:30
+delayedStartTimer:12
+priority:verylow
+image:ROOT:data\images\light_particle.png
+color:#94d8db
+life:100
+scaleFrom:0.4
+scaleTo:0.3
+alpha:1.2
+ySpeedRelative:0.7
+ySpeedRelativeRandom:0.6
+xSpeedRelative:0.12
+xSpeedRelativeRandom:-0.12
+dirOffset:0
+dirOffsetRandom:360
+dirSpeedRandom:0.2
+hOffset:1
+fadeInTime:1
+attachedToUnit:false
+[effect_H]
+delayedStartTimerRandom:10
+delayedStartTimer:7
+priority:verylow
+image:ROOT:data\images\light_particle.png
+color:#94d8db
+life:210
+scaleFrom:0.4
+scaleTo:0.3
+alpha:1
+ySpeedRelative:0.7
+ySpeedRelativeRandom:0.6
+xSpeedRelative:-0.4
+xSpeedRelativeRandom:-0.3
+dirOffset:0
+dirOffsetRandom:360
+dirSpeedRandom:0.2
+hOffset:0
+hSpeed:1.2
+hSpeedRandom:0.5
+hOffsetRandom:1
+physicsGravity:0.6
+fadeInTime:1
+attachedToUnit:false
+physics:true
+[effect_H2]
+delayedStartTimerRandom:3
+delayedStartTimer:7
+priority:verylow
+image:ROOT:data\images\light_particle.png
+color:#94d8db
+life:210
+scaleFrom:0.4
+scaleTo:0.3
+alpha:1
+ySpeedRelative:0.7
+ySpeedRelativeRandom:0.6
+xSpeedRelative:0.2
+xSpeedRelativeRandom:-0.2
+dirOffset:0
+dirOffsetRandom:360
+dirSpeedRandom:0.2
+hOffset:0
+hSpeed:1.2
+hSpeedRandom:0.5
+hOffsetRandom:1
+physicsGravity:0.6
+fadeInTime:1
+attachedToUnit:false
+physics:true
+#-----------------------#lightparticle END
+[effect_I]
+#sMOKE
+delayedStartTimerRandom:6
+delayedStartTimer:5
+priority:high
+stripIndex:smoke_white
+frameIndex:0
+frameIndexRandom:1
+color:#94d8db
+life:250
+scaleFrom:0.4
+scaleTo:1.6
+alpha:0.6
+fadeInTime:2
+ySpeedRelative:0.1
+ySpeedRelativeRandom:0.05
+xSpeedRelativeRandom:0.3
+hOffset:0.5
+dirOffset:0
+dirOffsetRandom:360
+dirSpeedRandom:0.2
+attachedToUnit:false
+[effect_I2]
+#sMOKE
+delayedStartTimerRandom:6
+delayedStartTimer:5
+priority:high
+stripIndex:smoke_white
+frameIndex:0
+frameIndexRandom:1
+color:#94d8db
+life:280
+scaleFrom:0.4
+scaleTo:2
+alpha:0.6
+fadeInTime:2
+ySpeedRelative:0.3
+ySpeedRelativeRandom:0.1
+xSpeedRelativeRandom:0.1
+dirOffset:0
+dirOffsetRandom:360
+dirSpeedRandom:0.2
+attachedToUnit:false
+[effect_J]
+#sMOKE
+delayedStartTimer:1
+priority:high
+stripIndex:smoke_white
+yOffsetRelative:-40
+xOffsetRelative:9
+frameIndex:0
+frameIndexRandom:1
+color:#94d8db
+life:200
+scaleFrom:0.3
+scaleTo:1.6
+alpha:0.5
+fadeInTime:2
+xSpeedRelative:0.15
+ySpeedRelativeRandom:0.1
+xSpeedRelativeRandom:0.05
+dirOffset:0
+dirOffsetRandom:360
+dirSpeedRandom:0.2
+attachedToUnit:false
+[effect_K]
+delayedStartTimer:5
+priority:verylow
+image:ROOT:data\images\light_particle.png
+color:#94d8db
+life:50
+xSpeedAbsoluteRandom:1.3
+ySpeedAbsoluteRandom:1.3
+scaleFrom:0.3
+scaleTo:0.3
+alpha:1.5
+dirOffset:0
+dirOffsetRandom:360
+dirSpeedRandom:0.2
+
+[effect_L]
+delayedStartTimer:5
+priority:verylow
+image:ROOT:data\images\light_particle.png
+color:#94d8db
+life:160
+scaleFrom:0.3
+scaleTo:0.3
+alpha:1.5
+xSpeedAbsoluteRandom:1.4
+ySpeedAbsoluteRandom:1.4
+dirOffsetRandom:360
+dirSpeedRandom:0.2
+hOffset:0
+hSpeed:0.5
+hSpeedRandom:0.2
+hOffsetRandom:5
+physicsGravity:0.5
+physics:true
+#0000000000000000000000000000000000
+[effect_RailLight]
+#light
+priority:low
+image: SHARED:light_50.png
+life:9
+color:#94d8db
+fadeInTime:1.5
+scaleFrom:1
+scaleTo:4
+alpha:2
+yOffsetRelative: 40
+[effect_RailParticle_1]
+alsoEmitEffects:  CUSTOM:RailParticle_2*2, CUSTOM:RailParticle_3*2
+delayedStartTimerRandom:30
+delayedStartTimer:6
+priority:verylow
+image:ROOT:data\images\light_particle.png
+color:#94d8db
+life:200
+scaleFrom:0.3
+scaleTo:0.3
+alpha:2
+
+ySpeedRelative:1
+ySpeedRelativeRandom:0.2
+xSpeedRelative:-0.08
+xSpeedRelativeRandom:-0.08
+yOffsetRelative: 80
+yOffsetRelativeRandom: 40
+
+dirOffset:0
+dirOffsetRandom:360
+dirSpeedRandom:0.2
+hOffset:1
+fadeInTime:1
+attachedToUnit:false
+[effect_RailParticle_2]
+delayedStartTimerRandom:90
+delayedStartTimer:12
+priority:low
+image:ROOT:data\images\light_particle.png
+color:#94d8db
+life:100
+scaleFrom:0.4
+scaleTo:0.3
+alpha:1
+ySpeedRelative:0.7
+ySpeedRelativeRandom:0.6
+xSpeedRelative:0.12
+xSpeedRelativeRandom:-0.12
+yOffsetRelative: 80
+yOffsetRelativeRandom: 40
+
+dirOffset:0
+dirOffsetRandom:360
+dirSpeedRandom:0.2
+hOffset:1
+fadeInTime:1
+attachedToUnit:false
+[effect_RailParticle_3]
+@copyFromSection: effect_RailParticle_2
+delayedStartTimerRandom:160
+alpha:3
+[effect_RailSmoke]
+#sMOKE
+delayedStartTimerRandom:6
+delayedStartTimer:5
+priority:high
+stripIndex:smoke_white
+frameIndex:0
+frameIndexRandom:1
+color:#94d8db
+life:250
+scaleFrom:0.4
+scaleTo:1.6
+alpha:0.6
+fadeInTime:2
+ySpeedRelative:0.1
+ySpeedRelativeRandom:0.05
+xSpeedRelativeRandom:0.3
+hOffset:0.5
+dirOffset:0
+dirOffsetRandom:360
+dirSpeedRandom:0.2
+attachedToUnit:false
+yOffsetRelative: 80
+yOffsetRelativeRandom: 40
+[effect_RailSmoke2]
+#sMOKE
+delayedStartTimerRandom:6
+delayedStartTimer:5
+priority:high
+stripIndex:smoke_white
+frameIndex:0
+frameIndexRandom:1
+color:#94d8db
+life:280
+scaleFrom:0.4
+scaleTo:2
+alpha:0.6
+fadeInTime:2
+ySpeedRelative:0.3
+ySpeedRelativeRandom:0.1
+xSpeedRelativeRandom:0.1
+dirOffset:0
+dirOffsetRandom:360
+dirSpeedRandom:0.2
+attachedToUnit:false
+yOffsetRelative: 80
+yOffsetRelativeRandom: 40
+[effect_RailSmoke3]
+#sMOKE
+delayedStartTimer:1
+priority:high
+stripIndex:smoke_white
+xOffsetRelative:9
+frameIndex:0
+frameIndexRandom:1
+color:#94d8db
+life:200
+scaleFrom:0.3
+scaleTo:1.6
+alpha:0.5
+fadeInTime:2
+xSpeedRelative:0.15
+ySpeedRelativeRandom:0.1
+xSpeedRelativeRandom:0.05
+dirOffset:0
+dirOffsetRandom:360
+dirSpeedRandom:0.2
+attachedToUnit:false
+yOffsetRelative: 80
+yOffsetRelativeRandom: 40

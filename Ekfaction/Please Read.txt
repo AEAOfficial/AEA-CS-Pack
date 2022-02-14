@@ -1,0 +1,141 @@
+SPOILER ALERT:
+Paul's mod: Turret Expansion has a secret thing. If you look into the files, you'll maybe spoil it. But i help you how to unlock it jajaja
+    -Open all-units.template contains short setting there! if you want to,,, 
+
+Some Turret's can rank up to IV, 
+    -Rank I: 10 credits & HP per kill
+	-Rank II: 20 credits & HP per kill
+	-Rank III: 50 credits & HP per kill
+	-Rank IV: 100 credits & HP per kill	
+	
+How To unlock SPECIAL hidden turrets?
+
+    -CIWS: 
+	    -Requirements: 1x SAM turret and 4 Mini Gun   
+	    -T1 SAM turret in the center and mini guns on each sides
+        -Once unlocked, you can access this upgrade from T1 SAM turret and Migun Gun
+		-Its powerful and durable short range AA
+
+    -Sweet Seeker
+    	-Requirements: 1x SAM turret, 3x SAM tuuret T2 and 1x S-400
+		-T1 SAM turret in the center surounded by SAM tuuret T2 and one S-400
+		-Armed with powerful and long range ground and air heat seeking cluster missile
+		
+	-Thunder Strike	
+		-Requirements: 5x Lightning Orb turret
+		-One in the center and for each sides
+		-Zapy Zapy! every 4 kill deals massive damage!
+	
+    -Thunder Strom	
+		-Requirements: 1x Lightning and 4x Lightning Orb turret  
+		-Lightning in the center and Lightning Orb turret on each sides
+		-Moar Moar Zapy Zapy! charges and delivers a shit ton of Lightning
+		
+	
+	
+/////////////////////////////////////////////////////////////////////////
+//                                                                     //
+//                          SPECIAL THANK's                            //
+//                                                                     //
+//                                                                     //
+//        *Darcan                                                      // 
+//        *Beatris                                                     //
+//        *Nova                                                        //
+//        *Lord Fail\Cryx                                              //                                                                                   
+//                                                                     //                     
+//        *Sioxer                                                      //                                       
+//        *General Airon                                               //  
+//           Tutorials/Codes                                           // 
+//                                                                     //                               
+//        *Uber                                                        //
+//        *SUSHIMAKI                                                   //
+//        *Videogames                                                  //  
+//        *dancewithmycandy                                            //  
+//           particle effects/soundFx                                  //                                                                         
+//                                                                     //  
+//                                                                     //
+//                                                                     //                                                                           
+/////////////////////////////////////////////////////////////////////////
+
+
+
+   ||||||||
+   ||    ||
+   ||    ||
+   ||||||||
+
+   ||||||||
+   ||    ||
+   ||    ||
+   ||||||||
+   
+   ||||||||
+   ||    ||
+   ||    ||
+   ||||||||   
+
+
+
+
+
+   |||||||||||||||||||||||||||||||||||||||||||||||||
+   ||                                             ||
+   ||  What's next blunderbuss?? or Fabricator??  ||
+   ||                                             ||
+   ||||||||||||||||||||||||||||||||||||||||||||||||| 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+```Name: **Paul's mod**: `Turret Expansion`
+Mod Type: Add-on
+Minimum Game Version Compatible: V1.14p9
+description: Unlock new type of unholy and unhinged turrets, Included newly overhauled Steam powered Tri-Gun Cannon and dupe Modular Ex-Tank(just for FUN!). This contains small parts.
+                (If you notice any bugs and creepy crawlies issues, please report it to me)
+				-Open all-units.template contains short setting there! if you want to.
+				
+Tag: experimental, turret, moarturrets```
+
+
+You can join to my domain here
+  -cons: once you enter you'll be sucked into endless cycle of crap
+ https://discord.gg/NkNxGmDq 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

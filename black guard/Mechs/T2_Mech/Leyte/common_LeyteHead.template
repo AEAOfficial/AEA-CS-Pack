@@ -1,0 +1,173 @@
+
+#TAG used= 0, 1, 2, 3
+# 4, 5, 6, 7= ammo types 
+
+[core]
+@global leyteC: I
+copyFrom: ROOT:data\effects\microMissile.template, core_carrierCommands.template, common_range.template, SelfResource.template
+
+name: LeyteHead_${leyteC}
+class: CustomUnitMetadata
+showInEditor: false
+
+price: 0
+maxHp: 3000
+mass: 30000
+techLevel: 2
+experimental: true
+buildSpeed: 0.0003
+
+radius: 36
+isBio: false
+
+
+fogOfWarSightRange:24
+ignoreInUnitCapCalculation: true
+
+energyMax: 10
+energyRegen: 0.015
+energyNeedsToRechargeToFull: true
+
+borrowResourcesWhileAlive: Drone_${leyteC}=-4, MechCarrier=-1
+tags: leyteT=${leyteC}
+
+[action_TestAnimation]
+buildSpeed: 6s
+isVisible: FALSE
+isActive: true
+text: Test Animation
+pos: 10
+whenBuilding_playAnimation: buildB
+
+[animation_buildA]
+body_0s: {frame: 0}
+body_0.05s: {frame: 1}
+body_0.1s: {frame: 2}
+body_0.15s: {frame: 3}
+body_0.2s: {frame: 4}
+body_0.25s: {frame: 0}
+body_0.3s: {frame: 1}
+body_0.35s: {frame: 2}
+body_0.4s: {frame: 1}
+body_0.45s: {frame: 2}
+body_0.5: {frame: 1}
+body_0.55s: {frame: 2}
+body_0.6: {frame: 4}
+body_0.65s: {frame: 3}
+body_0.7: {frame: 4}
+body_0.75s: {frame: 3}
+body_0.8: {frame: 4}
+body_0.85s: {frame: 3}
+body_0.9: {frame: 4}
+body_0.95s: {frame: 2}
+body_1: {frame: 1}
+
+pingPong: true
+
+
+[animation_buildB]
+body_0s: {frame: 0}
+body_0.05s: {frame: 1}
+body_0.1s: {frame: 2}
+body_0.15s: {frame: 1}
+body_0.2s: {frame: 2}
+body_0.25s: {frame: 2}
+body_0.3s: {frame: 0}
+body_0.35s: {frame: 4}
+body_0.4s: {frame: 5}
+body_0.45s: {frame: 4}
+body_0.5: {frame: 3}
+body_0.55s: {frame: 1}
+body_0.6: {frame: 5}
+body_0.65s: {frame: 2}
+body_0.7: {frame: 2}
+body_0.85s: {frame: 3}
+body_0.8: {frame: 5}
+body_0.95s: {frame: 0}
+body_1: {frame: 0}
+
+pingPong: true
+[graphics]
+#drawLayer: top
+total_frames: 5
+image:        leyteA.png
+image_wreak:  NONE
+image_turret: NONE
+image_shadow: AUTO
+shadowOffsetX:3
+shadowOffsetY:3
+icon_zoomed_out: ROOT:data\null.png
+#icon_zoomed_out_neverShow: true
+showHealthBar: false
+showTransportBar: false
+lock_body_rotation_with_main_turret: true
+[attack]
+canAttack: true
+canAttackFlyingUnits: if not self.tags(includes='weaponT_2') and self.hasParent(withTag='ReadyGoMain') or self.tags(includes='weaponT_4') and self.hasParent(withTag='ReadyGoMain') 
+canAttackLandUnits:   if not self.tags(includes='weaponT_4') and self.hasParent(withTag='ReadyGoMain') 
+canAttackUnderwaterUnits: if self.tags(includes='weaponT_2') and self.hasParent(withTag='ReadyGoMain') 
+
+
+turretSize: 20
+turretTurnSpeed: 1.8
+isFixedFiring: true
+
+disablePassiveTargeting: true
+stopTargetingAfterFiring: true
+
+turretMultiTargeting: true
+maxAttackRange: ${range}
+shootDelay: 4
+[turret_1]
+#dummy
+invisible: if not self.hasFlag(id=8)
+x: 0
+y: 0
+idleDir:0
+size: 10
+canShoot: false
+image: Engage.png
+canAttackCondition: if self.tags(includes='ReadyGo')
+
+[turret_DroneLaunch]
+#dummy
+x: 0
+y: 0
+invisible: if not self.tags(includes='return_${leyteC}')
+image: landing.png
+attachedTo: 1
+slave:true
+projectile: Dummy
+size: 5
+shoot_sound:NONE
+shoot_sound_vol:0
+shoot_flame: NONE
+canShoot: true
+warmup: 2s
+canAttackCondition: if self.transportingCount(greaterThan=3) and numberOfUnitsInTeam(withTag='EnergyFull_${leyteC}', greaterThan=3) and self.hasFlag(id=8)
+#-------------
+onShoot_triggerActions: unload
+#-------------
+[projectile_Dummy]
+#dummy
+directDamage: 0
+life: 0
+speed: 0
+drawSize: 0
+color: #46ebff
+lightColor: #46ebff
+lightSize: 0
+[arm_5]
+x: -10
+y: 17
+image_end:radar.png
+image_end_teamColors: true
+drawOverBody: true
+spinRate: 1
+
+
+[movement]
+movementType: NONE
+maxTurnSpeed: 1
+turnAcceleration: 0.05
+

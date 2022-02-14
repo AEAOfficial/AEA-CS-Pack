@@ -1,0 +1,167 @@
+
+#TAG used
+# 0=converting
+
+[core]
+@global shokaku: I
+copyFrom: _weapun.template, SelfResource.template, core_carrierCommands.template
+
+name: ShokakuHead_${shokaku}
+class: CustomUnitMetadata
+showInEditor: false
+
+price: 0
+maxHp: 3000
+mass: 30000
+techLevel: 2
+experimental: true
+buildSpeed: 0.0003
+
+radius: 36
+isBio: false
+
+
+fogOfWarSightRange:24
+ignoreInUnitCapCalculation: true
+
+energyMax: 10
+energyRegen: 0.015
+energyNeedsToRechargeToFull: true
+
+borrowResourcesWhileAlive: shokakuDrone_${shokaku}=-2, PhaseMechCarrier=-1
+tags: Shōkaku_${shokaku}
+
+[action_gaugeTempI]
+#I
+displayType: infoOnlyNoBox
+text: Shōkaku ${shokaku}
+description: limits 10 Shōkaku Class aircraft carrier
+isVisible: if self.tags(includes='Shōkaku_${shokaku}')
+buildSpeed: 0s
+pos: 20
+
+[graphics]
+#drawLayer: top
+total_frames: 1
+image:        shukahuH.png
+image_wreak:  NONE
+image_turret: NONE
+image_shadow: AUTO
+shadowOffsetX:3
+shadowOffsetY:3
+icon_zoomed_out: ROOT:data\null.png
+#icon_zoomed_out_neverShow: true
+showHealthBar: false
+showTransportBar: false
+lock_body_rotation_with_main_turret: true
+[attack]
+canAttack: true
+canAttackFlyingUnits:     if self.hasParent(withTag='ReadyGoMain') and not self.hasFlag(id=7) and not self.hasFlag(id=6)
+canAttackLandUnits:       if self.hasParent(withTag='ReadyGoMain') 
+canAttackUnderwaterUnits: if self.hasParent(withTag='ReadyGoMain') and self.hasFlag(id=7)
+
+
+turretSize: 20
+turretTurnSpeed: 1.8
+isFixedFiring: true
+
+disablePassiveTargeting: true
+stopTargetingAfterFiring: true
+
+turretMultiTargeting: true
+maxAttackRange: ${range}
+shootDelay: 4
+
+
+[turret_shukahuC_a]
+#dummy
+x: -12
+y: 6.5
+
+attachedTo: 1
+slave: true
+
+image: shukahuC.png
+
+canAttackFlyingUnits:       false
+canAttackLandUnits:         false
+canAttackUnderwaterUnits:   false
+
+idleSpin: 2
+
+canShoot: false
+[turret_shukahuC_b]
+@copyFromSection: turret_shukahuC_a
+y: -26.5
+[turret_radar]
+@copyFromSection: turret_shukahuC_a
+x: 22
+y: 18
+idleSpin: 1
+image: radar.png
+[turret_DummyT]
+#dummy
+x: 0
+y: 0
+
+attachedTo: 1
+slave: true
+
+canAttackFlyingUnits:       false
+canAttackLandUnits:         false
+canAttackUnderwaterUnits:   false
+
+image: shukahuT.png
+turnSpeed: 0
+turnSpeedAcceleration: 0
+canShoot: false
+
+[turret_1]
+#dummy
+invisible: if not self.hasParent(withTag='ReadyGoMain') 
+x: 0
+y: 0
+idleDir:0
+size: 10
+canShoot: false
+image: Engage.png
+canAttackCondition: if self.hasParent(withTag='ReadyGoMain') 
+
+[turret_DroneLaunch]
+#dummy
+x: 0
+y: 0
+invisible: if not self.tags(includes='PDreturn_${shokaku}')
+image: landing.png
+attachedTo: 1
+slave:true
+projectile: Dummy
+size: 5
+shoot_sound: NONE
+shoot_sound_vol:0
+shoot_flame: NONE
+canShoot: true
+warmup: 2s
+canAttackCondition: if self.transportingCount(greaterThan=1) and numberOfUnitsInTeam(withTag='PDEnergyFull_${shokaku}', greaterThan=1)
+#-------------
+onShoot_triggerActions: unload
+#-------------
+
+
+[projectile_Dummy]
+#dummy
+directDamage: 0
+life: 0
+speed: 0
+drawSize: 0
+color: #46ebff
+lightColor: #46ebff
+lightSize: 0
+
+
+
+[movement]
+movementType: NONE
+maxTurnSpeed: 0.6
+turnAcceleration: 0.1
+

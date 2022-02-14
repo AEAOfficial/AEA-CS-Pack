@@ -1,0 +1,26 @@
+
+#_weapun.template
+[core]
+@global range: 400
+#6x High velicity rocket--------------------------------
+@global HV_R: 610
+@global HV_R_AoE: 120
+#High velicity rocket critical damage-------------------
+@global HV_R_crit: 700
+@global HV_R_crit_AoE: 40
+#Nuke rockets-------------------------------------------
+@global HV_R_nuke: 1000
+@global HV_R_nuke_AoE: 250
+@global HV_R_velicity: 6
+@global coool: 140
+#Quadruple Plasma Cannon--------------------------------
+@global Quad_C: 300
+@global Quad_C_AoE: 50
+@global Quad_C_crit: 300
+@global Quad_C_crit_chance: 0.25
+#note: Crit has 0(zero) damage to structure
+#crit chance 0.25 = 25% 
+
+
+#${HV_R}
+#${HV_R_AoE}

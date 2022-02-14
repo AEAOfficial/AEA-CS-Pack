@@ -1,0 +1,12 @@
+
+#_weapun.template
+[core]
+
+@global summissileDamage: 71
+@global missileHp: 60
+@global missileDeployment: 50
+@global missileSpeed: 1.3
+@global missileRearm: 8
+
+@global mechRange: 410
+#@global missileLimittingMinRange: 200

@@ -1,0 +1,195 @@
+##########################   AIR STRIKE CODE   #####################
+#-----------------------air support down
+[action_a]
+fireTurretXAtGround: a
+price: 400, Power=30
+text: air support down
+description:  bomb
+iconImage: ROOT:Ekfaction\8. air Strikes\bombing runs\down.png
+displayType: action
+buildSpeed: 1.7s
+pos: 1.1
+highPriorityQueue: true
+allowMultipleInQueue: true
+[turret_a]
+x: 0
+y: 0
+projectile: a
+size: 1
+turnSpeed: 15
+canShoot:false
+invisible: true
+limitingRange: 360
+[projectile_a]
+life: 60
+deflectionPower: -1
+spawnUnit: TCAIDbombdown, bombping(offsetDir=180, alwayStartDirAtZero=true)
+directDamage: 0
+instant: true
+explodeEffect: NONE
+explodeEffectOnShield: NONE
+ 
+#-----------------------
+[action_cl2]
+fireTurretXAtGround: cl2
+price: 5000, Power=200
+text: carpet bombing Vertical
+description:  anti spam 
+iconImage: ROOT:Ekfaction\8. air Strikes\bombing runs\bommba - Copy.png
+displayType: action
+buildSpeed: 1s
+pos: 1.1
+highPriorityQueue: true
+addActionCooldownTime: 7s
+allowMultipleInQueue: false
+[turret_cl2]
+x: 0
+y: 0
+limitingRange: 360
+projectile: cl2
+size: 1
+turnSpeed: 15
+canShoot:false
+invisible: true
+[projectile_cl2]
+life: 60
+deflectionPower: -1
+spawnUnit: TCAIDcarpet2, carpetpingV(offsetDir=0, alwayStartDirAtZero=true)
+directDamage: 0
+instant: true
+
+[action_cl3]
+fireTurretXAtGround: cl3
+price: 5000, Power=200
+text: carpet bombing Horizontal
+description:  out of the way!
+iconImage: ROOT:Ekfaction\8. air Strikes\bombing runs\bommba.png
+displayType: action
+buildSpeed: 1s
+pos: 1.1
+highPriorityQueue: true
+addActionCooldownTime: 7s
+allowMultipleInQueue: false
+[turret_cl3]
+x: 0
+y: 0
+limitingRange: 360
+projectile: cl3
+size: 1
+turnSpeed: 15
+canShoot:false
+invisible: true
+[projectile_cl3]
+life: 60
+deflectionPower: -1
+spawnUnit: TCAIDcarpet, carpetpingV(offsetDir=180, alwayStartDirAtZero=true)
+directDamage: 0
+instant: true
+#-----------------------air support up
+[action_up]
+fireTurretXAtGround: up
+price: 400, Power=30 
+text: air support up
+description:  bomb
+iconImage: ROOT:Ekfaction\8. air Strikes\bombing runs\up.png
+displayType: action
+buildSpeed: 1.3s
+pos: 1.1
+highPriorityQueue: true
+[turret_up]
+x: 0
+y: 0
+projectile: up
+size: 1
+turnSpeed: 15
+canShoot:false
+invisible: true
+limitingRange: 360
+[projectile_up]
+life: 60
+deflectionPower: -1
+spawnUnit: TCAIDbombup, bombping(offsetDir=0, alwayStartDirAtZero=true)
+directDamage: 0
+instant: true
+explodeEffect: NONE
+explodeEffectOnShield: NONE
+#-----------------------
+[action_AAT]
+fireTurretXAtGround: AAT
+price: 1000, Power=50
+text: Anti Air Strike
+description:   Anti Air Strike
+iconImage: ROOT:Ekfaction\8. air Strikes\bombing runs\RADIO\antiair.png
+displayType: action
+buildSpeed: 1.3s
+pos: 1.1
+highPriorityQueue: true
+[turret_AAT]
+x: 0
+y: 0
+projectile: AAT
+size: 1
+turnSpeed: 15
+canShoot:false
+invisible: true
+limitingRange: 360
+[projectile_AAT]
+life: 60
+deflectionPower: -1
+spawnUnit: TCAIDairtoair, AAinterceptping(offsetDir=120, alwayStartDirAtZero=true)
+directDamage: 0
+instant: true
+[action_Np]
+fireTurretXAtGround: Np
+price: 3000, Power=100
+text: napalm Strike
+description:  BURN!!
+iconImage: ROOT:Ekfaction\8. air Strikes\bombing runs\napalm.png
+displayType: action
+buildSpeed: 2s
+pos: 1.1
+highPriorityQueue: true
+addActionCooldownTime: 45s
+allowMultipleInQueue: false
+[turret_Np]
+x: 0
+y: 0
+projectile: Np
+size: 1
+turnSpeed: 15
+canShoot:false
+invisible: true
+limitingRange: 360
+[projectile_Np]
+life: 60
+deflectionPower: -1
+spawnUnit: TCAIDnapalm, napalmping(offsetDir=0, alwayStartDirAtZero=true)
+directDamage: 0
+instant: true
+[action_bb]
+fireTurretXAtGround: bb
+price: 2500, Uranium=50, Power=100 
+text: Bunker Buster
+description:  Building dead for now
+iconImage: ROOT:Ekfaction\8. air Strikes\bombing runs\target.png
+displayType: action
+buildSpeed: 5s
+allowMultipleInQueue: false
+pos: 1.1
+highPriorityQueue: true
+addActionCooldownTime: 10s
+[turret_bb]
+x: 0
+y: 0
+projectile: bb
+size: 1
+turnSpeed: 15
+canShoot:false
+invisible: true
+limitingRange: 360
+[projectile_bb]
+life: 60
+deflectionPower: -1
+spawnUnit: TCAIDbuster, bunkebusterping(offsetDir=0, alwayStartDirAtZero=true)
+directDamage: 0
+instant: true

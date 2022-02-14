@@ -1,0 +1,28 @@
+
+#_weapun.template
+[core]
+
+@global LMachineG: 9
+@global bombLand: 200
+@global bombDC: 100
+@global microMissile: 20
+@global AArocket: 170
+
+#Note microMissile share damage from parent carrier
+#Note AA rocket has direct damage 100% and 50% area damage:,,,  (directDamage+(directDamage/2)) = full damage 
+#----------------------------------------------------------sample: (170+(170/2))=255 
+##-------------------------------------------------------------------|----|-----------
+
+#For Drone: default: 600
+@global microMissile_lifeD: 350 
+
+#For Parent carrier: default: 400
+@global microMissile_lifeP: 300 
+
+
+
+#${LMachineG}
+#${bombLand}
+#${bombDC}
+#${microMissile}
+#${AArocket}

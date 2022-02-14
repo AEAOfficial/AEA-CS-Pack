@@ -1,0 +1,59 @@
+
+#_weapun.template
+[core]
+#carrier strike range
+@global range: 3000
+#Drone price
+@global Dprice: 4500
+#Drone buildspeed
+@global BDspeed: 15
+#Credits
+@global creditGen: 5
+
+#----------------------weapon set I
+#weapon
+@global bombLand: 250
+@global bombDC: 100
+@global AArocket: 170
+@global range_I: 310
+
+#note: 120% vs structure, 90% vs hull, 110% vs shield, 5 PEN
+#Crit: +120% vs structure, "    "
+
+#----------------------weapon set II
+#ion missile
+@global ionM_Dmg: 125
+@global ionMAA_Dmg: 125
+@global range_II: 250
+#note: 50% vs structure, 120% vs hull, 25 PEN
+
+#----------------------weapon set III
+@global ionBomb: 150
+@global ionBomb_EnergyChrg: 0
+@global range_III: 310
+@global shieldB: 650
+#new 
+#M137Cannon
+@global M137shellD: 125
+@global M137shellDelay: 2.3
+@global M137ammo: 10
+#L60 Bofors
+@global L60: 25
+@global L60Delay: 4
+#MG
+@global mgRnage: 270
+#----------------------weapon set IV
+@global meteor_Dmg: 500
+@global meteor_AoE: 180
+@global meteor_EnergyChrg: 0.2
+@global meteor_EnergyP: 8
+@global range_IV: 400
+@global exDelay: 2
+
+#----------------------weapon set END
+
+#Drone Return warp energy consumption
+@global bckWarpEner: 2
+#Drone weapon change penalty
+@global energyP: 2
+@global microMissile: 20

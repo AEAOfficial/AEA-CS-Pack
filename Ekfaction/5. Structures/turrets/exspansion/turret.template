@@ -1,0 +1,187 @@
+[core]
+
+#Experimental Setting
+#Ugh! my grammah is bad, just please understand this sh^t. 
+
+#Setting this to false will diactivates all paul's Expansion Turrets except for T1 anti-sub and vanilla, default true
+@global activatePaulsExtendTurrets: true
+
+#Setting this to true will reveal all paul's Turrets in sandbox, default false
+@global revealTurrets: true
+
+#Setting this to true will reveal all paul's special Turrets in sandbox, default false
+#I recommend not to do this, you'll maybe spoil it.
+@global revealSpecialTurrets: true
+
+#Setting this to true will activate all paul's special Turrets in game, default false
+@global activateSpecialTurrets: true
+
+#Setting this to true will allow special turret upgrade with no requirements, default false
+#AI's will freely build this turrets
+@global activateNoHiddenSpecialsReq: true
+
+#Setting this to false will disable all turret with self repair and emergency system, default true
+@global turretSelfRepair: false
+
+#Setting this to true will enable custom kill icon and death effect, default false
+@global customTurretSpawnBuffIcon: true
+
+#Setting this to true, projectile like heat seeking missiles etc can be countered and destroyed by any units, default false(untargetable)
+#Leave it be, beside can be countered by CIWS and Micro missile
+@global projectileMissileCounter: false
+
+#Torpedo long lance, default true(targetable)
+@global projectileTorpedoCounter: true
+
+#Setting this to false will disable kill reward, default true
+@global killReward: false
+
+
+
+#Dont touch me! pak-U
+@global turret: 0
+@global buildPriority: 0.3
+@global maxEachBaseAir: 4
+@global maxEachBaseLand: 5
+@global maxEachBaseTorpedo: 3
+@global aiUpG: 0.2
+@global kwpercentageI: 50
+@global kwpercentageII: 200
+@global kwpercentageIII: 410
+@global kwpercentageIV: 620
+@global kwhp: 30
+strictLevel: 1
+
+[graphics]
+image:        ROOT:Ekfaction\data\images\turret_base${turret}.png
+image_wreak:  ROOT:Ekfaction\data\images\turret_base_dead.png
+
+#========================================================================
+#Underwater 
+[arm_1]
+#1
+x:0
+y:0
+hidden: if not self.isOverwater() or self.hasTags(includes='spawn') or self.hasParent()
+image_end:ROOT:Ekfaction\data\images\turret_baseUnderW.png
+drawOverBody: false
+drawUnderAllUnits: true  
+image_end_teamColors: true
+
+
+[arm_2]
+x: -11
+y: -11
+hidden: true
+drawOverBody: false
+
+#==============================================================================
+#Rank indicator or stuff.. 
+#Some Turret's can rank up to IV, 
+#   -Rank I: 10 credits & HP per kill
+#	-Rank II: 20 credits & HP per kill
+#	-Rank III: 50 credits & HP per kill
+#	-Rank IV: 100 credits & HP per kill	
+[arm_6]
+x: 9
+y: -11
+
+hidden: if self.kills(lessThan=91) or self.hasParent()
+drawOverBody: false
+image_end:ROOT:Ekfaction\data\images\turret_RankIV.png
+
+[arm_7]
+@copyFromSection: arm_6
+hidden: if self.kills(lessThan=61) or self.kills(greaterThan=90) or self.hasParent()
+image_end:ROOT:Ekfaction\data\images\turret_RankIII.png
+
+[arm_8]
+@copyFromSection: arm_6
+hidden: if self.kills(lessThan=31) or self.kills(greaterThan=60) or self.hasParent()
+image_end:ROOT:Ekfaction\data\images\turret_RankII.png
+
+[arm_9]
+@copyFromSection: arm_6
+hidden: if self.kills(lessThan=16) or self.kills(greaterThan=30) or self.hasParent()
+image_end:ROOT:Ekfaction\data\images\turret_RankI.png
+
+#==============================================================================
+[hiddenAction_KillReward++]
+autoTriggerOnEvent: killedAnyUnit
+requireConditional: ${killReward}
+alsoTriggerAction: Rank-I, Rank-II, Rank-III, Rank-IV 
+
+[hiddenAction_Rank-I]
+requireConditional: if self.kills(greaterThan=15) or not self.kills(lessThan=31)
+addResources: hp=${(1+kwpercentageI/100)*kwhp}, credits=10
+
+alsoTriggerAction: GiveHpI
+[hiddenAction_Rank-II]
+requireConditional: if self.kills(greaterThan=30) or not self.kills(lessThan=61)
+addResources: hp=${(1+kwpercentageII/100)*kwhp}, credits=20
+
+alsoTriggerAction: GiveHpII
+[hiddenAction_Rank-III]
+requireConditional: if self.kills(greaterThan=60) or not self.kills(lessThan=91)
+addResources: hp=${(1+kwpercentageIII/100)*kwhp}, credits=50
+
+alsoTriggerAction: GiveHpIII
+[hiddenAction_Rank-IV]
+requireConditional: if self.kills(greaterThan=90)
+addResources: hp=${(1+kwpercentageIV/100)*kwhp}, credits=100
+
+alsoTriggerAction: GiveHpIV
+#===================================To Extank!
+
+[hiddenAction_GiveHpI]
+requireConditional: if self.hasParent()
+
+takeResources: hp=-${(1+kwpercentageI/50)*kwhp}, credits=10
+takeResources_includeParent: true
+takeResources_discardCollected: true
+
+[hiddenAction_GiveHpII]
+@copyFromSection: hiddenAction_GiveHpI
+takeResources: hp=-${(1+kwpercentageII/50)*kwhp}, credits=20
+
+[hiddenAction_GiveHpIII]
+@copyFromSection: hiddenAction_GiveHpI
+takeResources: hp=-${(1+kwpercentageIII/50)*kwhp}, credits=50
+
+[hiddenAction_GiveHpIV]
+@copyFromSection: hiddenAction_GiveHpI
+takeResources: hp=-${(1+kwpercentageIV/50)*kwhp}, credits=100
+
+#====================================================
+#Secret i wont tell you!, BLEH!
+[hiddenAction_EnableSpecials]
+autoTrigger: if not self.hasFlag(id=31) or not self.hasFlag(id=30)
+requireConditional: ${activatePaulsExtendTurrets}
+alsoTriggerAction: EnableSpecialsII, EnableSpecialsNoReq
+[hiddenAction_EnableSpecialsII]
+requireConditional: ${activateSpecialTurrets}
+addResources: setFlag=31
+[hiddenAction_EnableSpecialsNoReq]
+requireConditional: ${activateNoHiddenSpecialsReq}
+addResources: setFlag=30
+#====================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,1321 @@
+[core]
+#MG total damage: 1080
+# flag 0 1 2 29 30
+@global energyP: 0.4
+
+copyFrom: _weapun.template, common_range.template, SelfResource.template, ROOT:data\effects\DropBomb.ini, ROOT:data\effects\microMissile.template, ROOT:data\effects\shieldEffect.template, ROOT:data\effects\blueEx.template, ROOT:data\effects\crit.template, ROOT:data\effects\water_byHawko.template, ROOT:data\effects\groundDust.template
+
+name: drone_${leyteC}
+class: CustomUnitMetadata
+price: 0
+maxHp: 290
+mass: 300
+
+displayText: Pocket Drone
+displayDescription: "What's your command sire"\n-Cool look'n Controllable UAV\n-A compact drone, virsatile and easy to manufacture\n-Deployed via Drone Mech Carrier\n-Can attack ground, air and subs, depends equiped weapon
+
+techLevel: 1
+
+buildSpeed: 10s
+
+radius: 11
+softCollisionOnAll: 999999
+
+isBio: false
+
+#canNotBeGivenOrdersByPlayer: true
+
+showInEditor: false
+
+energyMax: 6
+energyRegen: 0
+generation_resources:energy=0.004375
+generation_active: if self.hasParent() and not self.isEnergyFull()
+generation_delay: 1
+
+showActionsWithMixedSelectionIfOtherUnitsHaveTag:leyDrone
+
+borrowResourcesWhileAlive: Drone_${leyteC}=1
+tags: Drone, leyDrone, leyteDrone_${leyteC}
+
+#---------------------------Temp fix
+
+
+
+#[hiddenAction_NotFollowingOrdersA]
+#requireConditional: if not self.hasFlag(id=8)
+#fireTurretXAtGround: MAIN
+#fireTurretXAtGround_withOffset: 0, 280
+#addResources: setFlag=8
+#alsoQueueAction: NotFollowingOrdersB
+#[hiddenAction_NotFollowingOrdersB]
+#autoTriggerOnEvent: created
+#buildSpeed: 0.1s
+#addWaypoint_type: move
+#addWaypoint_prepend: true
+#addWaypoint_target_nearestUnit_tagged: followMe_F
+#addWaypoint_target_nearestUnit_team: own
+#addWaypoint_target_nearestUnit_maxRange: 300
+#addWaypoint_position_randomOffsetFromSelf: 500,500
+#addWaypoint_maxTime: 0.2s
+#========================================================================================================
+[action_gaugeW1]
+#I
+@define pr: 4
+displayType: infoOnlyNoBox
+#=====================================================================
+text: Light MG
+description: Light Machine Gun is good for single target\nChanging weapon type reduce energy by 2\n\nTarget: Land\Air, Dmg: ${LMachineG}, Ammo: 60, Rng: 250\n40% vs Structure, 100% vs units
+#=====================================================================
+isVisible: if self.hasFlag(id=${pr})
+iconImage: ROOT:data\icons\old_${pr}.png
+buildSpeed: 0s
+pos: 20
+[action_gaugeW2]
+@copyFromSection: action_gaugeW1
+@define pr: 5
+text: HE Bomb
+description: High Explosive Bomb is good for multiple targets and subs\n 10% chance deal critical damage and penetrates shield and armor \nChanging weapon type reduce energy by 2\n\nTarget: Land\Subs, Dmg: ${bombLand}\${bombDC}, Ammo: 1, Rng: 310\n120% vs Structure, 100% vs units
+[action_gaugeW3]
+@copyFromSection: action_gaugeW1
+text: Micro Missile
+@define pr: 6
+description: Micro Missile is good for multiple or single targets\n Ignore shield and 15% chance to deploy extra micro missile \nChanging weapon type reduce energy by 2\n\nTarget: Land\Air, Dmg: ${microMissile}, Ammo: 6, Rng: 400\n50% vs Structure, 100% vs units
+[action_gaugeW4]
+@copyFromSection: action_gaugeW1
+@define pr: 7
+text: Unguided Rocket
+description: Unguided Rocket deals massive damage for multiple or single targets\nHas secondary payload that deploys 2 micro missiles if miss the target\nChanging weapon type reduce energy by 2\n\nTarget: Air, Dmg: ${AArocket+(AArocket/2)}, Ammo: 2, Rng: 310\n 100% vs units, Ignore shield
+[hiddenAction_PlayAnimOof]
+autoTrigger: if self.hasParent() and self.hasFlag(id=29) and self.hasFlag(id=30)
+addResources: unsetFlag=29, unsetFlag=30, unsetFlag=16
+
+addWaypoint_prepend: true
+addWaypoint_type: attackMove
+addWaypoint_position_randomOffsetFromSelf: 100,100
+addWaypoint_maxTime: 2s
+[hiddenAction_PlayAnim]
+autoTrigger: if not self.hasParent() and not self.hasFlag(id=29)
+addResources: setFlag=29
+alsoQueueAction: Unfufufu
+playSoundAtUnit: ROOT:data\soundFx\unit_droneLaunch.ogg: 0.4
+[action_Unfufufu]
+isVisible: false
+isActive: true
+buildSpeed: 0.7s
+text: test
+whenBuilding_playAnimation: Unfurl
+#whenBuilding_temporarilyConvertTo: drone_${leyteC}_SHORT
+addResources: setFlag=30
+
+#alsoTriggerAction: NotFollowingOrdersA
+#----------------------------------------------
+addWaypoint_prepend: true
+addWaypoint_type: MOVE
+addWaypoint_position_relativeOffsetFromSelf: 0,100
+#----------------------------------------------
+#=============================================
+#--------------WeaponSwitch
+[hiddenAction_LMG]
+autoTrigger: if self.hasParent(withTag='weaponT_1') and not self.hasFlag(id=4)
+temporarilyRemoveTags: EnergyFull_${leyteC}
+addResources: energy=-${energyP}, setFlag=4, unsetFlag=5, unsetFlag=6, unsetFlag=7
+spawnEffects:CUSTOM:WI 
+[hiddenAction_HEB]
+@copyFromSection: hiddenAction_LMG
+autoTrigger: if self.hasParent(withTag='weaponT_2') and not self.hasFlag(id=5)
+addResources: energy=-${energyP}, setFlag=5, unsetFlag=4, unsetFlag=6, unsetFlag=7
+spawnEffects:CUSTOM:WII
+[hiddenAction_MM]
+@copyFromSection: hiddenAction_LMG
+autoTrigger: if self.hasParent(withTag='weaponT_3') and not self.hasFlag(id=6)
+addResources: energy=-${energyP}, setFlag=6, unsetFlag=4, unsetFlag=5, unsetFlag=7
+spawnEffects:CUSTOM:WIII 
+[hiddenAction_UR]
+@copyFromSection: hiddenAction_LMG
+autoTrigger: if self.hasParent(withTag='weaponT_4') and not self.hasFlag(id=7)
+addResources: energy=-${energyP}, setFlag=7, unsetFlag=4, unsetFlag=5, unsetFlag=6
+spawnEffects:CUSTOM:WIV 
+
+[action_abortMission]
+ai_isDisabled: true
+autoTrigger: if numberOfUnitsInTeam(withTag='return_${leyteC}', greaterThan=0) and not self.hasActiveWaypoint(type='loadInto') and not self.hasParent()
+isLocked: if self.hasParent()
+isActive: if self.energy(greaterThan=0)
+isVisible: true
+text: Return
+buildSpeed: 0s
+#addResources: energy=-6
+addResources: unsetFlag=8
+temporarilyAddTags: EnergyFull_${leyteC}
+alsoTriggerAction: returnHome
+pos:1
+iconImage: ROOT:data\icons\l_Return.png
+iconExtraImage: ROOT:data\icons\lock.png
+iconExtraIsVisible: if self.hasParent()
+#----------------------------------------------------------------------------------------
+[hiddenAction_energyFull]
+autoTrigger: if self.isEnergyFull() and not self.tags(includes='EnergyFull_${leyteC}')
+temporarilyAddTags: EnergyFull_${leyteC}
+
+
+
+#----------------------------------------------------------------------------------------
+[hiddenAction_returnNOII=I]
+autoTrigger: if self.energy(greaterThan=0) and not numberOfUnitsInEnemyTeam(greaterThan=0, withinRange=500) and not self.isAttacking() and not self.hasParent() 
+requireConditional: if (not self.hasActiveWaypoint(type='MOVE') or not self.hasActiveWaypoint(type='ATTACK') or not self.hasActiveWaypoint(type='GUARD') or not self.hasActiveWaypoint(type='ATTACKMOVE'))
+
+clearAllWaypoints: true
+addWaypoint_type: loadInto
+addWaypoint_prepend: true
+addWaypoint_target_nearestUnit_tagged: leyteT=${leyteC}
+addWaypoint_target_nearestUnit_team: own
+addWaypoint_maxTime: 1s
+
+[hiddenAction_returnHome]
+autoTrigger: if self.isEnergyEmpty() and not self.hasActiveWaypoint(type='loadInto') and not self.hasParent() 
+clearAllWaypoints: true
+addWaypoint_type: loadInto
+addWaypoint_target_nearestUnit_tagged: leyteT=${leyteC}
+addWaypoint_target_nearestUnit_team: own
+temporarilyRemoveTags: EnergyFull_${leyteC}
+#addWaypoint_maxTime: 1s
+[hiddenAction_returnHomeII]
+autoTrigger: if self.isEnergyEmpty() and not self.hasActiveWaypoint(type='loadInto') and not self.isAttacking() 
+
+alsoTriggerAction: returnNOII=I
+
+#=-==================================Guard\scatter
+[hiddenAction_GuardParent]
+autoTrigger: if self.isEnergyFull() and numberOfUnitsInTeam(withTag='GuardMe_${leyteC}', greaterThan=0) and not self.hasActiveWaypoint(type='GUARD') and not self.hasParent()
+requireConditional: if not self.hasFlag(id=3)
+convertTo: drone_${leyteC}_Deff
+convertTo_keepCurrentTags: true
+
+addResources: setFlag=3
+[hiddenAction_ScatterParent]
+autoTrigger: if self.isEnergyFull() and numberOfUnitsInTeam(withTag='ScatterMe_${leyteC}', greaterThan=0) and not self.hasActiveWaypoint(type='ATTACKMOVE') and not self.hasParent()
+requireConditional: if not self.hasFlag(id=3)
+convertTo: drone_${leyteC}_Deff
+convertTo_keepCurrentTags: true
+
+addResources: setFlag=3
+[hiddenAction_GuardParentStrikeRange]
+autoTrigger: if not self.hasParent() and self.energy(greaterThan=0) and (not self.hasActiveWaypoint(type='ATTACKMOVE') and not self.hasActiveWaypoint(type='MOVE') and not self.hasActiveWaypoint(type='ATTACK')) and not numberOfUnitsInTeam(withTag='leyteT=${leyteC}', greaterThan=0, withinRange=1000) and not self.hasActiveWaypoint(type='loadInto')
+requireConditional: if numberOfUnitsInTeam(withTag='GuardMe_${leyteC}', greaterThan=0)
+clearAllWaypoints: true
+addWaypoint_type: MOVE
+addWaypoint_target_nearestUnit_tagged: leyteT=${leyteC}
+addWaypoint_target_nearestUnit_team: own
+addWaypoint_maxTime: 2s
+#showQuickWarLogToPlayer: Can only Guard within 1000 range
+[hiddenAction_ScatterStrikeRange]
+@copyFromSection: hiddenAction_GuardParentStrikeRange
+requireConditional: if numberOfUnitsInTeam(withTag='ScatterMe_${leyteC}', greaterThan=0)
+clearAllWaypoints: true
+addWaypoint_maxTime: 2s
+#==================================A
+[hiddenAction_rest]
+resetCustomTimer: true
+[hiddenAction_restII]
+#Experimental only
+#autoTrigger: if self.energy(greaterThan=0) and not self.hasActiveWaypoint(type='move') and not self.hasParent() and self.customTimer(laterThanSeconds=2) and numberOfUnitsInEnemyTeam(greaterThan=0, withinRange=100)
+resetCustomTimer: true
+#addResources: hp=100
+addWaypoint_type: move
+addWaypoint_maxTime: 1s
+addWaypoint_position_offsetFromSelf: 10, 10
+#addWaypoint_target_nearestUnit_team: own
+addWaypoint_position_randomOffsetFromSelf: 150, 150
+[hiddenAction_idle]
+#autoTrigger: if not self.isMoving() and not self.hasParent() and (not self.hasActiveWaypoint(type='ATTACKMOVE') or not self.hasActiveWaypoint(type='GUARD') or not self.hasActiveWaypoint(type='FOLLOW') or not self.hasActiveWaypoint(type='ATTACK'))
+
+addWaypoint_type: follow
+addWaypoint_prepend: true
+addWaypoint_target_nearestUnit_tagged: leyteDrone_${leyteC}
+addWaypoint_target_nearestUnit_team: own
+addWaypoint_maxTime: 1s
+[hiddenAction_ConvertTo]
+addResources: hp=1
+
+[hiddenAction_toast!]
+autoTrigger: if not numberOfUnitsInTeam(greaterThan=0, withTag='leyteT=${leyteC}')
+addResources: hp=-9999
+#========================================================================================================-00000
+[animation_Unfurl]
+
+arm1_0.1s: {x:-3, y:-2}
+arm2_0.1s: {x:3, y:-2}
+arm1_0.3s: {x:-3, y:-2}
+arm2_0.3s: {x:3, y:-2}
+arm1_0.68s: {x:-3, y:-2}
+arm2_0.68s: {x:3, y:-2}
+arm1_0.7s: {x:-3, y:0}
+arm2_0.7s: {x:3, y:0}
+
+arm3_0s: {x:-3, y:0}
+arm4_0s: {x:3, y:0}
+arm3_0.58s: {x:-3, y:0}
+arm4_0.58s: {x:3, y:0}
+arm3_0.6s: {x:-3, y:-4}
+arm4_0.6s: {x:3, y:-4}
+
+arm5_0s: {x:-4, y:0, dir:0}
+arm6_0s: {x:4, y:0, dir:0}
+arm5_0.47s: {x:-4, y:0, dir:0}
+arm6_0.47s: {x:4, y:0, dir:0}
+arm5_0.5s: {x:-4, y:3, dir:-40}
+arm6_0.5s: {x:4, y:3, dir:40}
+
+arm8_0.3s: {x:0, y:0}
+arm8_0.32s: {x:0, y:4}
+arm8_0.5s: {x:0, y:4}
+arm8_0.52s: {x:0, y:0}
+arm8_0.7s: {x:0, y:0}
+
+[arm_1]
+x:3
+y:0
+hidden: if self.hasFlag(id=30)
+image_end:drone_engine_1.png
+image_end_teamColors: true
+drawOverBody: true
+[arm_2]
+x:-3
+y:0
+@copyFromSection: arm_1
+image_end:drone_engine_2.png
+[arm_3]
+x:3
+y:4
+@copyFromSection: arm_1
+image_end:drone_elevator_1.png
+image_end_shadow: SHADOW:drone_elevator_1.png
+[arm_4]
+x:-3
+y:4
+@copyFromSection: arm_1
+image_end:drone_elevator_2.png
+image_end_shadow: SHADOW:drone_elevator_2.png
+[arm_5]
+x:4
+y:-3
+drawDirOffset: 40
+@copyFromSection: arm_1
+image_end:drone_wing_1.png
+image_end_shadow: SHADOW:drone_wing_1.png
+rotateSpeed: 3
+[arm_6]
+x:-4
+y:-3
+drawDirOffset: -40
+@copyFromSection: arm_1
+image_end:drone_wing_2.png
+image_end_shadow: SHADOW:drone_wing_2.png
+rotateSpeed: 3
+[arm_7]
+x:0
+y:-2
+hidden: if not self.hasFlag(id=30)
+@copyFromSection: arm_1
+image_end:drone_thruster.png
+[arm_8]
+x:0
+y:0
+hidden: if not self.hasFlag(id=30)
+@copyFromSection: arm_1
+image_end:drone.png
+image_end_shadow: SHADOW:drone.png
+[arm_9]
+x:0
+y:0
+@copyFromSection: arm_1
+image_end:drone_mainB.png
+image_end_shadow: SHADOW:drone_0.png
+[arm_11]
+x:0
+y:0
+
+hidden: if not self.tags(includes='EnergyFull_${leyteC}')
+image_end:energyFull.png
+image_end_teamColors: true
+drawOverBody: true
+#========================================================oooo
+[graphics]
+total_frames: 1
+image:        drone_mainA.png
+image_wreak:  drone_dead.png
+image_turret: smallGunII.png
+icon_zoomed_out: ROOT:data\Icon_Units\unit_icon_drone.png
+scaleTurretImagesTo: 4
+imageScale: 0.75
+#AUTO
+image_shadow: NONE
+shadowOffsetX:2
+shadowOffsetY:2
+showQueueBar: false
+
+icon_zoomed_out: ROOT:data\Icon_Units\unit_icon_drone.png
+[attack]
+canAttack: true
+canAttackFlyingUnits:  if self.hasFlag(id=4) or self.hasFlag(id=6) or self.hasFlag(id=7)
+canAttackLandUnits:   if self.hasFlag(id=4) or self.hasFlag(id=5) or self.hasFlag(id=6)
+canAttackUnderwaterUnits: if self.hasFlag(id=5) 
+
+maxAttackRange: ${range+150}
+shootDelay: 30
+
+#stopTargetingAfterFiring: true
+
+meleeEngangementDistance: ${range-1600}
+isMelee: true
+
+#attackMovement: bomber
+isFixedFiring:True
+turretRotateWithBody: true
+[turret_1]
+#dummy
+invisible: true
+x: 0
+y: 0
+idleDir:0
+limitingAngle: 0
+idleDir:0
+projectile: Dummy
+size: 10
+turnSpeed: 50
+
+turnSpeedAcceleration: 10
+
+canShoot: false
+[turret_2Converter]
+#Prevents from attacking far units after killing target?
+@copyFromSection: turret_1
+attachedTo: 1
+slave: false
+limitingAngle: 30
+turnSpeed: 100
+turnSpeedAcceleration: 100
+aimOffsetSpread: 0
+canAttackCondition: if not self.hasParent()
+limitingRange: 310
+canShoot: true
+#-------------
+onShoot_triggerActions: ConvertTo
+#-------------
+
+showRangeUIGuide: false
+[turret_2Move]
+#Experimental only
+@copyFromSection: turret_1
+attachedTo: 1
+slave: false
+idleDir:0
+limitingAngle: 70
+limitingAngle: 120
+turnSpeed: 100
+turnSpeedAcceleration: 100
+aimOffsetSpread: 0
+canAttackCondition: if not self.hasParent() and self.energy(greaterThan=0)
+limitingRange: 310
+delay: 30
+warmup: 1s
+canShoot: true
+#-------------
+onShoot_triggerActions: rest
+#-------------
+
+showRangeUIGuide: false
+[turret_2]
+#dummy
+x: 0
+y: 0
+invisible: true
+attachedTo: 1
+slave: false
+projectile: Dummy
+size: 5
+shoot_sound:NONE
+shoot_sound_vol:0
+shoot_flame: NONE
+canShoot: true
+canAttackCondition: if not self.hasParent()
+
+showRangeUIGuide: false
+[turret_3]
+#LightMG
+invisible: true
+x: -2
+y: 4
+#------------------------
+attachedTo: 1
+slave: false
+idleDir:0
+limitingAngle: 70
+turnSpeed: 100
+turnSpeedAcceleration: 100
+aimOffsetSpread: 0
+#------------------------
+canAttackCondition: if not self.hasParent() and self.hasFlag(id=4)
+invisible: true
+delay: 3
+projectile: bullet
+size: 10
+
+shoot_sound:ROOT:data\soundFx\weapon_smallGun.ogg
+shoot_sound_vol:0.4
+shoot_flame:CUSTOM:muzzleFlameS, CUSTOM:cartridgeRight, CUSTOM:smoke
+shoot_light:#70eee6cc
+
+canAttackFlyingUnits: true
+canAttackLandUnits:   true
+canShoot: true
+
+energyUsage: 0.1
+
+limitingRange: 250
+
+#-------------
+onShoot_triggerActions: rest
+#-------------
+
+showRangeUIGuide: false
+[turret_3a]
+#LightMG move forward
+invisible: true
+x: -2
+y: 4
+#------------------------
+attachedTo: 1
+slave: false
+delay: 30
+canAttackCondition: if not self.hasParent() and self.hasFlag(id=4)
+canAttackFlyingUnits: true
+canAttackLandUnits:   true
+canShoot: true
+limitingRange: 100
+#-------------
+onShoot_triggerActions: moveF
+#-------------
+[hiddenAction_moveF]
+addWaypoint_prepend: true
+addWaypoint_type: MOVE
+addWaypoint_position_relativeOffsetFromSelf: 0,250
+addWaypoint_maxTime: 2s
+[turret_4]
+#bomb
+invisible: true
+x: 0
+y: -6
+#------------------------
+attachedTo: 1
+slave: false
+idleDir:0
+limitingAngle: 70
+turnSpeed: 100
+turnSpeedAcceleration: 100
+aimOffsetSpread: 0
+#------------------------
+
+canAttackCondition: if not self.hasParent() and self.hasFlag(id=5)
+canOnlyAttackUnitsWithoutTags: CANISTER
+
+canAttackFlyingUnits: false
+canAttackLandUnits:   true
+canAttackUnderwaterUnits: false
+
+projectile: bomb
+shoot_flame: CUSTOM:smoke*5
+shoot_sound:ROOT:data\soundFx\weapon_Bomb+3dd.ogg
+shoot_sound_vol:0.2
+
+canAttackFlyingUnits: false
+canAttackLandUnits:   true
+canAttackUnderwaterUnits: false
+canShoot: true
+
+energyUsage: 6
+limitingRange: 310
+
+#-------------
+onShoot_triggerActions: rest, returnHome
+#-------------
+
+showRangeUIGuide: false
+[turret_3S]
+#anti-sub\depthcharge
+invisible: true
+x: 0
+y: 0
+#------------------------
+attachedTo: 1
+slave: false
+idleDir:0
+limitingAngle: 70
+turnSpeed: 100
+turnSpeedAcceleration: 100
+aimOffsetSpread: 0
+#------------------------
+canAttackCondition: if not self.hasParent() and self.hasFlag(id=5)
+
+canAttackFlyingUnits: false
+canAttackLandUnits:   false
+canAttackUnderwaterUnits: true
+
+shoot_sound:ROOT:data\soundFx\weapon_Bomb+3dd.ogg
+shoot_sound_vol:0.2
+
+
+delay: 15
+
+projectile: bomb2
+size: 1.1
+
+limitingRange: 150
+energyUsage: 6
+
+showRangeUIGuide: false
+[turret_microI]
+#Micro
+invisible: true
+x: 4
+y: -2
+#------------------------
+attachedTo: 1
+slave: false
+idleDir:0
+limitingAngle: 70
+turnSpeed: 100
+turnSpeedAcceleration: 100
+aimOffsetSpread: 1
+#------------------------
+
+canAttackCondition: if not self.hasParent() and self.hasFlag(id=6)
+canOnlyAttackUnitsWithoutTags: CANISTER
+
+delay: 5
+
+image: ROOT:data\arrow_2.png
+canAttackFlyingUnits: true
+canAttackLandUnits:   true
+canAttackUnderwaterUnits: false
+
+shoot_flame: CUSTOM:smoke*5
+shoot_sound:ROOT:data\soundFx\weapon_smallGun2.ogg
+shoot_sound_vol:1
+
+projectile: MicroMissile_StartI
+size: 1.1
+#turnSpeed: 15
+canShoot: true
+
+#-------------
+onShoot_triggerActions: rest
+#-------------
+
+turnSpeed: 0
+canAttackMaxAngle: 181
+limitingRange: 280
+energyUsage: 1
+
+showRangeUIGuide: false
+[turret_microII]
+#back turret
+copyFrom: microI
+x: -4
+y: -2
+idleDir:0
+warmup: 0
+projectile: MicroMissile_StartII
+linkDelayWithTurret:microI
+[turret_Roc_1]
+#Rocket
+x: -7
+y: 2
+#------------------------
+attachedTo: 1
+slave: false
+idleDir:0
+limitingAngle: 70
+turnSpeed: 100
+turnSpeedAcceleration: 100
+aimOffsetSpread: 0
+#------------------------
+
+canAttackCondition: if not self.hasParent() and self.hasFlag(id=7)
+canOnlyAttackUnitsWithoutTags: CANISTER
+#delay: 70
+
+projectile: 1sa
+
+shoot_sound:ROOT:data\soundFx\weapon_MLaunch.ogg
+shoot_sound_vol:0.3
+shoot_flame:small
+#shoot_light:#00f4ff
+
+canShoot: true
+
+size: 5
+warmup: 0
+#chargeEffectImage: ROOT:data\images\spark.png
+#canAttackCondition: if not self.hasFlag(id=1)
+#resourceUsage: setFlag=1
+#energyUsage: 1
+
+aimOffsetSpread: 0
+
+limitingRange: 310
+
+energyUsage: 3
+
+showRangeUIGuide: false
+[turret_Roc_2]
+@copyFromSection: turret_Roc_1
+x: 7
+linkDelayWithTurret: Roc_1
+warmup: 0
+[turret_MAIN]
+#Spawner
+x: 0
+y: 150
+attachedTo: 1
+slave: true
+idleDir:0
+invisible: true
+canAttackCondition: false
+projectile: Spawner
+canShoot: false
+[projectile_Spawner]
+#dummy
+life: 1
+deflectionPower: -1
+speed: 4
+spawnUnit: followMe_F
+
+directDamage: 0
+explodeOnEndOfLife: true
+largeHitEffect: false
+explodeEffect: NONE
+[projectile_Dummy]
+#dummy
+directDamage: 0
+life: 0
+speed: 0
+drawSize: 0
+color: #46ebff
+lightColor: #46ebff
+lightSize: 0
+[projectile_bullet]
+directDamage: ${LMachineG}
+life: 800
+speed: 12
+
+frame: 2
+color: #00f4ff
+#armourIgnoreAmount:15
+
+largeHitEffect: false
+targetGround: false
+#----------------------------------
+buildingDamageMultiplier: 0.4
+#----------------------------------
+
+lightColor: #00f4ff
+lightSize: 0.4
+
+image:ROOT:data\images\projectile3.png
+drawSize:0.6
+explodeEffect: CUSTOM:verySmallFlameII
+[projectile_bomb]
+#bomb
+#cannot use directDamage with targetGround
+#directDamage: 195
+life: 350
+speed: 0.1
+targetSpeed: 2
+#color: #000000
+largeHitEffect: true
+
+targetGround: true
+targetGroundSpread: 30
+areaDamage: ${bombLand}
+areaRadius: 60
+
+image: boom.png
+drawSize: 0.8
+
+#---------------------------------------
+buildingDamageMultiplier: 1.2
+shieldDamageMultiplier: 1.1
+armourIgnoreAmount: 5
+#----------------------------------------
+areaHitUnderwaterAlways:true
+
+trailEffect: CUSTOM:trail
+trailEffectRate: 4
+explodeEffect: CUSTOM:projectileWaterDust, CUSTOM:projectileWaterSplash*5,CUSTOM:muzzlescorchmark, CUSTOM:Boom, CUSTOM:projectileFlashSmol
+#for laser defence
+deflectionPower: 3
+
+spawnProjectilesOnExplode: bombCrit(spawnChance=0.09)
+[projectile_bombCrit]
+@copyFromSection: projectile_bomb
+spawnProjectilesOnExplode: NONE
+
+life: 0
+explodeOnEndOfLife: true
+areaDamage: ${bombLand*1.5}
+areaRadius: 80
+
+#---------------------------------------
+buildingDamageMultiplier: 0.5
+shieldDamageMultiplier: 0
+shieldDefectionMultiplier: 0
+hullDamageMultiplier: 1.6
+armourIgnoreAmount: 50
+
+#----------------------------------------
+explodeEffect: CUSTOM:projectileWaterDust, CUSTOM:projectileWaterSplash*5,CUSTOM:muzzlescorchmark, CUSTOM:Boom, CUSTOM:Critical, CUSTOM:projectileFlash
+trailEffect: false
+[projectile_bomb2]
+#bomb anti-sub
+
+directDamage: 0
+areaDamage: ${bombDC}
+areaRadius: 60
+
+life: 450
+speed: 0.1
+targetSpeed: 0.9
+
+targetGround: true
+targetGroundSpread: 20
+
+areaHitUnderwaterAlways:true
+
+drawSize: 0.7
+color: #000000
+trailEffect: false
+largeHitEffect: false
+image: ROOT:data\images\casing.png
+trailEffect: CUSTOM:trail2
+trailEffectRate: 4
+explodeEffect: CUSTOM:projectileWaterDust, CUSTOM:projectileWaterSplash*5,CUSTOM:muzzlescorchmark, CUSTOM:Boom
+
+#for laser defence
+deflectionPower: 3
+[projectile_MicroMissile_StartI]
+@copyFromSection: projectile_MicroMissile
+life: 0
+speed: 1
+turnSpeed: 0
+spawnProjectilesOnEndOfLife: MicroMissile(offsetDir=90)
+
+explodeEffect: NONE
+[projectile_MicroMissile_StartII]
+@copyFromSection: projectile_MicroMissile
+life: 0
+speed: 0.1
+turnSpeed: 0
+spawnProjectilesOnEndOfLife: MicroMissile(offsetDir=-90)
+
+explodeEffect: NONE
+[projectile_MicroMissile]
+#missile
+directDamage: ${microMissile}
+areaDamage:15
+areaRadius: 40
+
+
+#======================
+life: ${microMissile_lifeD}
+#speed: 10
+#targetSpeed: 1.5
+speed: 5
+targetSpeed: 2
+targetSpeedAcceleration:1
+#=====================--
+autoTargetingOnDeadTargetRange: 250
+autoTargetingOnDeadTargetLead: 250
+
+retargetingInFlight: true
+retargetingInFlightSearchDelay: 10
+retargetingInFlightSearchRange: 20
+retargetingInFlightSearchLead: 20
+
+
+buildingDamageMultiplier: 0.4
+shieldDamageMultiplier: 0.5
+#shieldDefectionMultiplier: 0
+#=======================
+#color: #b003c0
+#image: sweetM2.png
+drawSize: 0.8
+
+trailEffect: CUSTOM:trail2
+trailEffectRate: 1
+largeHitEffect: false
+
+#ballistic: true
+#ballistic_delaymove_height:25
+#ballistic_height: 25
+
+lightSize:0.2
+lightColor:#7ccfff
+shieldDamageMultiplier: 5
+#shieldDefectionMultiplier: 0
+#-==========================
+deflectionPower:1
+explodeOnEndOfLife:true
+autoTargetingOnDeadTarget:true
+explodeEffect: CUSTOM:blue_explosion
+hitSound: true
+
+#===================
+turnSpeed: 2
+wobbleAmplitude: 1.5
+wobbleFrequency: 2.0s
+
+#pushForce: 2
+#pushVelocity: 1
+#===================
+spawnProjectilesOnExplode: MicroMissileSpawn(spawnChance=0.15)
+
+
+mutator1_ifUnitWithTags: wallT1
+mutator1_areaDamageMultiplier: 0.85
+
+mutator2_ifUnitWithTags: wallT2
+mutator2_areaDamageMultiplier: 0.6
+[projectile_MicroMissileSpawn]
+@copyFromSection: projectile_MicroMissile
+spawnProjectilesOnExplode: NONE
+
+[projectile_1sa]
+#AA
+spawnProjectilesOnEndOfLife: MicroMissile*2(offsetRandomDir=90)
+
+directDamage: ${AArocket}
+areaDamage: ${AArocket/2}
+areaRadius: 40
+life: 0
+speed: 4
+image: AA_Rocket.png
+drawSize: 1.2
+#turnSpeed: 0.05
+turnSpeed: 0.4
+#targetSpeed: 5
+
+#------------------------------
+shieldDamageMultiplier: 0
+shieldDefectionMultiplier: 0
+buildingDamageMultiplier: 0.4
+#armourIgnoreAmount: 25
+#------------------------------
+effectOnCreate: CUSTOM:smoke
+trailEffect: CUSTOM:trail, CUSTOM:projectileTrailRed, CUSTOM:projectileTrailOrange
+trailEffectRate: 1
+
+color: #e80808 
+lightColor: #e80808
+lightSize: 0.4
+
+spawnProjectilesOnEndOfLife: 1sa2(offsetRandomDir=5, yOffsetRelative=0) 
+deflectionPower:1
+targetGround_includeTargetHeight: true
+retargetingInFlight: true
+
+
+[projectile_1sa2]
+@copyFromSection: projectile_1sa 
+spawnProjectilesOnEndOfLife: MicroMissile*2(offsetRandomDir=90)
+life: 100
+explodeOnEndOfLife: true
+explodeEffect: CUSTOM:FlakBoom
+
+#wobbleAmplitude: 1
+#wobbleFrequency: 1s
+[effect_FlakBoom]
+dirOffsetRandom:180
+alsoPlaySound:ROOT:data\soundFx\impact_FlakBoom.ogg:0.5
+priority:high
+
+fadeInTime: 3
+fadeOut: true
+
+attachedToUnit: false
+
+scaleFrom: 0.4
+scaleTo: 0.4
+
+yOffsetRelative: 5
+
+
+image:ROOT:data\images\FlakBoom.png
+total_frames: 11
+animateFrameStart: 0
+animateFrameEnd: 10
+animateFramePingPong: false
+animateFrameSpeed: 0.35
+
+alpha:1
+[effect_trail]
+life: 30
+priority:verylow
+image: ROOT:data\images\torpTrail.png
+attachedToUnit: false
+drawUnderUnits: false
+alpha:0.4
+fadeOut: true
+scaleFrom: 0.9
+scaleTo: 0.2
+atmospheric: true
+xOffsetRelative:0
+yOffsetRelative:-9
+
+#color: #00f4ff
+teamColorRatio: 0
+[effect_trail2]
+life: 30
+priority:verylow
+image: ROOT:data\images\torpTrail.png
+color: #00f4ff
+attachedToUnit: false
+drawUnderUnits: false
+alpha:0.4
+fadeOut: true
+scaleFrom: 0.5
+scaleTo: 0.1
+atmospheric: true
+xOffsetRelative:0
+yOffsetRelative:0
+
+#color: #00f4ff
+teamColorRatio: 0
+
+[effect_sparks]
+
+spawnChance: 0.6
+
+attachedToUnit: false
+life: 50
+physics: true
+physicsGravity: 0.8
+xOffsetRelative: 0
+yOffsetRelative: -3
+xSpeedRelativeRandom: 0.5
+ySpeedRelativeRandom: 0.5
+hSpeed: 1
+
+ySpeedRelative:1
+
+dirSpeedRandom: 5
+
+fadeInTime: 10
+
+scaleFrom: 0.3
+scaleTo: 0.1
+
+image: ROOT:data\images\spark.png
+priority: verylow
+[effect_cartridgeRight]
+
+priority: low
+
+image: cartridge.png
+imageShadow: SHADOW:cartridge.png
+
+#spawnChance: 0.75
+life: 30
+fadeOut: true
+attachedToUnit: false
+#color: #fdc14d
+color: #FFFFFF
+
+scaleFrom: 0.8
+scaleTo: 0.8
+alpha: 2
+fadeInTime: 3
+drawUnderUnits:false
+liveAfterAttachedDies: false
+
+physics: true
+physicsGravity: 2
+
+createWhenZoomedOut: false
+
+
+xSpeedRelative: 1.2
+xSpeedRelativeRandom: 0.3
+
+ySpeedRelativeRandom: 0.25
+
+yOffsetRelative: -20
+xOffsetRelative: 2
+
+hSpeed: 2
+
+dirSpeedRandom: 50
+
+[effect_cartridgeLeft]
+
+priority: low
+
+image: cartridge.png
+imageShadow: SHADOW:cartridge.png
+
+#spawnChance: 0.75
+
+life: 30
+fadeOut: true
+attachedToUnit: false
+#color: #fdc14d
+color: #FFFFFF
+
+scaleFrom: 0.8
+scaleTo: 0.8
+alpha: 2
+fadeInTime: 3
+drawUnderUnits:false
+liveAfterAttachedDies: false
+
+physics: true
+physicsGravity: 2
+
+createWhenZoomedOut: false
+
+
+xSpeedRelative: -1.2
+xSpeedRelativeRandom: 0.3
+
+ySpeedRelativeRandom: 0.25
+
+yOffsetRelative: -20
+xOffsetRelative: -2
+
+hSpeed: 2
+
+dirSpeedRandom: 50
+[effect_verySmallFlameII]
+dirOffsetRandom:180
+
+priority:veryhigh
+
+fadeInTime: 3
+fadeOut: true
+
+attachedToUnit: false
+
+scaleFrom: 0.23
+scaleTo: 0.23
+
+yOffsetRelative: 5
+
+
+image:ROOT:data\images\plasmaRepeater_explosion.png
+total_frames: 14
+animateFrameStart: 0
+animateFrameEnd: 13
+animateFramePingPong: false
+animateFrameSpeed: 0.35
+
+alpha:1
+[effect_muzzleFlameS]
+
+priority: high
+
+image: ROOT:data\images\flame_small.png
+
+
+total_frames: 4
+animateFrameStart: 0
+animateFrameEnd: 3
+animateFramePingPong: true
+animateFrameSpeed: 0.8
+
+life: 11
+fadeOut: true
+attachedToUnit: true
+color: #FFFFFF
+
+scaleFrom: 0.7
+scaleTo: 1.1
+alpha: 1.6
+drawUnderUnits:false
+liveAfterAttachedDies: false
+
+physics: false
+hSpeed: 0.01
+[effect_smoke]
+#priority:high
+
+frameIndex: 0
+stripIndex: smoke_black
+
+spawnChance: 0.4
+
+priority: verylow
+
+createWhenZoomedOut: false
+
+life: 90
+fadeOut: true
+attachedToUnit: false
+#color: #fdc14d
+color: #FFFFFF
+
+fadeInTime:2
+scaleFrom: 0.3
+scaleTo: 0.6
+alpha: 1
+drawUnderUnits:false
+liveAfterAttachedDies: false
+
+hSpeed:0.2
+
+dirOffsetRandom:180
+xSpeedRelativeRandom: 0.4
+
+
+atmospheric: true
+
+
+[effect_WI]
+alwayStartDirAtZero:true
+attachedToUnit: false
+#spawnChance: 0.5
+life: 130
+alpha: 0.7
+scaleFrom:0.3
+scaleTo:0.3
+image: ROOT:data\icons\old_4.png
+priority: high
+drawUnderUnits:false
+yOffsetRelative:5
+xOffsetRelative:0
+delayedStartTimer: 0
+#hOffset: 20
+hSpeed: 0.1
+[effect_WII]
+@copyFromSection: effect_WI
+image: ROOT:data\icons\old_5.png
+[effect_WIII]
+@copyFromSection: effect_WI
+image: ROOT:data\icons\old_6.png
+[effect_WIV]
+@copyFromSection: effect_WI
+image: ROOT:data\icons\old_7.png
+
+[effect_projectileFlashSmol]
+alsoEmitEffects: CUSTOM:projectileGroundSmokeSmol*2, CUSTOM:projectileGroundSplashSmol*3, CUSTOM:projectileCraterSmol
+
+priority:critical
+showInFog: true
+
+image: SHARED:light_50.png
+life: 30
+fadeOut: true
+attachedToUnit: false
+color: #FFDDA8
+fadeInTime:2
+scaleFrom: 1.5
+scaleTo: 1
+alpha: 1
+drawUnderUnits:false
+atmospheric: false
+hOffset: 5
+yOffsetAbsolute: -10
+
+[effect_projectileCraterSmol]
+priority:veryhigh
+
+image: ROOT:data\images\crater.png
+createWhenOverLiquid: false
+life: 600
+fadeOut: true
+scaleFrom: 0.3
+scaleTo: 0.3
+alpha: 1.5
+drawUnderUnits:true
+dirOffsetRandom:180
+
+[effect_projectileGroundSmokeSmol]
+priority:veryhigh
+
+stripIndex: effects
+frameIndex: 0
+
+createWhenOverLiquid: false
+life: 240
+fadeOut: true
+attachedToUnit: false
+color: #6D5448
+fadeInTime:5
+scaleFrom: 1
+scaleTo: 3
+alpha: 1.25
+drawUnderUnits:false
+hSpeed:0.2
+hOffsetRandom:0.15
+atmospheric:true
+
+dirOffsetRandom:180
+
+shadow:true
+xOffsetRelativeRandom: 24
+yOffsetRelativeRandom: 24
+xSpeedAbsoluteRandom:0.2
+ySpeedAbsoluteRandom:0.2
+atmospheric: true
+
+[effect_projectileGroundSplashSmol]
+priority:high
+
+image: ROOT:data\images\sub_bubbles.png
+createWhenOverLiquid: false
+life: 120
+fadeOut: true
+attachedToUnit: false
+color: #463126
+fadeInTime:5
+scaleFrom: 1
+scaleTo: 2
+alpha: 1.25
+drawUnderUnits:false
+hSpeed: 0.75
+hOffsetRandom: 0.75
+atmospheric:true
+
+dirOffsetRandom:180
+
+physics: true
+physicsGravity: 0.1
+xOffsetRelativeRandom: 16
+yOffsetRelativeRandom: 16
+xSpeedAbsoluteRandom:0.2
+ySpeedAbsoluteRandom:0.2
+atmospheric: true
+
+
+[movement]
+movementType: AIR
+moveSpeed: 1.8
+moveAccelerationSpeed: 2
+moveDecelerationSpeed: 0.000000001
+
+maxTurnSpeed: 5
+turnAcceleration: 0.08
+
+reverseSpeedPercentage: 0
+
+targetHeight: 20
+targetHeightDrift: 1
+
+moveSlidingMode :false
+moveIgnoringBody:false
+moveSlidingDir:  181
+
+joinsGroupFormations: true
+slowDeathFall: true
+
+

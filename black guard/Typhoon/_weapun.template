@@ -1,0 +1,69 @@
+
+#_weapun.template
+[core]
+#copyFrom: ROOT:data\effects\muzzle_smoke.template, ROOT:data\effects\crit.template
+#Typhoon Stuts
+
+
+@global T_price: 100000
+@global T_maxHp: 7000
+@global T_buildSpeed: 240
+
+#Typhoon Pr0jectile
+#---------------------------HE
+@global T_HE: 300
+@global T_HE_AoE: 130
+@global T_HE_fire: 0.15
+#Note: T_HE_fire = chance to set fire on ground 
+
+#---------------------------AP
+@global T_AP: 400
+@global T_AP_AoE: 20
+#---------------------------Crit!
+@global T_AP_critChance: 0.15
+@global T_AP_critChance_dmg: 400
+@global T_AP_critChance_hullMul: 1.5
+
+@global energy_reduction: 0.2
+@global energy_reduction_B: 0.8
+#note: 0.15 = 15% chance
+#-AP deal only 50% dmg structure
+#-Critical damage deal extra damage to hull
+
+
+borrowResourcesWhileAlive: typhoon=1
+
+#--------------------------------------
+[action_HoldOFF]
+ai_isDisabled: true
+isActive: true
+isVisible: if not self.hasFlag(id=0)
+text: Hold Fire
+buildSpeed: 0s
+addResources: setFlag=0
+
+[action_HoldOn]
+ai_isDisabled: true
+isActive: true
+isVisible: if self.hasFlag(id=0)
+isGuiBlinking: true
+text: Hold Fire
+buildSpeed: 0s
+addResources: unsetFlag=0
+#--------------------------------------
+[hiddenAction_del]
+autoTrigger: if not numberOfUnitsInTeam(greaterThan=0, withTag='unitResource')
+addResources: hp=-9999999
+
+[arm_1]
+#WELD
+x: 0
+y: 0
+hidden: if not self.hasFlag(id=0)
+image_end: base_off.png
+drawOverBody: true
+
+[arm_2]
+@copyFromSection: arm_1
+hidden: if self.hasFlag(id=0)
+image_end: base_on.png

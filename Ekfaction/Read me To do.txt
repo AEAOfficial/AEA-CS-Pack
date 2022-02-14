@@ -1,0 +1,23 @@
+1 choose Ek fction logo
+2 fix nightmare mk1 rotor blade bug
+3 fix hell cat fan.png proportions its not spinning properly and its annoying to look at
+4 same as 3 but with the predator
+5 fix hyperions weird turret sprite being the size of the tank, (arrowhead)
+6. shrink zenit/stingerhornets, missile projectle size and aoe. make it shoot slower. 
+7. Dawns treads are very weird an dont look like they atually move. please fix 
+8. hogs turret should turn independenty. not with the whole body it looks bad. also needs better tread animation
+9. create global resource energy that has its limit increased by battery storages {lunar extractors} max 10 
+10. make thermal generator generate global ressource energy which is used to limit the amount of times you can call airstrikes in a row max 10
+11. give the new mini bunker turrets head caps if its not AA
+12. {OPTIONAL} create other simple turrets from the sprites in simple_turret.png [USE copyFrom:EkminibunkersCommon.ini]
+13. harvester tank upgrades to harvester factory code. 
+14. make drawlayers for the experimental factory work better so it doesnt look lke units are spawning on the roof :(
+15. [IMPORTANT] remove all duplicate effects and copys of images and move them to Example {ROOT:Ekdata\effects\sub_bubles.png} this will make the mod take a lot less space
+16 {ignore all unit stats} we will only ay attention to these once we have all the needed materials for a beta version
+17 {horseman lithium skarjj lemons and ramk3} will figure out how to make limiting areas on airstrikes
+
+'''required materials''' 
+Ek unique command center
+Ek unique builder
+Ek unique land factory and air factory 
+be creative if you have a idea let me know

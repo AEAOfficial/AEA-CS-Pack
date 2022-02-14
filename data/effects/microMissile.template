@@ -1,0 +1,118 @@
+#ROOT:data\effects\microMissile.template
+
+[effect_FlakBoom]
+dirOffsetRandom:180
+
+spawnChance: 0.7
+
+priority:high
+
+fadeInTime: 3
+fadeOut: true
+
+attachedToUnit: false
+
+scaleFrom: 0.4
+scaleTo: 0.4
+
+yOffsetRelative: 5
+
+alsoPlaySound:ROOT:data\soundFx\impact_FlakBoom.ogg:0.5
+image:ROOT:data\images\FlakBoom.png
+total_frames: 11
+animateFrameStart: 0
+animateFrameEnd: 10
+animateFramePingPong: false
+animateFrameSpeed: 0.35
+[effect_projectileTrail]
+life: 45
+priority:verylow
+image: ROOT:data\images\torpTrail.png
+color: #00f4ff
+attachedToUnit: false
+drawUnderUnits: false
+alpha:0.4
+fadeOut: true
+scaleFrom: 0.7
+scaleTo: 0.1
+atmospheric: true
+xOffsetRelative:0
+yOffsetRelative:0
+
+#color: #00f4ff
+teamColorRatio: 0
+#priority:verylow
+#stripIndex: effects
+#frameIndex: 0
+
+
+#life: 60
+#fadeOut: true
+#attachedToUnit: false
+#color: #5a97ba
+#FFFFFF
+#fadeInTime:5
+#scaleFrom: 0.4
+#scaleTo: 0.1
+#alpha: 0.8
+#drawUnderUnits:false
+#ySpeedRelative:-1
+#atmospheric:true
+
+#dirOffsetRandom:180
+
+#shadow:true
+
+#xSpeedAbsoluteRandom: 0.2
+#ySpeedAbsoluteRandom: 0.2
+[effect_projectileTrailRed]
+priority:low
+stripIndex: effects
+frameIndex: 0
+
+
+life: 5
+fadeOut: true
+attachedToUnit: false
+color: #00a2ff
+#FFFFFF
+fadeInTime:5
+scaleFrom: 0.5
+scaleTo: 0.1
+alpha: 1
+drawUnderUnits:false
+#ySpeedRelative:-1
+atmospheric:true
+
+dirOffsetRandom:180
+
+shadow:true
+
+xSpeedAbsoluteRandom: 0.2
+ySpeedAbsoluteRandom: 0.2
+[effect_projectileTrailOrange]
+priority:verylow
+stripIndex: effects
+frameIndex: 0
+
+spawnChance: 0
+
+life: 30
+fadeOut: true
+attachedToUnit: false
+color: #7ccfff
+#FFFFFF
+fadeInTime:5
+scaleFrom: 0.4
+scaleTo: 0.1
+alpha: 0.5
+drawUnderUnits:false
+#ySpeedRelative:-1
+atmospheric:true
+
+dirOffsetRandom:180
+
+shadow:true
+
+xSpeedAbsoluteRandom: 0.2
+ySpeedAbsoluteRandom: 0.2

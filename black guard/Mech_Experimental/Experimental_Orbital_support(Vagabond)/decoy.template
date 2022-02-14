@@ -1,0 +1,13 @@
+[core]
+showInEditor: false
+fogOfWarSightRange: 5
+disableAllUnitCollisions: true
+explodeOnDeath: false
+hideScorchMark: true
+#showOnMinimap: false
+isUnrepairableUnit: true
+nanoFactorySpeed: 2
+selfBuildRate: 5s
+[hiddenAction_extraDamageTaken]
+autoTriggerOnEvent: tookDamage
+addResources: hp=-${core.maxHp*0.1}

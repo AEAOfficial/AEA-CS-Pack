@@ -1,0 +1,250 @@
+#ROOT:data\effects\smallTwinGun.template
+[core]
+
+energyMax: 1
+energyRegen: 0.013
+energyNeedsToRechargeToFull: true
+
+[turret_rightMachineGun]
+#
+x: 1.7
+y: 5
+attachedTo: kanonSmall1
+slave: true
+invisible: false
+
+projectile: bullet
+size: 10
+image: smallGunII.png
+
+#delay: 6
+#turnSpeed: 4
+#turnSpeedAcceleration: 1.0
+
+shoot_sound:ROOT:data\soundFx\weapon_smallGun.ogg
+shoot_sound_vol:0.4
+shoot_flame:CUSTOM:muzzleFlameS, CUSTOM:cartridgeRight, CUSTOM:smoke22
+shoot_light:#70eee6cc
+
+canAttackFlyingUnits: true
+canAttackLandUnits:   true
+canShoot: true
+
+
+recoilOffset: -1
+recoilOutTime: 4
+recoilReturnTime: 15
+
+energyUsage: 0.1
+
+limitingRange: 180
+[turret_rightMachineGunI]
+x: -1.7
+y: 5
+invisible: false
+shoot_flame:CUSTOM:muzzleFlameS, CUSTOM:cartridgeLeft, CUSTOM:smoke22
+copyFrom: rightMachineGun
+linkDelayWithTurret:rightMachineGun
+warmup: 3
+
+energyUsage: 0.125
+[turret_kanonSmall1]
+#turret base l
+x: 18
+y: 3
+idleDir: 45
+#invisible: true
+
+image: turret_smallGunHouse.png
+
+#shouldResetTurret: false
+canAttackFlyingUnits: true
+canAttackLandUnits:   true
+canAttackUnderwaterUnits: false
+
+turnSpeed: 4
+turnSpeedAcceleration: 0.5
+canShoot: false
+limitingRange: 180
+
+[projectile_bullet]
+directDamage: 5
+life: 800
+speed: 12
+
+frame: 2
+color: #00f4ff
+#armourIgnoreAmount:15
+
+largeHitEffect: false
+targetGround: false
+
+lightColor: #00f4ff
+lightSize: 0.4
+
+image:ROOT:data\images\projectile3.png
+drawSize:0.6
+explodeEffect: CUSTOM:verySmallFlameII
+
+
+[effect_verySmallFlameII]
+dirOffsetRandom:180
+
+priority:veryhigh
+
+fadeInTime: 3
+fadeOut: true
+
+attachedToUnit: false
+
+scaleFrom: 0.23
+scaleTo: 0.23
+
+yOffsetRelative: 5
+
+
+image:ROOT:data\images\plasmaRepeater_explosion.png
+total_frames: 14
+animateFrameStart: 0
+animateFrameEnd: 13
+animateFramePingPong: false
+animateFrameSpeed: 0.35
+
+alpha:1
+
+[effect_muzzleFlameS]
+
+priority: high
+
+image: ROOT:data\images\flame_small.png
+
+
+total_frames: 4
+animateFrameStart: 0
+animateFrameEnd: 3
+animateFramePingPong: true
+animateFrameSpeed: 0.8
+
+life: 11
+fadeOut: true
+attachedToUnit: true
+color: #FFFFFF
+
+scaleFrom: 0.7
+scaleTo: 1.1
+alpha: 1.6
+drawUnderUnits:false
+liveAfterAttachedDies: false
+
+physics: false
+hSpeed: 0.01
+[effect_cartridgeRight]
+
+priority: high
+
+image: cartridge.png
+imageShadow: SHADOW:cartridge.png
+
+spawnChance: 0.75
+life: 30
+fadeOut: true
+attachedToUnit: false
+#color: #fdc14d
+color: #FFFFFF
+
+scaleFrom: 0.3
+scaleTo: 0.3
+alpha: 2
+fadeInTime: 3
+drawUnderUnits:false
+liveAfterAttachedDies: false
+
+physics: true
+physicsGravity: 2
+
+createWhenZoomedOut: false
+
+
+xSpeedRelative: 1.2
+xSpeedRelativeRandom: 0.3
+
+ySpeedRelativeRandom: 0.25
+
+yOffsetRelative: -20
+xOffsetRelative: 2
+
+hSpeed: 2
+
+dirSpeedRandom: 50
+[effect_cartridgeLeft]
+
+priority: low
+
+image: cartridge.png
+imageShadow: SHADOW:cartridge.png
+
+spawnChance: 0.75
+
+life: 30
+fadeOut: true
+attachedToUnit: false
+#color: #fdc14d
+color: #FFFFFF
+
+scaleFrom: 0.3
+scaleTo: 0.3
+alpha: 2
+fadeInTime: 3
+drawUnderUnits:false
+liveAfterAttachedDies: false
+
+physics: true
+physicsGravity: 2
+
+createWhenZoomedOut: false
+
+
+xSpeedRelative: -1.2
+xSpeedRelativeRandom: 0.3
+
+ySpeedRelativeRandom: 0.25
+
+yOffsetRelative: -20
+xOffsetRelative: -2
+
+hSpeed: 2
+
+dirSpeedRandom: 50
+
+[effect_smoke22]
+#priority:high
+
+frameIndex: 0
+stripIndex: smoke_black
+
+spawnChance: 0.4
+
+priority: verylow
+
+createWhenZoomedOut: false
+
+life: 90
+fadeOut: true
+attachedToUnit: false
+#color: #fdc14d
+color: #FFFFFF
+
+fadeInTime:2
+scaleFrom: 0.3
+scaleTo: 0.6
+alpha: 1
+drawUnderUnits:false
+liveAfterAttachedDies: false
+
+hSpeed:0.2
+
+dirOffsetRandom:180
+xSpeedRelativeRandom: 0.4
+
+
+atmospheric: true

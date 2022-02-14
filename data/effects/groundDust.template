@@ -1,0 +1,92 @@
+
+#explodeEffect: CUSTOM:projectileGroundSmoke*2, CUSTOM:projectileGroundSplash*3, CUSTOM:projectileCrater, CUSTOM:projectileWaterSmoke*2, CUSTOM:projectileFlash
+#ROOT:data\effects\groundDust.template
+[effect_projectileFlash]
+alsoEmitEffects: CUSTOM:projectileGroundSmoke*2, CUSTOM:projectileGroundSplash*3, CUSTOM:projectileCrater
+
+priority:critical
+showInFog: true
+
+image: SHARED:light_50.png
+life: 30
+fadeOut: true
+attachedToUnit: false
+color: #FFDDA8
+fadeInTime:2
+scaleFrom: 2
+scaleTo: 1.5
+alpha: 1
+drawUnderUnits:false
+atmospheric: false
+hOffset: 5
+yOffsetAbsolute: -10
+
+[effect_projectileCrater]
+priority:veryhigh
+
+image: ROOT:data\images\crater.png
+createWhenOverLiquid: false
+life: 3600
+fadeOut: true
+scaleFrom: 0.4
+scaleTo: 0.4
+alpha: 1.5
+drawUnderUnits:true
+dirOffsetRandom:180
+
+[effect_projectileGroundSmoke]
+priority:veryhigh
+
+stripIndex: effects
+frameIndex: 0
+
+createWhenOverLiquid: false
+life: 240
+fadeOut: true
+attachedToUnit: false
+color: #6D5448
+fadeInTime:5
+scaleFrom: 2
+scaleTo: 4
+alpha: 1.25
+drawUnderUnits:false
+hSpeed:0.2
+hOffsetRandom:0.15
+atmospheric:true
+
+dirOffsetRandom:180
+
+shadow:true
+xOffsetRelativeRandom: 24
+yOffsetRelativeRandom: 24
+xSpeedAbsoluteRandom:0.2
+ySpeedAbsoluteRandom:0.2
+atmospheric: true
+
+[effect_projectileGroundSplash]
+priority:high
+
+image: ROOT:data\images\sub_bubbles.png
+createWhenOverLiquid: false
+life: 120
+fadeOut: true
+attachedToUnit: false
+color: #463126
+fadeInTime:5
+scaleFrom: 1.5
+scaleTo: 2.5
+alpha: 1.25
+drawUnderUnits:false
+hSpeed: 0.75
+hOffsetRandom: 0.75
+atmospheric:true
+
+dirOffsetRandom:180
+
+physics: true
+physicsGravity: 0.1
+xOffsetRelativeRandom: 16
+yOffsetRelativeRandom: 16
+xSpeedAbsoluteRandom:0.2
+ySpeedAbsoluteRandom:0.2
+atmospheric: true

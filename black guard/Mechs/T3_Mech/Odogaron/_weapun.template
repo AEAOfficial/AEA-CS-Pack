@@ -1,0 +1,11 @@
+
+#_weapun.template
+[core]
+#Napalm canister damage------------
+@global NPD: 40
+@global NPDAoE: 90
+@global NPDtick: 1
+@global DMGpenalty: 0.5
+#==================Cooldown, also energy pool
+@global cooldown: 5
+@global NPDduration: 3

@@ -1,0 +1,39 @@
+
+#_weapun.template
+[core]
+@global dmg: 0
+@global delay: 320
+@global meleeModeCool: 90
+
+@global shield: 2000
+@global shieldregen: 0.5
+
+#----------------Photon kannon
+@global photonCannonDir: 700
+@global photonCannonAoE: 300
+@global photonDelay: 135
+# 4x faster fire rate but damage devided by 4
+@global photonCannonMul: 2
+#----------------Claw
+#claw small
+@global ClawS_damage: 45
+@global ClawS_delay: 9
+@global ClawS_mul: 5
+#claw big
+@global ClawB_damageDir: 1
+@global ClawB_damageAre: 700
+@global ClawB_delay: 120
+#life steal 15 = 15% life steal
+@global ClawB_lifeS: 15
+# +2%hp heal per kill
+@global ClawB_heal: 2
+#melee mode
+@global bonusArmor: 30
+#-----------------Precision beam
+@global baseDmage: 27
+
+radius: 45
+displayRadius: 45
+[animation_NONE]
+leg1_0.2s: {x:0, y:0, dir:0}
+leg2_0.2s: {x:0, y:0, dir:0}

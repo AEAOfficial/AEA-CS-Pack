@@ -1,0 +1,32 @@
+#For light Mg
+#ROOT:data\effects\muzzle_flash_smollFlame.template
+#color: #2cfff8
+#shoot_flame:CUSTOM:muzzleFlame_smolFlame
+[effect_muzzleFlame_smolFlame]
+
+priority: high
+
+image: ROOT:data\images\small_Flame.png
+
+
+total_frames: 5
+animateFrameStart: 0
+animateFrameEnd: 4
+animateFramePingPong: true
+animateFrameSpeed: 0.5
+
+life: 12
+fadeOut: true
+color: #FFFFFF
+
+attachedToUnit: true
+
+scaleFrom: 0.8
+scaleTo: 1
+alpha: 1.6
+drawUnderUnits:false
+liveAfterAttachedDies: false
+
+physics: false
+hSpeed: 0.01
+

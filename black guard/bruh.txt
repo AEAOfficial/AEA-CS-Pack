@@ -1,0 +1,37 @@
+change arty sprite 
+
+widow custom resources: limit 6
+
+langley repair speed x2 - done
+
+widow
+4armor t2 8armort3 (18k)  - done
+
+extractor
+T1 t1 module slot
+T2 " "
+T3 t2 module slot
+T4 " "
+T5 t3 module slot
+
+baker MG T3 
+       +30% dmg 
+	   
+  t2 less range , price 1200 - done
+  
+mlrs add aoe  - done
+
+show upgraded turrets - done
+
+gate way attack animtion like t8 extractor
+
+add light mg mods 
+
+snipah turret air attack does do aoe -Done
+#-------------------------------------------------------
+
+precision beam less damage vs structure
+amanda 1 slot
+#------------------------------------------------
+so add an upgrade to the black guard command center that fires a tesla bolt once every 1.25 seconds, damage 150, range 230, cost 4000
+fix amanda precision beam upgrade from mg

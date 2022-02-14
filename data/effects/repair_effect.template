@@ -1,0 +1,149 @@
+#ROOT:data\effects\repair_effect.template
+
+#CUSTOM:muzzleSmuk
+[graphics]
+repairEffect: CUSTOM:railImpactSparks, CUSTOM:railImpactSparks2, CUSTOM:FLight2
+repairEffectAtTarget:  CUSTOM:railImpactSparks, CUSTOM:FLight_a, CUSTOM:FLight3, CUSTOM:railImpactSparks2Rev
+#-------------------Repair effect
+[effect_railImpactSparks]
+priority: verylow
+image:ROOT:data\images\spark.png
+life: 20
+fadeOut: true
+attachedToUnit: false
+scaleFrom: 0.2
+scaleTo: 0.2
+alpha: 1.2
+drawUnderUnits:false
+atmospheric: true
+spawnChance: 0.4
+xSpeedRelativeRandom: 1.5
+ySpeedRelativeRandom: 1.5
+dirSpeedRandom: 5
+
+xOffsetRelativeRandom: 10
+yOffsetRelativeRandom: 10
+hOffset: 1
+physics: true
+physicsGravity: -0.1
+[effect_railImpactSparks2]
+priority: veryhigh
+image:ROOT:data\images\spark.png
+life: 40
+fadeOut: true
+attachedToUnit: false
+scaleFrom: 0.2
+scaleTo: 0.2
+alpha: 1.2
+drawUnderUnits:false
+atmospheric: true
+ySpeedRelative: 1.2
+[effect_railImpactSparks2Rev]
+@copyFromSection: effect_railImpactSparks2
+ySpeedRelative: 0
+xSpeedRelativeRandom: 3
+ySpeedRelativeRandom: 3
+life: 60
+priority: low
+fadeOut: TRUE
+spawnChance: 0.1
+dirSpeedRandom: 5
+xOffsetRelativeRandom: 10
+yOffsetRelativeRandom: 10
+hOffset: 3
+physics: true
+physicsGravity: 0.3
+[effect_railImpactSparks2Rev2]
+@copyFromSection: effect_railImpactSparks2Rev
+spawnChance: 0.8
+priority: verylow
+[effect_FLight]
+image: ROOT:data\images\light_particle.png
+life: 40
+spawnChance: 0.6
+fadeOut: true
+fadeInTime: 3
+attachedToUnit: true
+color: #ffffff
+drawUnderUnits: false
+scaleFrom: 1.5
+scaleTo: 0.4
+priority: low
+createWhenOffscreen: false
+alpha: 1
+[effect_FLight2]
+@copyFromSection: effect_FLight
+life: 20
+scaleFrom: 0.05
+spawnChance: 0.3
+scaleTo: 0
+image: ROOT:data\images\light_2.png
+#spawnChance: 0.4
+[effect_FLight3]
+@copyFromSection: effect_FLight
+scaleFrom: 0.04
+scaleTo: 0.01
+scaleTo: 0
+spawnChance: 0.1
+image: ROOT:data\images\light_2.png
+xOffsetRelativeRandom: 15
+yOffsetRelativeRandom: 15
+#spawnChance: 0.2
+[effect_FLight_a]
+@copyFromSection: effect_FLight
+life: 10
+fadeInTime: 1
+alsoEmitEffects: CUSTOM:FLight_b, CUSTOM:FLight_c, CUSTOM:FLight_d, CUSTOM:FLight_e, CUSTOM:FLight_f, CUSTOM:FLight_g, CUSTOM:FLight_h, CUSTOM:FLight_i, CUSTOM:FLight_j
+spawnChance: 0.05
+xOffsetRelativeRandom: 25
+yOffsetRelativeRandom: 25
+scaleFrom: 1
+scaleTo: 0
+[effect_FLight_b]
+@copyFromSection: effect_FLight_a
+alsoEmitEffects: CUSTOM:railImpactSparks2Rev2
+spawnChance: 1
+delayedStartTimer: 5
+[effect_FLight_c]
+@copyFromSection: effect_FLight_a
+alsoEmitEffects: CUSTOM:railImpactSparks2Rev2
+spawnChance: 1
+scaleFrom: 1
+delayedStartTimer: 10
+[effect_FLight_d]
+@copyFromSection: effect_FLight_a
+alsoEmitEffects: CUSTOM:railImpactSparks2Rev2
+spawnChance: 1
+delayedStartTimer: 15
+[effect_FLight_e]
+@copyFromSection: effect_FLight_a
+alsoEmitEffects: CUSTOM:railImpactSparks2Rev2
+spawnChance: 1
+delayedStartTimer: 25
+[effect_FLight_f]
+@copyFromSection: effect_FLight_a
+alsoEmitEffects: CUSTOM:railImpactSparks2Rev2
+spawnChance: 1
+scaleFrom: 3
+delayedStartTimer: 30
+[effect_FLight_g]
+@copyFromSection: effect_FLight_a
+alsoEmitEffects: CUSTOM:railImpactSparks2Rev2
+spawnChance: 1
+delayedStartTimer: 35
+[effect_FLight_h]
+@copyFromSection: effect_FLight_a
+alsoEmitEffects: CUSTOM:railImpactSparks2Rev2
+spawnChance: 4
+delayedStartTimer: 40
+[effect_FLight_i]
+@copyFromSection: effect_FLight_a
+alsoEmitEffects: CUSTOM:railImpactSparks2Rev2
+spawnChance: 1
+delayedStartTimer: 45
+[effect_FLight_j]
+@copyFromSection: effect_FLight_a
+alsoEmitEffects: CUSTOM:railImpactSparks2Rev2
+spawnChance: 1
+scaleFrom: 1.5
+delayedStartTimer: 50

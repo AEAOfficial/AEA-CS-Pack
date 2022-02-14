@@ -1,0 +1,281 @@
+[core]
+#extraLagHidingInUI:FALSE 
+#========================================================AEA Stuff=========================================================
+name: uranium
+
+tags: uranium
+
+#resourceRate: 1
+
+generation_delay: 40
+
+
+[graphics]
+
+
+[global_resource_uranium]
+displayName: Uranium
+displayNameShort: U
+priority: 1
+displayColor:#C0C0C0
+#reference to by price: t=1000
+
+[global_resource_maxpower]
+#global resource, shared with all units on team
+displayName: maxpower
+hidden: false
+priority: 1
+displayColor: #FFFF33
+
+[global_resource_Power]
+displayName: Power
+displayNameShort: P
+displayColor: #FFFF33
+priority: 1
+
+
+
+
+
+#========================================================BlackGuard Stuff=========================================================
+
+#================================BlackGuard Prices =====Donut touch dis
+
+# Tier I
+#---------------        builder > prerequisite: Dark Drone research
+@global darkDrone:      700
+#---------------        ---
+@global beamCrab:       500
+@global mist:           575
+@global lightningBug:   700
+@global basicMech2:     900
+@global miniMLRS:       1000
+@global miniVLS:        1000
+@global miniBertha:     1200
+@global strider:        1000
+@global reparatorMech:  1500
+@global miniNapalm:     1500
+@global miniSamurai:    1800, MSamurai=1
+
+# Tier II
+#---------------        Air > prerequisite: T2 Mech gantry/Langley
+@global lighFlyingMecg: 1300
+@global comanche:       2750
+@global bgBomberMech:   4500
+#---------------        ---
+@global modMech:        2900
+@global honeyBadger:    3600
+@global langley:        4000
+@global gunMech:        6100
+@global ionMech:        6600
+@global brokenMech:     6500
+@global mediumMT:       5800
+@global leyte:          7200
+@global ritter:         7500
+@global AArocketMech:   6000
+@global heavyAAMech:    8500
+@global type2Mech:      8500
+
+# Tier III
+@global athena:         7100
+@global tacticalMech:   7400
+@global rama:           9500
+@global odogaron:       12300
+@global type3Mech:      14000
+@global heavyMT:        17000
+@global plasmaBeetle:   23000
+@global vigorous:       23000
+
+# Tier IV
+@global T4okhotnik:     55000, uranium=2750
+@global T4shokaku:      57500, uranium=2000, SoaringCrane=1
+# Tier V
+@global T5warpMech:     40000, uranium=1000
+@global apolloOldPrice: 70000, uranium=3200
+
+# Experimental
+@global orion1: 8500, uranium=100
+@global shikishinaPr:   44000, uranium=1666, samuraiSoulL=1     
+
+#================================Module Prices =====Donut touch dis
+#-------light MG
+@global Mprice_I:    400
+
+#-------repair bot
+@global Mprice_II:   1000
+
+#-------Shuriken Swarmer
+@global Mprice_II2:    900
+
+#-------red shell
+@global Mprice_III:  2100
+
+#-------laser defense
+@global Mprice_IV:   1800
+
+#-------energy charger
+@global Mprice_V:    1900
+
+#-------shield generator
+@global Mprice_VI:   2000
+
+#-------turtle core
+@global Mprice_VII:  3900
+
+#-------precision beam
+@global Mprice_VIII: 4750
+
+#-------particle beam
+@global Mprice_IX:   4000
+
+#-------repair pulse
+@global Mprice_X:    6000
+
+#-------ion death
+@global Mprice_XI:   900
+
+#-------demo charge
+@global Mprice_XII:  3500
+
+#-------nuke payload
+@global Mprice_XIII: 9000
+#================================Module Prices  END
+
+#========Setting==========
+
+#Setting this to false will diactivates credits(Special thanks), default true
+@global creditsNames: true
+
+#Allow ai to option force build all mechGantry when widow is attacking 
+@global aiForceBuild: true
+#time interval ai force build, default 120s
+@global aiForceBuildcool: 120
+@global aiForceBuildcoolnUM: 4
+
+#Ai Build Build Build Build
+#========Apollo nkII==========
+#Setting this to false ai connot build APOLLO, default true
+@global AIapolloMkII: true
+#Allow ai use nuke on apollo...., default false..... false means they can use nukes
+@global AIapolloMkIIAiNuke: false
+#time interval ai build apollo, default 300s (5min)
+@global AIapolloMkIIcool: 300
+#Ai apollo limit, defaul: 5
+@global AIapolloMkII_PlayerAiLimit: 2
+#Human apollo limit, defaul: 5
+@global AIapolloMkIIcool_PlayerHumanLimit: 2
+#========Shokaku===========
+#Player Shokaku limit, defaul: 10
+@global shokaku_Limit: 10
+#========Widow===========
+#Player widow limit, defaul: 5
+@global widow_Limit: 5
+#========blackJack===========
+#Player blackJack limit, defaul: 6
+@global blackJack_Limit: 10
+#========miniSamurai===========
+#Player miniSamurai limit, defaul: 15
+@global Msamurai_Limit: 15
+#========landcruiser===========
+#Player landcruiser limit, defaul: 4
+@global landcruiser_Limit: 4
+
+
+# limit, defaul: 5
+@global typhoon_l: 5
+@global samurai_l: 1
+@global generator_l: 8
+
+#========UnitSkin==========
+#Black Jack camouflage, Option: 0 or 1
+# 0 -Default
+# 1 -German Iron Cross Camo
+@global camo_BlackJack: 0
+
+#Apollo mk II, Option: Barrel: 0, 1, 2     GunHouse: 0, 1
+#barrel                   GunHouse
+# 0 -Default              0 -Default 
+# 1 -Plasma Crytal        1 -Classic 'concept'
+# 2 -Plasma classic
+@global camo_ApolloII_barreal: 0
+@global camo_ApolloII_gunHouse: 0
+
+
+#Built mech stop moving for sec..... timer for how long they wait till the gantry fully opened
+@global mechGantryHalttimer: 2
+
+#Garbage
+#Allow player gain achievement, default false
+#@global Achievements: false
+#Allow ai gain achievement too?, default true
+@global AchAi: true
+
+#========Global Resources=======
+[global_resource_DeltaCore]
+#Apollo's core
+displayName:Delta Core
+hidden:false
+displayNameShort:Delta Core
+displayColor:#f9a602
+[global_resource_typhoon]
+@copyFromSection: global_resource_DeltaCore
+displayName: Typhoon
+displayNameShort: Typhoon
+hidden: true
+[global_resource_generatorL]
+@copyFromSection: global_resource_DeltaCore
+displayName: Generator
+displayNameShort: Generator
+hidden:true
+[global_resource_samuraiSoulL]
+@copyFromSection: global_resource_DeltaCore
+displayName: Samurai Soul
+displayNameShort: Samurai Soul
+hidden:false
+[global_resource_SoaringCrane]
+@copyFromSection: global_resource_DeltaCore 
+#Apollo's shikishina
+displayName: Battle-Carrier
+displayNameShort: CV-B
+hidden:true
+[global_resource_Widow]
+@copyFromSection: global_resource_DeltaCore 
+#widow
+displayName: Arachnid Core
+displayNameShort: Arc-Core
+hidden:false
+[global_resource_Widow_BJ]
+@copyFromSection: global_resource_DeltaCore 
+#widow
+displayName: Arachnid Core+
+displayNameShort: Arc-Core+
+hidden:true
+[global_resource_MSamurai]
+@copyFromSection: global_resource_DeltaCore 
+#widow
+displayName: Mini Samurai
+displayNameShort: Mini Sam
+hidden:true
+[global_resource_landcruiser]
+@copyFromSection: global_resource_DeltaCore 
+displayName: core
+displayNameShort: core
+hidden:true
+#------=-=-=-=-=------Ai build rush
+[global_resource_mGantryT1]
+@copyFromSection: global_resource_DeltaCore
+displayName:Ai FBMT1
+displayColor:#3e4fff
+[global_resource_mGantryT2]
+@copyFromSection: global_resource_mGantryT1
+displayName:Ai FBMT2
+[global_resource_mGantryT3]
+@copyFromSection: global_resource_mGantryT1
+displayName:Ai FBMT3
+[global_resource_mGantryT4]
+@copyFromSection: global_resource_mGantryT1
+displayName:Ai FBMT4
+[global_resource_mGantryT5]
+@copyFromSection: global_resource_mGantryT1
+displayName:Ai FBMT5
+#========================================================BlackGuard Stuff=========================================================

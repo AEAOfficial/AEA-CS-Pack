@@ -1,0 +1,265 @@
+[effect_sparks]
+
+image:spark.png
+
+spawnChance: 0.75
+
+attachedToUnit: false
+life: 60
+physics: false
+xSpeedRelativeRandom: 0.4
+ySpeedRelative: 1.5
+hSpeed: 0.1
+
+priority: verylow
+
+color: #FFFFFF
+
+fadeOut: true
+
+scaleFrom: 0.2
+scaleTo: 0.2
+
+createWhenZoomedOut: false
+
+atmospheric: true
+[effect_smoke]
+#priority:high
+
+frameIndex: 0
+stripIndex: smoke_black
+
+spawnChance: 0.3
+
+createWhenZoomedOut: false
+
+life: 90
+fadeOut: true
+attachedToUnit: false
+#color: #fdc14d
+color: #FFFFFF
+
+fadeInTime:2
+scaleFrom: 0.3
+scaleTo: 0.6
+alpha: 0.9
+drawUnderUnits:false
+liveAfterAttachedDies: false
+
+hSpeed:0.2
+
+dirOffsetRandom:180
+xSpeedRelativeRandom: 0.4
+
+
+atmospheric: true
+[effect_muzzleFlame]
+
+priority: low
+
+
+image: flame_small.png
+
+spawnChance: 0.75
+
+createWhenZoomedOut: false
+
+
+life: 40
+fadeOut: true
+attachedToUnit: false
+#color: #fdc14d
+color: #FFFFFF
+
+scaleFrom: 1.0
+scaleTo: 1.2
+alpha: 0.45
+drawUnderUnits:false
+liveAfterAttachedDies: false
+
+atmospheric: true
+
+physics: false
+ySpeedRelative:0.6
+dirSpeedRandom: 10
+xSpeedRelativeRandom: 0.35
+hSpeed: 0.1
+
+[effect_hitFlame]
+
+priority: low
+
+image: flame_small.png
+
+spawnChance: 0.5
+
+ifSpawnFailsEmitEffects: CUSTOM:hitFlameAlt
+
+createWhenZoomedOut: false
+
+life: 40
+fadeOut: true
+attachedToUnit: false
+#color: #fdc14d
+color: #FFFFFF
+
+scaleFrom: 1.5
+scaleTo: 1
+alpha: 0.6
+drawUnderUnits:false
+liveAfterAttachedDies: false
+
+dirOffsetRandom: 30
+
+physics: true
+ySpeedRelative: 0.75
+hSpeed: 0.3
+dirSpeedRandom: 2
+[effect_hitFlameAlt]
+
+priority: low
+
+image: flame_small2.png
+
+spawnChance: 0.9
+
+createWhenZoomedOut: false
+
+
+life: 40
+fadeOut: true
+attachedToUnit: false
+#color: #fdc14d
+color: #FFFFFF
+
+scaleFrom: 1.5
+scaleTo: 1
+alpha: 0.6
+drawUnderUnits:false
+liveAfterAttachedDies: false
+
+dirOffsetRandom: 30
+
+physics: true
+ySpeedRelative: 0.75
+hSpeed: 0.3
+dirSpeedRandom: 2
+
+[effect_attachedFlame]
+priority:veryhigh
+
+spawnChance: 0.5
+
+ifSpawnFailsEmitEffects: CUSTOM:attachedFlameAlt
+
+image: flame_small.png
+
+life: 120
+fadeOut: true
+attachedToUnit: true
+#color: #fdc14d
+color: #FFFFFF
+
+fadeInTime:6
+scaleFrom: 1.2
+scaleTo: 2.2
+alpha: 1.5
+drawUnderUnits:false
+liveAfterAttachedDies: false
+
+dirSpeedRandom: 5
+[effect_attachedFlameAlt]
+priority:veryhigh
+
+image: flame_small2.png
+
+life: 120
+fadeOut: true
+attachedToUnit: true
+#color: #fdc14d
+color: #FFFFFF
+
+fadeInTime:6
+scaleFrom: 1.2
+scaleTo: 2.2
+alpha: 1.5
+drawUnderUnits:false
+liveAfterAttachedDies: false
+
+dirSpeedRandom: 5
+
+[effect_trailFlame]
+
+priority: verylow
+
+image: flame_small.png
+
+spawnChance: 0.5
+
+ifSpawnFailsEmitEffects: CUSTOM:trailFlameAlt
+
+createWhenZoomedOut: false
+
+
+life: 40
+fadeOut: true
+attachedToUnit: false
+#color: #fdc14d
+color: #FFFFFF
+
+scaleFrom: 1.0
+scaleTo: 1.2
+alpha: 1
+drawUnderUnits:false
+liveAfterAttachedDies: false
+
+yOffsetRelative: -38
+xOffsetRelativeRandom: 3
+
+fadeInTime: 4
+
+atmospheric: true
+
+physics: false
+ySpeedRelative: 2.3
+ySpeedRelativeRandom:0.2
+xSpeedRelativeRandom: 0.2
+dirSpeedRandom: 3
+hSpeed: 0.1
+
+[effect_trailFlameAlt]
+
+priority: verylow
+
+image: flame_small2.png
+
+spawnChance: 0.9
+
+createWhenZoomedOut: false
+
+life: 40
+fadeOut: true
+attachedToUnit: false
+#color: #fdc14d
+color: #FFFFFF
+
+scaleFrom: 1.0
+scaleTo: 1.2
+alpha: 1
+drawUnderUnits:false
+liveAfterAttachedDies: false
+
+yOffsetRelative: -35
+xOffsetRelativeRandom: 3
+
+fadeInTime: 4
+
+atmospheric: true
+
+physics: false
+ySpeedRelative: 2
+ySpeedRelativeRandom:0.2
+xSpeedRelativeRandom: 0.2
+dirSpeedRandom: 3
+hSpeed: 0.1
+

@@ -1,0 +1,134 @@
+=Units=
+[Faction Picker]
+    |-Changed and improved
+	|-The sprite still same XD
+[Strider]
+    |-Added t1 module slot (few module available)
+        |-Reduce movement speed when module installed 	
+[Widow]
+    |-Widow Build Limit: 6  per playah
+	|-Can build more things
+		|-Flak turret (T3 Widow can build T2 flak turret)
+		|-T2 Pop turret
+		|-T2 Baker MG
+		|-Research Facility
+		|-Experimental Gantry
+		|-Rama (Deployed)
+		|-Etc.
+[Tactical Mech]
+    |-Tactical Mech Build Limit: 6  per playah	
+	|-Fix Repair cranes 
+	|-Reorganize buttons
+	|-Can build more things
+	|-Added Reclaim
+	    |-When reclaiming, repair crane 2-3 are temporarily disabled
+	|-Added some useless stuff (might be useful) 
+[Reparatur Mech]	
+    |-Added Uber Charge (Increase repair rate by 600% (Units)| 100% (Structure))
+	|-Duration: 6s, cooldown: 45s
+[Kashtan]
+    |-Added T2 module slots
+	|-Radar cooldown decrease from 120 to 70s
+	|-Added Starting shield pool: 1000 (empty)
+[Devastator]	
+	|-Added T2 module slots
+	|-Added Starting shield pool: 1000 (empty)
+[Athena]
+    |-Chain lightning can bounce efficiently (limiting min range from 100 to 10)
+	|-Thunder Strike cast range reduce from 290 to 250
+	|-Reduce cast time from 2s to 0.5s
+[Medium Mobile Turret]
+    |-Adde T1 module slot
+	|-transport slot needed 'reduce' from 5 to 2
+[Leyte]
+    |-Can no longer build Comanche
+[Plasma Beetle]
+    |-Plasma ram bonus armor reduce from 20 to 15
+	|-Plasma emitter beam extend range bug slighty reduced (IDK why still able to extend :/ ) 
+[Shikishima]
+    |-Increase Nodachi cooldown from 70 to 100
+	|-When Nodachi is active bounus movement speed improved
+	|-Explode on death
+	|-Minor fix
+[Shokaku]
+    |-Aichi phase drone durability increase from 400 to 1500	
+[Warp Mech]
+    |-Minor fix
+	|-Added some useless conditions 
+    |-[Blackhole]
+        |-Reduce AoE from 900 to 430
+       	|-Increase Gravity pull to Air units
+[Glavenus]	
+    |-Range nerf from 700 to 600	
+[Apollo mkII]
+    |-Can now be tarnsported (Transport slot needed: 12)
+
+=Structures=
+[Baker MG]
+    |-Increas projectile velocity
+	|-Improve effects  	
+[Snipah Turret]
+    |-Increase build time (Now equal to AEA's Rocket Turret)
+	|-Fix footprint
+[Heavy Lightning Turret]
+    |-Slightly Reduce Lightning Orb travel distance
+[Typhoon]
+    |-Takes 20% energy each time switch valley (+80% for 27 round valley: 100% energy loss)
+[BGC extractor]
+    |-Description added 
+    |-Added T1 module
+	|-Added shield (Requires module)
+	    |-Starting shield pool: 500 (empty)
+        |-Plus 500 shield pool every upgrade
+    |-Fix T5 extractor passive (properly produce credits\5s)
+	|-Passive added effects
+	
+=Added=
+    [Units]
+	|-[Mini Samurai]
+	    |-Strong melee mech 
+		|-Build limit: 15
+		|-Requires research
+    |-[Langley] (leyte class)
+	    |-Can build BGC air units
+		|-Has 3 individual air factories
+		|-Slightly durable 
+    |-[Tyrant]
+        |-Heavy Assault Mobile Artillery Platform	
+		|-Its just 5 Glavenus in a single hull
+	|-[Acid turret]
+	    |-T2 turret (upgraded from pop turret)
+	    |-Colorized ground unit
+	|-[Rock Chucker]
+	    |-T2 turret (upgraded from pop turret)
+		|-An ancient weapon used by ancient beings
+ 	
+    [module]
+	    |-Added some new stuff
+	    |-Added 4 offense module
+		    |-Light MG (great against ion cluster missiles)
+			|-Red Shell (From super mario)
+			|-Precision Beam
+			|-AA particle beam
+		|-[Ion detomator]
+		    |-Improved	
+		|-[Repair bot]
+		    |-Has 2 upgrades
+		    |-T2 nerf and changed
+		|-[Repair Pulse]
+            |-Nerf heal
+         	|-Pulse can heal parent mech
+		|-Module with shield generation, added 500 starting shield
+                                  |-Note: Removing cost 500 shield
+	>BGC has 13 modules in total
+		|-Minor fix	(Maybe not)
+
+[Type3 Mech] Ion Cluster Missile counter unit list
+    |-AEA: >>>Flak, Heavy interceptors, Appache, Frigate, AA gunboats, Amphibious Warship, Naval Carrier, Experimental SAM tank
+    |-BGC: >>>Comanche, Broken mech, Ion Mech, Leyte Drones, vigorous, Widow, Light flying mech, Kashtan 
+	            |-[Module: Light MG]    
+	
+-Improve SoundFx on orbital units when landing
+-Some mech transport slot needed 'reduce'	
+-Added bugs to fix later
+-My Engrish is bad	

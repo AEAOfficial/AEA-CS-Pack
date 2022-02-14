@@ -1,0 +1,47 @@
+
+#For lrage ser
+#ROOT:data\effects\muzzle_flash_blueLarge.template
+#color: #2cfff8
+#shoot_flame:CUSTOM:muzzleFlame_nlueLarge_0
+[effect_muzzleFlame_nlueLarge_0]
+
+priority: high
+
+image: ROOT:data\images\muzzle_flame_blue.png
+
+
+total_frames: 2
+animateFrameStart: 0
+animateFrameEnd: 1
+animateFramePingPong: true
+animateFrameSpeed: 0.5
+
+life: 12
+fadeOut: true
+color: #FFFFFF
+
+attachedToUnit: true
+
+scaleFrom: 0.2
+scaleTo: 0.55
+alpha: 1
+drawUnderUnits:false
+liveAfterAttachedDies: false
+
+physics: false
+hSpeed: 0.01
+[effect_muzzleFlame_nlueLarge_0a]
+@copyFromSection: effect_muzzleFlame_nlueLarge_0
+priority: veryhigh
+scaleFrom: 0.4
+scaleTo: 0.9
+alpha: 2
+yOffsetRelative: 10
+[effect_muzzleFlame_nlueLarge_1]
+@copyFromSection: effect_muzzleFlame_nlueLarge_0
+scaleFrom: 0.2
+scaleTo: 0.4
+[effect_muzzleFlame_nlueLarge_2]
+@copyFromSection: effect_muzzleFlame_nlueLarge_0
+scaleFrom: 0.1
+scaleTo: 0.3
