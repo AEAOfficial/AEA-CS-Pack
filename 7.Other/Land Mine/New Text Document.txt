@@ -1,0 +1,7 @@
+[placementRule_minesdeleteself]
+if self.timeAlive(laterThanSeconds=15s) 
+deleteSelf: true
+
+[hiddenAction_realmine]
+autoTiggeOnEvent: completeAndActive
+convertTo: landmineBuilt

@@ -1,0 +1,112 @@
+#Command
+@global BT1: false
+@global BT2: false
+@global BT3: false
+[canBuild_1]
+name: builder
+pos:  1
+[hiddenAction_created]
+autoTriggerOnEvent: created
+addResources: setFlag=1
+#------------------Toggle button
+[action_autoQueueOff]
+isVisible: if not self.hasFlag(id=0)
+isGuiBlinking: if self.hasFlag(id=0)
+text: Auto Queue
+description: [OFF]\n-Unit can be auto queue\n-Riflemen, mortar, RPG Infantry
+buildSpeed: 0s
+addResources: setFlag=0
+pos: 0.2
+highPriorityQueue: true
+alwaysSinglePress: true
+[action_autoQueueOn]
+@copyFromSection: action_autoQueueOff
+isVisible: if self.hasFlag(id=0)
+description: [ON]\n-Unit can be auto queue\n-Riflemen, mortar, RPG Infantry
+addResources: unsetFlag=0
+#------------------
+[action_Pos_empty]
+text: 
+displayType: infoOnlyNoBox
+isVisible: if not self.hasFlag(id=1) and not self.hasFlag(id=2) and not self.hasFlag(id=3)
+buildSpeed: 0s
+pos: 0.3
+[action_Pos_rifleMen]
+@define unit: rifleInfantry
+@define num: 1
+textAddUnitName: ${unit}
+descriptionAddFromUnit: ${unit}
+descriptionAddUnitStats: ${unit}
+unitShownInUI: ${unit}
+displayType: infoOnlyNoBox
+isVisible: if self.hasFlag(id=${num})
+buildSpeed: 0s
+pos: 0.3
+[action_Pos_mortal]
+@copyFromSection: action_Pos_rifleMen
+@define unit: mortar
+@define num: 2
+[action_Pos_rpg]
+@copyFromSection: action_Pos_rifleMen
+@define unit: rocketInfantry
+@define num: 3
+
+#------------------------------------------------------------------------------T1 infantry
+[canBuild_rifleMen]
+isVisible: ${BT1}
+name: rifleInfantry
+price: 65, unsetFlag=1-3
+pos: 2
+addResources: setFlag=1
+[canBuild_mortar]
+isVisible: ${BT1}
+name: mortar
+price: 175, unsetFlag=1-3
+pos: 3
+addResources: setFlag=2
+[canBuild_rpg]
+isVisible: ${BT1}
+name: rocketInfantry
+price: 190, unsetFlag=1-3
+pos: 4
+addResources: setFlag=3
+#------------------------------------------------------------------------------T2 infantry
+[canBuild_T2]
+isVisible: ${BT2}
+name: machineGunner, infantryEngineer, troopTransport, heavyRPG, Isniper, infantryEngineer, jetpack
+pos: 5
+#------------------------------------------------------------------------------T3 infantry
+[canBuild_T3]
+isVisible: ${BT3}
+name: phantom, hacker, xan
+pos: 6
+#--------------------------AutoQueue T2
+[hiddenAction_1]
+#riflemen
+@define num: 1
+@define price: 65
+autoTrigger: if self.hasFlag(id=0) and self.hasFlag(id=${num}) and not self.queueSize(greaterThan=0) and self.hasResources(credits=${price})
+alsoQueueAction: ${num}A
+addResources: credits=-${price}
+[hiddenAction_1A]
+buildSpeed: 1.5s 
+produceUnits: rifleInfantry
+#=======================
+[hiddenAction_2]
+#mortar
+@copyFromSection: hiddenAction_1
+@define num: 2
+@define price: 175
+[hiddenAction_2A]
+buildSpeed: 3.3s 
+produceUnits: mortar
+#=======================
+[hiddenAction_3]
+#rpg
+@copyFromSection: hiddenAction_1
+@define num: 3
+@define price: 190
+[hiddenAction_3A]
+buildSpeed: 2.8s 
+produceUnits: rocketInfantry
+#------------------------------------------------------------------------------
