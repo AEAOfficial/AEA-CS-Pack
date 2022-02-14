@@ -11,7 +11,6 @@ echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 echo Testing for Changes
 echo TimeStamp: %time%
 echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-git reset
 git fetch origin
 git pull origin
 timeout 10 > NUL
@@ -23,7 +22,7 @@ echo %UPLOADMES%
 git add .
 git commit -a -m "%UPLOADMES%"
 git push
-timeout 10 > NUL
+git reset
 echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 echo  Changes Pushed
 echo TimeStamp: %time%
