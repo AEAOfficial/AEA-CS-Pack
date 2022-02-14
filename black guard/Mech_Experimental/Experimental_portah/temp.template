@@ -1,5 +1,0 @@
-[core]
-builtFrom_1_name: NONE
-
-[action_relocate] 
-isVisible: if not self.hasFlag(id=6)
