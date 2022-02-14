@@ -1,0 +1,7 @@
+
+#_weapun.template
+[core]
+
+@global LighningDamage: 280
+
+@global CLighningDamage: 50

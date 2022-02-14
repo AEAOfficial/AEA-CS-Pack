@@ -1,0 +1,27 @@
+#blue_explosion
+#ROOT:data\effects\blueEx.template
+
+[effect_blue_explosion]
+dirOffsetRandom:180
+
+priority:veryhigh
+
+fadeInTime: 3
+fadeOut: true
+
+attachedToUnit: false
+
+scaleFrom: 0.3
+scaleTo: 0.3
+
+yOffsetRelative: 5
+
+
+image:ROOT:data\images\blue_explosion.png
+total_frames: 14
+animateFrameStart: 0
+animateFrameEnd: 13
+animateFramePingPong: false
+animateFrameSpeed: 0.35
+
+alpha:1

@@ -1,0 +1,40 @@
+#ROOT:data\effects\muzzle_smoke.template
+
+#CUSTOM:muzzleSmuk
+
+[effect_muzzleSmuk]
+alsoEmitEffects: CUSTOM:muzzleSmuk2, CUSTOM:muzzleSmuk3
+stripIndex: effects
+frameIndex: 0
+life: 120
+fadeOut: true
+attachedToUnit: false
+color: #FFFFFF
+fadeInTime:5
+scaleFrom: 0.5
+scaleTo: 2
+alpha: 0.6
+drawUnderUnits:false
+ySpeedRelative: 0.2
+atmospheric:true
+
+dirOffsetRandom:180
+
+shadow:true
+yOffsetRelative:-5
+
+xSpeedAbsoluteRandom: 0.2
+ySpeedAbsoluteRandom: 0.2
+delayedStartTimer: 10
+[effect_muzzleSmuk2]
+@copyFromSection: effect_muzzleSmuk
+alsoEmitEffects: CUSTOM:muzzleSmuk2
+ySpeedRelative: 0.5
+delayedStartTimer: 20
+[effect_muzzleSmuk3]
+@copyFromSection: effect_muzzleSmuk
+alsoEmitEffects: NONE
+life: 90
+ySpeedRelative: 0.1
+scaleFrom: 0.5
+scaleTo: 3

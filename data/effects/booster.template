@@ -1,0 +1,146 @@
+#ROOT:data\effects\booster.template
+
+
+
+
+[effect_leftUp]
+life: 40
+alsoEmitEffects: CUSTOM:EngineparticleBooster_0*2, CUSTOM:EngineparticleSmuk_0
+image: ROOT:data\images\light2.png
+color: #FFAA00
+alpha: 5
+
+drawUnderUnits: true
+xSpeedRelative: 2.5
+ySpeedRelative: 2.5
+scaleFrom: 1.5
+scaleTo: 0.2
+
+[effect_leftBottom]
+@copyFromSection: effect_leftUp
+alsoEmitEffects: CUSTOM:EngineparticleBooster_1*2, CUSTOM:EngineparticleSmuk_1
+xSpeedRelative: 2.5
+ySpeedRelative: -2.5
+
+[effect_rightUp]
+@copyFromSection: effect_leftUp
+alsoEmitEffects: CUSTOM:EngineparticleBooster_2*2, CUSTOM:EngineparticleSmuk_2
+xSpeedRelative: -2.5
+ySpeedRelative: 2.5
+
+[effect_rightBottom]
+@copyFromSection: effect_leftUp
+alsoEmitEffects: CUSTOM:EngineparticleBooster_3*2, CUSTOM:EngineparticleSmuk_3
+xSpeedRelative: -2.5
+ySpeedRelative: -2.5
+
+
+[effect_EngineparticleBooster_0]
+createWhenZoomedOut: false
+priority:low
+#spawnChance: 0.8
+life: 200
+fadeOut: False
+attachedToUnit: false
+drawUnderUnits: true
+
+
+image: ROOT:data\images\engine_particle.png
+total_frames: 4
+animateFrameStart: 0
+animateFrameEnd: 3
+animateFramePingPong: false
+animateFrameSpeed: 0.1
+
+#fadeInTime:1
+scaleFrom: 2
+scaleTo: 0.2
+alpha: 1
+
+xSpeedRelativeRandom:0.2
+xOffsetRelativeRandom: 30
+dirOffsetRandom: 100
+
+xSpeedRelative: 2
+ySpeedRelative: 2
+
+xOffsetRelative: 20
+yOffsetRelative: 20
+
+atmospheric: false
+
+stripIndex:effects
+frameIndex: 0
+
+[effect_EngineparticleBooster_1]
+@copyFromSection: effect_EngineparticleBooster_0
+xSpeedRelative: 2
+ySpeedRelative: -2
+
+xOffsetRelative: 20
+yOffsetRelative: -20
+[effect_EngineparticleBooster_2]
+@copyFromSection: effect_EngineparticleBooster_0
+xSpeedRelative: -2
+ySpeedRelative: 2
+
+xOffsetRelative: -20
+yOffsetRelative: 20
+[effect_EngineparticleBooster_3]
+@copyFromSection: effect_EngineparticleBooster_0
+xSpeedRelative: -2
+ySpeedRelative: -2
+
+xOffsetRelative: -20
+yOffsetRelative: -20
+
+
+[effect_EngineparticleSmuk_0]
+stripIndex: effects
+frameIndex: 0
+
+
+life: 200
+fadeOut: true
+attachedToUnit: false
+color: #FFFFFF
+fadeInTime:5
+scaleFrom: 4
+scaleTo: 2
+alpha: 0.1
+drawUnderUnits:false
+#ySpeedRelative:-1
+
+dirOffsetRandom:180
+shadow:true
+
+xSpeedAbsoluteRandom: 0.2
+ySpeedAbsoluteRandom: 0.2
+
+xSpeedRelative: 1
+ySpeedRelative: 1
+
+xOffsetRelative: 20
+yOffsetRelative: 20
+
+[effect_EngineparticleSmuk_1]
+@copyFromSection: effect_EngineparticleSmuk_0
+xSpeedRelative: -1
+ySpeedRelative: 1
+
+xOffsetRelative: -20
+yOffsetRelative: 20
+[effect_EngineparticleSmuk_2]
+@copyFromSection: effect_EngineparticleSmuk_0
+xSpeedRelative: 1
+ySpeedRelative: -1
+
+xOffsetRelative: 20
+yOffsetRelative: -20
+[effect_EngineparticleSmuk_3]
+@copyFromSection: effect_EngineparticleSmuk_0
+xSpeedRelative: -1
+ySpeedRelative: -1
+
+xOffsetRelative: -20
+yOffsetRelative: -20

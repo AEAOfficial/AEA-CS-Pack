@@ -1,0 +1,90 @@
+###uber###
+#blue!
+#ROOT:data\effects\blue!.template
+
+
+#[projectile_a]
+#explodeEffect: CUSTOM:explosionMain2, CUSTOM:explosionMain, CUSTOM:sparks*10, CUSTOM:shockwave
+
+[effect_shockwave]
+priority:critical
+stripIndex:shockwave_large
+life: 30
+fadeOut: true
+attachedToUnit: true
+color: #fff7e0
+fadeInTime: 0
+scaleFrom: 0.2
+scaleTo: 0.9
+alpha: 1.2
+dirSpeedRandom: 30
+#alsoPlaySound: missile_hit:0.8
+
+
+[effect_explosionMain]
+life: 27
+priority: high
+xOffsetRelative: 0
+yOffsetRelative: 0
+dirOffset: 0
+dirOffsetRandom:180
+dirSpeedRandom: 1
+fadeInTime: 0
+fadeOut: true
+attachedToUnit: false
+scaleFrom: 0.6
+scaleTo: 1.1
+image: ROOT:data\images\specialExplosion.png
+total_frames: 5
+animateFrameStart: 0
+animateFrameEnd: 4
+animateFramePingPong: false
+animateFrameSpeed: 0.6
+animateFrameSpeedRandom: 0.1
+alpha:1.0
+
+
+[effect_explosionMain2]
+life: 18
+priority: high
+xOffsetRelative: 0
+yOffsetRelative: 0
+dirOffset: 0
+dirOffsetRandom:180
+dirSpeedRandom: 1
+fadeInTime: 0
+fadeOut: true
+ySpeedRelative: 1
+attachedToUnit: false
+
+scaleFrom: 0.5
+scaleTo: 0.9
+image: ROOT:data\images\specialExplosion.png
+total_frames: 5
+animateFrameStart: 0
+animateFrameEnd: 4
+animateFramePingPong: false
+animateFrameSpeed: 0.9
+animateFrameSpeedRandom: 0.05
+alpha:1.0
+
+
+[effect_sparks]
+priority: low
+image: ROOT:data\images\spark.png
+life: 60
+fadeOut: true
+attachedToUnit: false
+scaleFrom: 0.75
+scaleTo: 0.3
+alpha: 1.2
+drawUnderUnits:false
+atmospheric: true
+xSpeedRelativeRandom: 1.5
+ySpeedRelativeRandom: 1.5
+dirSpeedRandom: 5
+xOffsetRelativeRandom: 3
+yOffsetRelativeRandom: 3
+hOffset: 1
+physics: true
+physicsGravity: -0.1

@@ -1,0 +1,54 @@
+#, ROOT:data\effects\engine_particle.template
+#CUSTOM:Engineparticle
+[effect_Engineparticle]
+@copyFromSection: effect_EngineparticleMain
+alsoEmitEffects: CUSTOM:EngineparticleMain, CUSTOM:Engineparticle2, CUSTOM:Engineparticle3
+[effect_EngineparticleMain]
+createWhenZoomedOut: false
+priority:low
+spawnChance: 0.6
+
+
+life: 10
+fadeOut: true
+attachedToUnit: false
+
+
+image: ROOT:data\images\engine_particle.png
+total_frames: 4
+animateFrameStart: 0
+animateFrameEnd: 3
+animateFramePingPong: false
+animateFrameSpeed: 0.35
+
+
+#color: #323232
+fadeInTime:1
+scaleFrom: 1
+scaleTo: 1.1
+alpha: 0.7
+#drawUnderUnits:true
+
+ySpeedRelative:-2
+xSpeedRelativeRandom:0.2
+
+xOffsetRelativeRandom: 9
+xOffsetRelative: 0
+yOffsetRelative: -35
+
+atmospheric: true
+
+stripIndex:effects
+frameIndex: 0
+[effect_Engineparticle2]
+@copyFromSection: effect_EngineparticleMain
+life: 22
+ySpeedRelative:-1
+scaleFrom: 1
+scaleTo: 0.9
+[effect_Engineparticle3]
+@copyFromSection: effect_EngineparticleMain
+life: 100
+ySpeedRelative:-0.5
+scaleTo: 0.8
+fadeOut: false

@@ -1,0 +1,18 @@
+#ROOT:data\effects\crit.template
+[effect_Critical]
+alwayStartDirAtZero:true
+attachedToUnit: false
+#spawnChance: 0.5
+life: 130
+alpha: 0.7
+scaleFrom:0.7
+scaleTo:0.7
+alsoPlaySound: ROOT:data\soundFx\impact_Critical_Hit.ogg: 0.2
+image: ROOT:data\images\crit.png
+priority: high
+drawUnderUnits:false
+yOffsetRelative:0
+xOffsetRelative:0
+delayedStartTimer: 0
+hOffset: 20
+hSpeed: 0.1

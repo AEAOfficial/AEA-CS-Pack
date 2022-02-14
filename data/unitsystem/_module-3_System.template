@@ -1,0 +1,159 @@
+#_rexon
+#ROOT:data\unitsystem\_module-3_System.template
+
+[core]
+
+[action_press1]
+extraLagHidingInUI:FALSE 
+@define pr: 10
+#text: Turret ${pr}
+isVisible: if not self.hasFlag(id=${pr})
+buildSpeed:0
+displayType: action
+pos:1
+canPlayerCancel: false
+allowMultipleInQueue: false
+extraLagHidingInUI: true
+
+#=====================================================================
+text: [
+textAddUnitName: unitRef self.attachment(slot="module_${pr}")
+textPostFix: ]
+
+descriptionAddFromUnit: unitRef self.attachment(slot="module_${pr}")
+descriptionAddUnitStats: unitRef self.attachment(slot="module_${pr}")
+#unitShownInUI: unitRef self.attachment(slot="module_${pr}")
+#=====================================================================
+
+addResources: unsetFlag=10-12, setFlag=${pr}
+isGuiBlinking: if self.hasFlag(id=${pr})
+
+iconImage: ROOT:data\icons\module.png
+iconExtraIsVisible: if self.hasFlag(id=${pr})
+iconExtraImage: ROOT:data\icons\select.png
+
+alsoTriggerAction: addSelect10, unFlag10, unFlag10B, unFlag10C, removeSelect11
+highPriorityQueue: true
+[action_press1B]
+extraLagHidingInUI:FALSE 
+@define pr: 10
+#text: Turret ${pr}
+isVisible: if self.hasFlag(id=${pr})
+buildSpeed:0
+displayType: action
+pos:1
+canPlayerCancel: false
+allowMultipleInQueue: false
+extraLagHidingInUI: true
+
+#=====================================================================
+text: [
+textAddUnitName: unitRef self.attachment(slot="module_${pr}")
+textPostFix: ]
+
+descriptionAddFromUnit: unitRef self.attachment(slot="module_${pr}")
+descriptionAddUnitStats: unitRef self.attachment(slot="module_${pr}")
+unitShownInUI: unitRef self.attachment(slot="module_${pr}")
+#=====================================================================
+
+addResources: unsetFlag=10-12, setFlag=${pr}
+isGuiBlinking: if self.hasFlag(id=${pr})
+
+#iconImage: ROOT:data\icons\module.png
+iconExtraIsVisible: if self.hasFlag(id=${pr})
+iconExtraImage: ROOT:data\icons\select.png
+
+alsoTriggerAction: addSelect10, unFlag10, unFlag10B, unFlag10C, removeSelect11
+
+#================================================================================
+highPriorityQueue: true
+[action_press2]
+extraLagHidingInUI:FALSE 
+@define pr: 11
+@copyFromSection: action_press1B
+isVisible: if self.hasFlag(id=10) or self.resource(type='Select10', greaterThan=0)
+addResources: unsetFlag=10-12, setFlag=${pr}
+alsoTriggerAction: addSelect11
+[action_press3]
+extraLagHidingInUI:FALSE 
+@define pr: 12
+@copyFromSection: action_press1B
+isVisible: if self.hasFlag(id=10) or self.resource(type='Select10', greaterThan=0)
+addResources: unsetFlag=10-12, setFlag=${pr}
+alsoTriggerAction: addSelect11
+#=====================================================================
+
+[hiddenAction_addSelect10]
+requireConditional: if self.resource(type='Select10', lessThan=3)
+addResources: Select10=1
+
+[hiddenAction_unFlag10]
+requireConditional: if self.hasFlag(id=10) and self.resource(type='Select10', greaterThan=1) and self.resource(type='Select10', lessThan=3) and not self.resource(type='Select11', greaterThan=0)
+addResources: unsetFlag=10, Select10=-2
+
+[hiddenAction_unFlag10B]
+requireConditional: if self.hasFlag(id=10) and self.resource(type='Select10', greaterThan=2) and not self.resource(type='Select11', greaterThan=0)
+addResources: unsetFlag=10, Select10=-3
+
+[hiddenAction_unFlag10C]
+requireConditional: if self.hasFlag(id=10) and self.resource(type='Select10', greaterThan=3) and not self.resource(type='Select11', greaterThan=0)
+addResources: unsetFlag=10, Select10=-500
+
+[hiddenAction_removeSelect11]
+requireConditional: if self.resource(type='Select11', greaterThan=0) 
+addResources: Select11=-1
+#---------------------------------------
+
+[hiddenAction_addSelect11]
+requireConditional: if not self.resource(type='Select11', greaterThan=0)
+addResources: Select11=1
+
+
+
+
+[resource_Select10]
+displayName: s1
+hidden: true
+[resource_Select11]
+@copyFromSection: resource_Select10
+displayName: s2
+[attachment_module_10]
+x: 0
+y: 0
+#idleDir:-60
+idleDir:22.5
+#idleDirReversing:180
+
+#-----------------------
+onCreateSpawnUnitOf:module_attachment
+#-----------------------
+
+addTransportedUnits: true
+setDrawLayerOnTop: true
+lockLegMovement:false
+keepAliveWhenParentDies: false
+canBeAttackedAndDamaged: false
+isUnselectable: true
+
+showAllActionsFrom:if self.hasFlag(id=10)
+
+#resetRotationWhenNotAttacking:true
+lockRotation: true
+
+createIncompleteIfParentIs: false
+
+redirectDamageToParent: true
+redirectDamageToParent_shieldOnly: true
+
+[attachment_module_11]
+x: 0
+y: 0
+idleDir:45
+@copyFromSection: attachment_module_10
+showAllActionsFrom:if self.hasFlag(id=11)
+[attachment_module_12]
+x: 0
+y: 0
+idleDir:67.5
+@copyFromSection: attachment_module_10
+showAllActionsFrom:if self.hasFlag(id=12)

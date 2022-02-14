@@ -1,0 +1,80 @@
+#Credits to Trinity BTM
+#Shield effect@!
+#ROOT:data\effects\shieldEffect.template
+
+#spawnEffects:CUSTOM:ShieldParticle*5,CUSTOM:ShieldParticle2*5,CUSTOM:shieldwave,CUSTOM:Light,CUSTOM:charge
+
+[effect_charge]
+life: 65
+scaleFrom: 0.7
+scaleTo: 1.6
+image: ROOT:data\images\ShieldEffect.png
+alpha: 1.1
+total_frames: 6
+animateFrameStart: 0
+animateFrameEnd: 5
+animateFrameSpeed: 0.2
+
+
+[effect_ShieldParticle]
+createWhenZoomedOut:false
+priority:low
+life:80
+color:#00ffff
+scaleFrom:0.7
+scaleTo:0.1
+image:ROOT:data\images\shieldParticle.png
+fadeOut:true
+alpha:0.9
+hSpeed:0.3
+hSpeedRandom:0.3
+hOffsetRandom:10
+alwayStartDirAtZero:true
+atmospheric:true
+xSpeedRelativeRandom:1
+ySpeedRelativeRandom:1
+drawUnderUnits:true
+
+
+[effect_ShieldParticle2]
+createWhenZoomedOut:false
+priority:low
+life:80
+color:#007fff
+scaleFrom:0.7
+scaleTo:0.1
+image:ROOT:data\images\shieldParticle.png
+fadeOut:true
+alpha:0.9
+hSpeed:0.3
+hSpeedRandom:0.3
+hOffsetRandom:10
+alwayStartDirAtZero:true
+atmospheric:true
+xSpeedRelativeRandom:1.4
+ySpeedRelativeRandom:1.4
+drawUnderUnits:true
+
+
+[effect_shieldwave]
+priority:low
+image: ROOT:data\images\shield_mid.png
+life: 20
+scaleFrom: 1
+scaleTo: 0
+drawUnderUnits:true
+
+
+[effect_Light]
+priority:high
+image: SHARED:light_50.png
+life: 100
+fadeOut: true
+attachedToUnit: true
+color: #00ffff
+fadeInTime:2
+scaleFrom: 1.5
+scaleTo: 1.5
+alpha: 0.8
+drawUnderUnits:true
+liveAfterAttachedDies: false

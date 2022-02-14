@@ -1,0 +1,146 @@
+#ROOT:data\wreak\wreakSmall.template
+
+[core]
+@global ewreak: 0
+@global ewreakII: 0
+@global ewreakIII: 0
+@global bitsI: 0
+@global bitsII: 0
+@global bitsIII: 0
+
+#effectOnDeath: 
+[hiddenAction_Killed]
+autoTriggerOnEvent: destroyed
+#requireConditional: ${customTurretSpawnBuffIcon}
+
+spawnEffects: CUSTOM:deathExplosionMain2, CUSTOM:onDeath, CUSTOM:onDeathII, CUSTOM:bitsI, CUSTOM:bitsII, CUSTOM:bitsIII, CUSTOM:deathLight, CUSTOM:FlakBoom
+
+[effect_FlakBoom]
+dirOffsetRandom:180
+
+priority:high
+
+fadeInTime: 3
+fadeOut: true
+
+attachedToUnit: false
+
+scaleFrom: 0.5
+scaleTo: 0.5
+
+yOffsetRelative: 5
+
+
+image:ROOT:data\images\FlakBoom.png
+total_frames: 11
+animateFrameStart: 0
+animateFrameEnd: 10
+animateFramePingPong: false
+animateFrameSpeed: 0.35
+
+alpha:1
+delayedStartTimer: 30
+[effect_deathLight]
+image: ROOT:data\images\light.png
+life: 40
+fadeOut: true
+fadeInTime: 3
+attachedToUnit: true
+color: #ffffff
+
+drawUnderUnits: false
+
+scaleFrom: 1.6
+scaleTo: 0.7
+
+priority: low
+
+createWhenOffscreen: false
+
+alpha: 1
+[effect_deathExplosionMain2]
+dirOffsetRandom:180
+
+priority:high
+
+fadeInTime: 3
+fadeOut: true
+
+attachedToUnit: false
+
+scaleFrom: 0.4
+scaleTo:0.4
+
+yOffsetRelative: 5
+
+
+image:ROOT:data\images\explosion3.png
+total_frames: 10
+animateFrameStart: 0
+animateFrameEnd: 9
+animateFramePingPong: false
+animateFrameSpeed: 0.35
+
+alpha:1
+[effect_onDeath]
+#TurretGunshouse
+priority:critical
+createWhenOverLiquid: false
+image: ROOT:data\wreak\wreak${ewreak}.png
+imageShadow: ROOT:data\wreak\wreak${ewreak}.png
+life:800
+fadeOut: true
+attachedToUnit: false
+alpha: 1
+scaleFrom: 1
+scaleTo: 1
+drawUnderUnits:false
+xSpeedRelativeRandom:1
+ySpeedRelativeRandom:1
+hSpeed:2
+hSpeedRandom:1
+atmospheric: true
+physicsGravity:1
+physics:true
+dirOffsetRandom:180
+dirSpeedRandom:1
+dirSpeed:5
+[effect_onDeathII]
+@copyFromSection: effect_onDeath
+image: ROOT:data\wreak\wreak${ewreakII}.png
+imageShadow: ROOT:data\wreak\wreak${ewreakII}.png
+xSpeedRelativeRandom:1
+ySpeedRelativeRandom:1
+dirSpeed:15
+
+[effect_onDeathIII]
+@copyFromSection: effect_onDeath
+image: ROOT:data\wreak\wreak${ewreakIII}.png
+imageShadow: ROOT:data\wreak\wreak${ewreakIII}.png
+xSpeedRelativeRandom:1.8
+ySpeedRelativeRandom:1.8
+dirSpeed:15
+
+[effect_bitsI]
+@copyFromSection: effect_onDeath
+image: ROOT:data\wreak\bits${bitsI}.png
+imageShadow: ROOT:data\wreak\bits${bitsI}.png
+drawUnderUnits:false
+xSpeedRelativeRandom:1.5
+ySpeedRelativeRandom:1.5
+dirSpeed:15
+
+[effect_bitsII]
+@copyFromSection: effect_onDeath
+image: ROOT:data\wreak\bits${bitsII}.png
+imageShadow: ROOT:data\wreak\bits${bitsII}.png
+xSpeedRelativeRandom:1.8
+ySpeedRelativeRandom:1.8
+dirSpeed:15
+[effect_bitsIII]
+@copyFromSection: effect_onDeath
+image: ROOT:data\wreak\bits${bitsIII}.png
+imageShadow: ROOT:data\wreak\bits${bitsIII}.png
+xSpeedRelativeRandom:1.8
+ySpeedRelativeRandom:1.8
+dirSpeed:20

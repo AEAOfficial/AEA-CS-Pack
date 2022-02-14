@@ -1,0 +1,5 @@
+[mod]
+title: Battle Carrier
+description: Classification: Convergence-Class Battle Carrier Mech - Through its design process is shrouded in mystery. The Convergence fearsome capabilities are all known. A improved and modified multiple Jupiter V's hull, ripped apart, replace with massive turret gun houses, double nuclear reactor & hanger bays and stitch back together, mount as many guns that can possibly hold resulting a titanic version of walking Hard Drive, but it's existence is only known through RUMORS.
+
+tags: experimental, special, mech, carrier

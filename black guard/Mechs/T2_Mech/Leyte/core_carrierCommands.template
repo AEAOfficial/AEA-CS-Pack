@@ -1,0 +1,579 @@
+#Carrier command
+
+#TAG used= 0, 1, 2, 3
+# 4, 5, 6, 7= ammo types 
+# 8 9 engage
+# 10 return
+# 11 guard3
+# 12 13 14
+#ai 15
+[core]
+#Drone Price
+@global Dprice: 800
+#This autoguard within range
+@global gurdMe: 300
+
+copyFrom: _weapun.template
+
+maxTransportingUnits: 4
+transportUnitsHealBy: 0.5
+transportUnitsUnloadDelayBetweenEachUnit:15
+
+transportUnitsCanUnloadUnits: true
+transportUnitsAddUnloadOption: false
+
+transportUnitsRequireTag: leyteDrone_${leyteC}
+transportUnitsRequireMovementType: air
+transportUnitsKeepBuiltUnits: true
+
+exit_x: -7
+exit_y: -17
+exit_dirOffset: 0
+exit_heightOffset:4
+exit_moveAwayAmount: 250
+
+#borrowResourcesWhileAlive: Drone_${leyteC}=-4
+#tags: leyteT=${leyteC}
+#===============================================================================Drone command
+
+#======================================================================AI
+
+
+[hiddenAction_Ai_weapontypu]
+autoTrigger: if not self.hasFlag(id=15) and self.hasParent(withTag='ReadyGoMain')
+requireConditional: if self.isControlledByAI()
+
+addResources: setFlag=15
+
+[hiddenAction_Ai_weapontypuOof]
+autoTrigger: if self.hasFlag(id=15) and not self.hasParent(withTag='ReadyGoMain')
+requireConditional: if self.isControlledByAI()
+
+addResources: unsetFlag=15
+
+
+[hiddenAction_GuardMeBois]
+autoTrigger: if not self.hasFlag(id=16) and not self.tags(includes='aiGuardMeBois') and numberOfUnitsInEnemyTeam(greaterThan=0, withinRange=${gurdMe})
+requireConditional: if self.isControlledByAI()
+
+addResources: setFlag=16
+alsoQueueAction: Guard
+
+temporarilyAddTags: aiGuardMeBois
+
+
+[hiddenAction_GuardMeBoisA]
+requireConditional: if self.isControlledByAI()
+addResources: setFlag=16
+temporarilyAddTags: aiGuardMeBois
+
+
+
+[hiddenAction_UnGuardMe]
+autoTrigger: if self.hasFlag(id=16) and self.tags(includes='aiGuardMeBois') and not numberOfUnitsInEnemyTeam(greaterThan=0, withinRange=${gurdMe})
+requireConditional: if self.isControlledByAI()
+
+addResources: unsetFlag=16, setFlag=11, guarddd=1 
+alsoTriggerAction: GuardOof
+
+temporarilyRemoveTags: aiGuardMeBois
+
+[hiddenAction_UnGuardMeA]
+autoTrigger: if not self.hasFlag(id=11) and self.hasFlag(id=16) and self.tags(includes='aiGuardMeBois') and numberOfUnitsInEnemyTeam(greaterThan=0, withinRange=${gurdMe})
+
+addResources: unsetFlag=16
+temporarilyRemoveTags: aiGuardMeBois
+
+[hiddenAction_ai_timerReset]
+requireConditional: if self.isControlledByAI() 
+resetCustomTimer: true
+
+
+#======================================================================AI END 
+#-----------------unload?
+[hiddenAction_unload]
+attachments_unload: true
+startUnloadingTransport:true
+buildSpeed: 0.25s
+attachments_unload: true
+alsoQueueAction: unloadII
+[hiddenAction_unloadII]
+@copyFromSection: hiddenAction_unload
+buildSpeed: 0.25s
+alsoQueueAction: unloadIII
+[hiddenAction_unloadIII]
+@copyFromSection: hiddenAction_unload
+buildSpeed: 0.25s
+alsoQueueAction: unloadIV
+[hiddenAction_unloadIV]
+@copyFromSection: hiddenAction_unload
+buildSpeed: 0.25s
+alsoQueueAction: NONE
+addResources: unsetFlag=13, unsetFlag=14
+temporarilyAddTags: clearAttackMove
+resetCustomTimer: true
+[hiddenAction_clearAttackMoveToParent]
+autoTrigger: if self.customTimer(laterThanSeconds=1) and self.tags(includes='clearAttackMove')
+temporarilyRemoveTags: clearAttackMove
+#-----------------unload? END
+#-----------------------------------------------------------------------------------AMMO TYPES
+[action_press1]
+@define pr: 4
+autoTrigger: if not self.isControlledByAI() and self.hasParent(withTag='weaponT_${pr-3}') and not self.hasFlag(id=${pr})
+ai_isDisabled: if not self.hasFlag(id=15)
+ai_isHighPriority: if self.hasFlag(id=15) and numberOfUnitsInEnemyTeam(greaterThan=0, withinRange=1000) and self.transportingCount(greaterThan=3) and self.customTimer(laterThanSeconds=5)
+
+#text: Turret ${pr}
+buildSpeed:0
+displayType: action
+pos:0.1
+canPlayerCancel: false
+allowMultipleInQueue: false
+#extraLagHidingInUI: true
+highPriorityQueue: true
+isVisible: if self.isControlledByAI()
+#=====================================================================
+text: Light MG
+description: Light Machine Gun is good for single target\nChanging weapon type reduce energy by 2\n\nTarget: Land\Air, Dmg: ${LMachineG}, Ammo: 60, Rng: 250\n40% vs Structure, 100% vs units
+#=====================================================================
+
+addResources: unsetFlag=4-7, setFlag=${pr}
+isGuiBlinking: if self.hasFlag(id=${pr})
+
+iconImage: ROOT:data\icons\old_${pr}.png
+temporarilyAddTags: weaponT_1
+temporarilyRemoveTags: weaponT_2, weaponT_3, weaponT_4
+
+alsoTriggerAction: ai_timerReset
+
+showQuickWarLogToPlayer: Weapon set! | Light Machine Gun
+#--------------------------------------------
+#Bruh
+#iconExtraImage: ROOT:data\icons\select.png
+#iconExtraColor: #64FFFFFF
+#iconExtraIsVisible: if self.hasFlag(id=${pr})
+#--------------------------------------------
+[action_press2]
+@define pr: 5
+@copyFromSection: action_press1
+text: HE Bomb
+description: High Explosive Bomb is good for multiple targets and subs\n 10% chance deal critical damage and penetrates shield and armor \nChanging weapon type reduce energy by 2\n\nTarget: Land\Subs, Dmg: ${bombLand}\${bombDC}, Ammo: 1, Rng: 310\n120% vs Structure, 100% vs units
+temporarilyAddTags: weaponT_2
+temporarilyRemoveTags: weaponT_1, weaponT_3, weaponT_4
+
+showQuickWarLogToPlayer: Weapon set! | High Explosive Bomb
+[action_press3]
+@define pr: 6
+@copyFromSection: action_press1
+text: Micro Missile
+description: Micro Missile is good for multiple or single targets\n Ignore shield and 15% chance to deploy extra micro missile \nChanging weapon type reduce energy by 2\n\nTarget: Land\Air, Dmg: ${microMissile}, Ammo: 6, Rng: 400\n50% vs Structure, 100% vs units
+temporarilyAddTags: weaponT_3
+temporarilyRemoveTags: weaponT_1, weaponT_2, weaponT_4
+
+showQuickWarLogToPlayer: Weapon set! | Micro Missile
+[action_press4]
+@define pr: 7
+@copyFromSection: action_press1
+
+ai_isDisabled: true
+ai_isHighPriority: false
+
+text: Unguided Rocket
+description: Unguided Rocket deals massive damage for multiple or single targets\nHas secondary payload that deploys 2 micro missiles if miss the target\nChanging weapon type reduce energy by 2\n\nTarget: Air, Dmg: ${AArocket+(AArocket/2)}, Ammo: 2, Rng: 310\n 100% vs units, Ignore shield
+temporarilyAddTags: weaponT_4
+temporarilyRemoveTags: weaponT_1, weaponT_2, weaponT_3
+
+showQuickWarLogToPlayer: Weapon set! | AAM Unguided Rocket
+[hiddenAction_EngageFromParent]
+autoTrigger: if self.hasParent(withTag='ReadyGoMain') and not self.hasFlag(id=9) 
+addResources: setFlag=9
+alsoQueueAction: Engage
+[hiddenAction_EngageFromParentOof]
+autoTrigger: if not self.hasParent(withTag='ReadyGoMain') and self.hasFlag(id=9) 
+addResources: unsetFlag=9
+alsoQueueAction: Engage
+[action_Engage]
+ai_isDisabled: true
+isActive: if not self.tags(includes='return_${leyteC}')
+#isVisible: if not self.tags(includes='return_${leyteC}')
+isVisible: false
+isGuiBlinking: if self.hasFlag(id=8)
+highPriorityQueue: true
+pos:0.2
+
+text: [ ENGAGE ]
+buildSpeed: 0s
+iconImage: ROOT:data\icons\launch.png
+
+addResources: setFlag=8, Enge=1
+alsoTriggerAction: EngageOof
+temporarilyAddTags: ReadyGo
+[action_EngageOoOo]
+ai_isDisabled: true
+isActive: if self.tags(includes='return_${leyteC}')
+#isVisible: if self.tags(includes='return_${leyteC}')
+isVisible: false
+isGuiBlinking: if self.hasFlag(id=8)
+pos:0.2
+
+text: [ LANDING ]
+buildSpeed: 0s
+iconImage: ROOT:data\icons\land.png
+
+addResources: setFlag=8, Enge=1
+alsoTriggerAction: EngageOof
+[hiddenAction_EngageOof]
+requireConditional: if self.hasFlag(id=8) and self.hasResources(Enge=2) 
+addResources: unsetFlag=8, Enge=-2
+temporarilyRemoveTags: ReadyGo
+[resource_Enge]
+displayName: Engage
+hidden: true
+[hiddenAction_ReadyGo???]
+autoTrigger: if self.hasFlag(id=8) and self.hasResources(Enge=1) and not self.tags(includes='ReadyGo')
+temporarilyAddTags: ReadyGo
+#--------------------------------------------------Experimental 
+[hiddenAction_resetWTagI]
+@define wt: 1
+autoTrigger: if self.hasFlag(id=${wt+3}) and not self.tags(includes='EnergyFull_${wt}')
+temporarilyAddTags: weaponT_${wt}
+[hiddenAction_resetWTagII]
+@define wt: 2
+@copyFromSection: hiddenAction_resetWTagI
+[hiddenAction_resetWTagIII]
+@define wt: 3
+@copyFromSection: hiddenAction_resetWTagI
+[hiddenAction_resetWTagIV]
+@define wt: 4
+@copyFromSection: hiddenAction_resetWTagI
+#-----------------------------------------------------------------------------------AMMO TYPES END
+#Indicator?
+[action_gaugeTempI]
+#I
+displayType: infoOnlyNoBox
+text: Leyte ${leyteC}
+description: limits 10 Leyte Class aircraft carrier
+isVisible: if self.tags(includes='leyteT=${leyteC}')
+buildSpeed: 0s
+pos: 20
+#====================Starting Drone
+[hiddenAction_startingDrones]
+autoTrigger: if not self.hasFlag(id=1) and self.tags(includes='leyteT=${leyteC}')
+addResources: setFlag=1 
+alsoQueueAction: droneBuild
+[action_droneBuild]
+text: Drone ${leyteC}
+description: -Uncontrollable drone\n-Deployed via Drone Carrier\n-Can attack ground and air.
+price: ${Dprice}
+buildSpeed: 3s
+isVisible: false
+isActive: false
+
+whenBuilding_playAnimation: buildA
+
+isLocked: if not self.resource(greaterThan=0, type='Drone_${leyteC}')
+isLockedMessage: Maximum amount already being built.
+
+produceUnits: drone_${leyteC}*4
+canPlayerCancel: false
+#iconImage: drone.png
+unitShownInUI: drone_${leyteC}
+pos: 1
+#====================Starting Drone END
+[hiddenAction_droneBuildReplacement]
+autoTrigger: if self.hasResources(Drone_${leyteC}=1) and self.hasFlag(id=1) and not self.hasFlag(id=2) and not self.hasFlag(id=3) and not self.queueSize(greaterThan=0)
+requireConditional: if self.hasResources(credits=${Dprice})
+addResources: setFlag=2, credits=-${Dprice}
+alsoQueueAction: droneBuildRRRR
+#playAnimation: buildB
+[action_droneBuildRRRR]
+buildSpeed: 6s
+isVisible: false
+isActive: false
+produceUnits: drone_${leyteC}
+addResources: unsetFlag=2
+whenBuilding_playAnimation: buildB
+#=================================Autobuild
+
+[action_brokenBuild]
+displayType: infoOnly
+isLocked: if not self.hasResources(Drone_${leyteC}=0) and self.queueSize(greaterThan=0)
+price: credits=${Dprice}
+isActive: true
+buildSpeed: 0s
+text: Build Drones
+description: Click only if carrier stop\broke building drones
+alsoQueueAction: droneBuildRRRR
+addResources: setFlag=1-2, unsetFlag=3
+[action_rebuild]
+text: Auto Rebuild
+buildSpeed: 0s
+description: [Rebuilds lost drones automatically].\n-Cool look'n Controllable UAV\n-A compact drone, virsatile and easy to manufacture\n-Deployed via Drone Mech Carrier\n-Can attack ground, air and subs, depends equiped weapon\nPrice:${Dprice}, Build time: 6s
+isGuiBlinking: if not self.hasFlag(id=3)
+
+iconImage: droneicon.png
+#unitShownInUI: drone_${leyteC}
+
+highPriorityQueue: true
+isActive: true
+isVisible: true
+addResources: autoB=1, setFlag=3
+alsoTriggerAction: unflag
+pos: 1
+[hiddenAction_unflag]
+requireConditional: if self.hasFlag(id=3) and self.hasResources(autoB=2) 
+addResources: unsetFlag=3, autoB=-2
+[resource_autoB]
+displayName: Oof
+#=================================Autobuild END
+[hiddenAction_ReturnFromParent]
+autoTrigger: if self.hasParent(withTag='return_Main') and not self.hasFlag(id=10)
+requireConditional: if not self.transportingCount(greaterThan=3) 
+addResources: setFlag=10
+alsoQueueAction: Return
+alsoTriggerAction: RetuernG, RetuernA
+
+
+[hiddenAction_RetuernG]
+requireConditional: if self.tags(includes='GuardMe_${leyteC}') and self.hasFlag(id=11)
+addResources: unsetFlag=11, unsetFlag=13, guarddd=-1
+temporarilyRemoveTags: GuardMe_${leyteC}
+
+[hiddenAction_RetuernA]
+requireConditional: if self.tags(includes='ScatterMe_${leyteC}') and self.hasFlag(id=12)
+addResources: unsetFlag=12, unsetFlag=14, atttacMMM=-1
+temporarilyRemoveTags: ScatterMe_${leyteC}
+
+
+[action_Return]
+isActive: true
+isGuiBlinking: if self.transportingCount(lessThan=4)
+#isVisible: if self.transportingCount(lessThan=4)
+isVisible: false
+buildSpeed:0
+displayType: action
+pos:0.3
+canPlayerCancel: false
+allowMultipleInQueue: false
+highPriorityQueue: true
+
+text: Return
+
+isLocked: if self.transportingCount(greaterThan=3)
+isLockedMessage: Cannot and dont press it
+
+iconImage: ROOT:data\icons\l_Return.png
+temporarilyAddTags: return_${leyteC}
+resetCustomTimer: true 
+
+[hiddenAction_ReturnOof22]
+resetCustomTimer: true 
+temporarilyAddTags: return_${leyteC}
+
+[hiddenAction_ReturnOof]
+autoTrigger: if self.tags(includes='return_${leyteC}') and self.customTimer(laterThanSeconds=3)
+temporarilyRemoveTags: return_${leyteC}
+addResources: unsetFlag=10
+#=========================================================Guard Me
+
+
+[action_Guard] 
+autoTrigger: if not self.isControlledByAI() and self.hasParent(withTag='GuardTheCarrier') and not self.hasFlag(id=11)
+
+ai_isDisabled: if not numberOfUnitsInEnemyTeam(greaterThan=0, withinRange=${gurdMe})
+ai_isHighPriority: if not self.hasFlag(id=16) and not self.tags(includes='aiGuardMeBois') and numberOfUnitsInEnemyTeam(greaterThan=0, withinRange=${gurdMe})
+
+isActive: true
+isVisible: if self.isControlledByAI()
+isGuiBlinking: if self.hasFlag(id=11)
+buildSpeed:0
+displayType: action
+pos:0.4
+canPlayerCancel: false
+allowMultipleInQueue: false
+highPriorityQueue: true
+isLocked: if self.hasFlag(id=8) 
+isLockedMessage: Cannot guard while 'engage' is active
+
+text: GUARD Parent
+description: [Guard Me]\nPrioritized protecting the carrier\nand nearby allies
+
+iconImage: ROOT:data\icons\guard.png 
+iconExtraImage: ROOT:data\icons\lock.png
+iconExtraIsVisible: if self.hasFlag(id=8)
+temporarilyAddTags: GuardMe_${leyteC}
+addResources: setFlag=11, guarddd=1
+alsoTriggerAction: GuardOof, GuardOofA, GuardMeBoisA
+[hiddenAction_UnGuardMe_New]
+autoTrigger: if not self.isControlledByAI() and not self.hasParent(withTag='GuardTheCarrier') and self.hasFlag(id=11)
+alsoQueueAction: Guard
+[action_ATTACKMOVE] 
+@copyFromSection: action_Guard
+autoTrigger: false
+
+isGuiBlinking: if self.hasFlag(id=12)
+isVisible: true
+text: DISPERS
+description: [Disperse and attack]\nScouting random area and \nPrioritized attacking nearby units
+isLockedMessage: Cannot attack move while 'engage' is active
+isLockedAlt: if self.hasFlag(id=11)
+isLockedAltMessage: Carrier is currently Guarding
+
+iconImage: ROOT:data\icons\deploy2.png 
+temporarilyAddTags: ScatterMe_${leyteC}
+addResources: setFlag=12, atttacMMM=1
+alsoTriggerAction: ATTACKMOVEOof, ATTACKMOVOofA 
+
+[hiddenAction_GuardOof] 
+requireConditional: if self.hasFlag(id=11) and self.hasResources(guarddd=2) 
+addResources: unsetFlag=11, unsetFlag=13, guarddd=-2
+temporarilyRemoveTags: GuardMe_${leyteC}
+alsoTriggerAction: ReturnOof22
+[hiddenAction_GuardOofA] 
+requireConditional: if self.hasFlag(id=12) and self.hasResources(atttacMMM=1) 
+addResources: unsetFlag=12, atttacMMM=-1
+temporarilyRemoveTags: ScatterMe_${leyteC}
+temporarilyAddTags: GuardMe
+
+
+[hiddenAction_ATTACKMOVEOof] 
+requireConditional: if self.hasFlag(id=12) and self.hasResources(atttacMMM=2) 
+addResources: unsetFlag=12, atttacMMM=-2
+temporarilyRemoveTags: ScatterMe_${leyteC}
+alsoTriggerAction: ReturnOof22
+[hiddenAction_ATTACKMOVOofA] 
+requireConditional: if self.hasFlag(id=11) and self.hasResources(guarddd=1) 
+addResources: unsetFlag=11, unsetFlag=13, guarddd=-1
+temporarilyRemoveTags: GuardMe_${leyteC}
+temporarilyAddTags: GuardMe
+
+
+[resource_guarddd]
+displayName: GUARD
+hidden: true
+[resource_atttacMMM]
+displayName: ATTACKMOVE
+hidden: true
+
+
+[hiddenAction_GuardMePlsGo]
+autoTrigger: if self.tags(includes='GuardMe_${leyteC}') and numberOfUnitsInTeam(withTag='EnergyFull_${leyteC}', greaterThan=3) and not self.hasFlag(id=8) and not self.hasFlag(id=13)
+requireConditional: if self.transportingCount(greaterThan=3)
+alsoQueueAction: unload
+addResources: setFlag=13
+
+[hiddenAction_ScatterMeOof]
+autoTrigger: if self.tags(includes='ScatterMe_${leyteC}') and numberOfUnitsInTeam(withTag='EnergyFull_${leyteC}', greaterThan=3) and not self.hasFlag(id=8) and not self.hasFlag(id=14)
+requireConditional: if self.transportingCount(greaterThan=3)
+alsoQueueAction: unload
+addResources: setFlag=14
+
+
+[hiddenAction_GuardMeOnlud_A]
+autoTrigger: if self.tags(includes='GuardMe_${leyteC}') and self.numberOfAttachedUnits(withTag='EnergyFull_${leyteC}', greaterThan=0) and self.numberOfAttachedUnits(withTag='EnergyFull_${leyteC}', lessThan=2) and not self.transportingCount(greaterThan=1) and not self.hasFlag(id=8) and not self.hasFlag(id=13)
+requireConditional: if self.transportingCount(greaterThan=0)
+alsoTriggerAction: unloadIV
+[hiddenAction_GuardMeOnlud_B]
+autoTrigger: if self.tags(includes='GuardMe_${leyteC}') and self.numberOfAttachedUnits(withTag='EnergyFull_${leyteC}', greaterThan=1) and self.numberOfAttachedUnits(withTag='EnergyFull_${leyteC}', lessThan=3) and not self.transportingCount(greaterThan=2) and not self.hasFlag(id=8) and not self.hasFlag(id=13)
+requireConditional: if self.transportingCount(greaterThan=0)
+alsoTriggerAction: unloadIV
+[hiddenAction_GuardMeOnlud_C]
+autoTrigger: if self.tags(includes='GuardMe_${leyteC}') and self.numberOfAttachedUnits(withTag='EnergyFull_${leyteC}', greaterThan=2) and self.numberOfAttachedUnits(withTag='EnergyFull_${leyteC}', lessThan=4) and not self.transportingCount(greaterThan=3) and not self.hasFlag(id=8) and not self.hasFlag(id=13)
+requireConditional: if self.transportingCount(greaterThan=0)
+alsoTriggerAction: unloadIV
+
+[hiddenAction_ScatterMeOnlud_A]
+autoTrigger: if self.tags(includes='ScatterMe_${leyteC}') and self.numberOfAttachedUnits(withTag='EnergyFull_${leyteC}', greaterThan=0) and self.numberOfAttachedUnits(withTag='EnergyFull_${leyteC}', lessThan=2) and not self.transportingCount(greaterThan=1) and not self.hasFlag(id=8) and not self.hasFlag(id=14)
+requireConditional: if self.transportingCount(greaterThan=0)
+alsoTriggerAction: unloadIV
+[hiddenAction_ScatterMeOnlud_B]
+autoTrigger: if self.tags(includes='ScatterMe_${leyteC}') and self.numberOfAttachedUnits(withTag='EnergyFull_${leyteC}', greaterThan=1) and self.numberOfAttachedUnits(withTag='EnergyFull_${leyteC}', lessThan=3) and not self.transportingCount(greaterThan=2) and not self.hasFlag(id=8) and not self.hasFlag(id=14)
+requireConditional: if self.transportingCount(greaterThan=0)
+alsoTriggerAction: unloadIV
+[hiddenAction_ScatterMeOnlud_C]
+autoTrigger: if self.tags(includes='ScatterMe_${leyteC}') and self.numberOfAttachedUnits(withTag='EnergyFull_${leyteC}', greaterThan=2) and self.numberOfAttachedUnits(withTag='EnergyFull_${leyteC}', lessThan=4) and not self.transportingCount(greaterThan=3) and not self.hasFlag(id=8) and not self.hasFlag(id=14)
+requireConditional: if self.transportingCount(greaterThan=0)
+alsoTriggerAction: unloadIV
+
+#addResources: setFlag=14
+#===============================================================================Drone command END
+#Carrier attachment
+[attachment_drone_weapon]
+x: 0
+y: 0
+#isVisible:false
+idleDir:0
+lockRotation:false
+onCreateSpawnUnitOf: LeyteSec
+canBeAttackedAndDamaged: false
+isUnselectable: true
+#lockLegMovement:false
+canAttack:true
+keepAliveWhenParentDies:false
+prioritizeParentsMainTarget:true
+
+[attachment_drone_I]
+x:-7
+y:-57
+height:0
+isVisible:true
+keepAliveWhenParentDies:false
+setDrawLayerOnTop:true
+addTransportedUnits:true
+canBeAttackedAndDamaged:true
+isUnselectable: true
+canAttack: true
+idleDir: 0
+deattachIfWantingToMove: false
+prioritizeParentsMainTarget:true
+alwaysAllowedToAttackParentsMainTarget: true
+lockRotation:true
+lockLegMovement:true
+[attachment_drone_II]
+@copyFromSection: attachment_drone_I
+#y:-37
+y:-40
+[attachment_drone_III]
+@copyFromSection: attachment_drone_I
+#y:-17
+y:-23
+[attachment_drone_IV]
+@copyFromSection: attachment_drone_I
+#y:3
+y:-6
+#===============================================================================Carrier attachment END
+#Weapon type indicator 
+[arm_1]
+#Light MG
+@define ffff: 4
+x:0
+y:-0.5
+#hidden: if not self.hasFlag(id=${ffff})
+hidden: if not self.tags(includes='weaponT_${ffff-3}')
+image_end:wt_${ffff-3}.png
+image_end_teamColors: true
+drawOverBody: true
+[arm_2]
+#HE Bomb
+@define ffff: 5
+@copyFromSection: arm_1
+[arm_3]
+#Micro Missile
+@define ffff: 6
+@copyFromSection: arm_1
+[arm_4]
+#Unguided Rocket
+@define ffff: 7
+@copyFromSection: arm_1
+
+
+
+
+
+
+
+
+
+
+
+

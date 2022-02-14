@@ -1,0 +1,78 @@
+[core]
+name: phaseBomber_Empty_${shokaku_D}
+#displayText: S-I_AC-I
+#displayDescription: -Attack all nearby idiots
+class: CustomUnitMetadata
+showInEditor:false
+armour: 30
+
+copyFrom:common_phaseBomber.template
+
+#maxShield: 1000
+#shieldRegen: 10
+#shieldRenderRadius: 1
+#selfRegenRate:0.5
+energyRegen: 0.07
+disableAllUnitCollisions: true
+
+generation_resources: hp=0.01
+generation_active: if not self.hasParent() and self.hasFlag(id=7)
+generation_delay: 1
+
+canNotBeDirectlyAttacked: true
+isUnselectable:true
+canNotBeGivenOrdersByPlayer:true
+showOnMinimap: false
+
+
+[hiddenAction_Armed]
+autoTrigger: false
+
+[hiddenAction_TriggerReturn]
+#Empty
+autoTrigger: false
+[hiddenAction_resetTagsGS]
+autoTrigger: false
+[action_ZipZap!]
+autoTrigger: false
+addResources: unsetFlag=0
+
+[hiddenAction_emplty]
+#Empty
+autoTrigger: if self.isEnergyFull()
+convertTo: phaseBomber_${shokaku_D}
+playSoundAtUnit: ROOT:data\soundFx\phase_cloak_deactivate.ogg: 0.5
+addResources: setFlag=29
+[hiddenAction_nOTfiR]
+autoTrigger: false
+[action_abortMission]
+#autoTrigger: false
+[arm_8]
+@copyFromSection: arm_1
+@define part: phaseBomber
+
+x:0
+y:0
+drawDirOffset: 0
+hidden: true
+[graphics]
+image:  phaseBomber_phaseMode.png
+movementEffect: CUSTOM:smokeTPII
+movementEffectRate: 6
+[attack]
+
+#attackMovement:bomber
+
+
+canAttack: false
+canAttackFlyingUnits: false
+canAttackLandUnits:   false
+maxAttackRange: ${range}
+[movement]
+movementType: AIR
+moveSpeed: 2.5
+
+moveAccelerationSpeed:0.2
+
+maxTurnSpeed: 0.8
+turnAcceleration: 0.03

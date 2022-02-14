@@ -1,0 +1,104 @@
+#Trinity btm
+#[projectile_1]
+
+#explodeEffect: CUSTOM:flareExplo, CUSTOM:areaShock2, CUSTOM:areaShock, CUSTOM:sparks*15, CUSTOM:lightningShock, CUSTOM:flash, CUSTOM:explosion1, CUSTOM:explosion2
+
+[effect_areaShock]
+life: 60
+priority: high
+image: ROOT:data\images\shockwave.png
+fadeOut: true
+attachedToUnit: true
+color: #00ffff
+scaleTo: 0.8
+scaleFrom: 0
+alpha:0.2
+
+
+[effect_areaShock2]
+life: 30
+priority: low
+image: ROOT:data\images\windWoosh.png
+fadeOut: true
+scaleTo: 4.5
+scaleFrom: 0
+attachedToUnit: true
+color: #00FFFF
+alpha: 1
+dirSpeed: 100
+
+
+[effect_sparks]
+attachedToUnit: false
+life: 75
+xSpeedRelativeRandom: 3.5
+ySpeedRelativeRandom: 3.5
+image: SHARED:spark.png
+priority: verylow
+scaleTo: 2.5
+scaleFrom: 2.5
+physics: true
+physicsGravity: 0.1
+hOffset: 1
+
+
+[effect_lightningShock]
+life: 120
+dirOffset: 0
+fadeOut: true
+attachedToUnit: true
+alpha: 0.15
+scaleFrom: 6
+scaleTo: 0
+image: SHARED:lightning_shock.png
+total_frames: 14
+animateFrameStart: 0
+animateFrameEnd: 13
+animateFramePingPong: false
+animateFrameSpeed: 0.3
+alsoPlaySound: missile_hit: 0.45
+
+
+[effect_flash]
+life:40
+atmospheric: true
+xOffsetRelativeRandom: 3
+yOffsetRelativeRandom: 3
+image: ROOT:data\images\light_2.png
+dirOffsetRandom: 30
+scaleFrom: 0.2
+scaleTo: 0.2
+alpha: 0.5
+
+
+[effect_explosion1]
+life: 200
+scaleFrom: 2.5
+scaleTo: 2
+image: ROOT:data\images\explosion_large.png
+total_frames: 14
+animateFrameStart: 0
+animateFrameEnd: 13
+animateFrameSpeed: 0.25
+
+
+[effect_explosion2]
+life:200
+scaleFrom: 4.5
+scaleTo: 4
+image: ROOT:data\images\explosion_large2.png
+total_frames: 14
+animateFrameStart: 0
+animateFrameEnd: 13
+animateFrameSpeed: 0.25
+alpha: 0.3
+
+
+[effect_flareExplo]
+image: ROOT:data\images\explosionFlare.png
+life: 60
+fadeOut: true
+scaleFrom: 1
+scaleTo: 1
+alwayStartDirAtZero: true
+alpha: 0.9

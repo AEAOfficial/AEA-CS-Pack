@@ -1,0 +1,1100 @@
+
+-fix typhoon
+-Add transport
+-Add SNIPER turret
+
+-Increase mechgantry upgrade time: 60s - 80st3 
+
+-Idea for black guard. Add a t1 unit called the “Lightning Bug”, a small $850 unit that can crawl on ground, dive under water, and fly. It has a short ranged Tesla attack that’s fairly weak, about the same as the normal interceptor from AEA. This will be a good counter to heavy interceptors, attack jets, and subs
+Tesla does less damage to buildings so there won’t be much issue of it being spammed for back door shenanigans. Make it not attack air while crawling, has to be flying to attack air. When flying it can only attack air, not ground.
+
+-Fix generator global resource
+----------------------------------------------------------------------------
+=New Toy=
+  >[Modular Mech]< T2
+  >[Orion]< Experimental
+  >[Siegfried]< Experimental
+	
+=Units=
+[Mist]
+    |-Build time nerf to 10.5 from 7s
+[Reparature mech]
+    |-Uber charge can no longer be canceled when queued
+[Gun Mech]
+    |-Price increase to 6100 from 5800
+[Leyte]
+    |-Carrier can no longer auto aim and must be ordered manually
+	    >Can no longer retarget (clear targetting once the drones is launched)
+    |-Pocknet drone rearm time decrease by 30%
+	    >Mirco missile 50% vs sheild (no longer ignore shield)
+	|-Guard stance can only operate within 1000 range
+[Shokaku]
+    |-Carrier can no longer auto aim and must be ordered manually
+		>Can no longer retarget (clear targetting once the drones is launched)
+	|-Switching weapon set IV cost 8 energy
+[AEA Fire Bee]
+    |-Unit cap: 20
+[AEA Achilles]	
+    |-Added 10 armor PEN
+[AEA Bohemoth Tank]
+    |-Significantly improved	
+	
+=Module=
+[Snow Ball]
+    |-Hp to 5 from 50
+[Demo Charge]
+    |-Nerf from 240 aoe to 180 
+[Repair Pulse]
+    |-Buff from 25 a pulse to 50	
+	|-Price from 9000 to 6000
+[Shield Module]
+    |-Charge rate nerfed
+	
+- Tyrant Removed		
+----------------------------------------------------------------------------
+=Units=
+[Glitch Bot]
+    |-Smol Fix
+	|-Added few animation
+    |-Sword wave and plasma ball are now separate skill	
+	    >plasma ball change to Hyakuhachi Pound Ho (new effect)
+	|-Iai slightly reduce damage but faster cast time (no nodachi)
+	|-New Nodachi crit effect 
+	    >Nerf travel range (No longer hits many units)
+		>Lower double crit chance
+	_all skills_
+        >Hyakuhachi Pound Ho
+        >Sword Wave
+      	>Iai
+       	>Nodachi (Ultimate)	
+[AEA Missile airship]	
+    |-Projectile back to default, missile velocity increased
+[AEA Nuclear drone]	
+    |-Movement speed from 1.75 to 1.9
+=Module=
+    New
+	[Snow Ball]
+
+----------------------------------------------------------------------------
+=Units=
+[Mini VLS]
+    |-Second stage Incrases missile velocity by 70%
+	|-Shows vls range
+[Repairature mech]
+    |-Land mine (mist) remove from buil list
+    |-Can build Deployed mini mlrs	
+[Odoragon]
+    |-Can now install Light MG |Cannot install precision beam, AA particle beam, AA rocket|
+	|-Can no longer traverse on water (Movement slowed by 50% and decrease damage by 20% for 2s)
+	|-Can only install one module slot
+	|-Added ability "Napalm Barrage"
+[AA Rocket Mech]	
+    |-Overwrite
+	   >Expired rocket now explodes dealing 70 dmg 60 AoE, friendly fire
+[Plasma Beetle]
+   	|-Plasma Ram can be stop by following units 
+	   >AEA Bunker Turret
+	   >AEA T6-8 Extractor
+       >AEA 'Deployed' Heavy mobile turret
+	   >AEA 'Deployed' Exp Turtle
+	   >AEA 'Deployed' Dreadnought
+       >AEA 'Deployed' Leviathan
+	   >BGC 'Deployed' Heavy mobile turret
+       >BGC T4-5 Extractor	
+	   >BGC 'Deployed' Tyrant
+	    |-Once collided the remaining energy reduced to zero
+		(sometime doesnt detect tags from extractors)
+[Shokaku]
+    |-3X autocannons damage nerf by 50%
+	|-Switching weapon set increase energy cost from by 2
+	    [Aichi drone]
+		|-Hp nerf from 1500 to 1300
+		|-When return to parent carrier, energy/ammo/charges reset to zero
+		|-When taking damage Takes 1 second before they phase warp 
+		|-Phase warp cooldown: 5 seconds
+		|-Drop bombs 3 times 
+		|-Weapon Set II
+		    >Magic missile even more less damage to structures
+			>Damage nerf from 220 to 125 (50 vs structures)
+		|-Weapon Set III
+		    >Now properly fly circle around the target, disable if controled by player with waypoint 'move'
+		        automatically enable if waypoint 'attack' or 'attackmove' is active 
+		    >Shield pool increase from 300 to 650 (Note: shield only active on weapon set III)
+			>M137 Cannon increase attack rate from 3 to 2.3 (ammo: 10)
+			>M137 Cannon decrease damage from 135 to 125
+			>L60 Bofors reduce reload time from 6 to 4
+			>MG range increase from 220 to 270
+			>All weapon has 30% less damage to shield
+			>All hardpoint limiting angle reduce from 105° to 50° 
+	    |-Weapon Set IV
+		    >Nerf Damage from 1000 to 500 (1000 vs structure) 
+			>Explosion delay increase from 1 to 2 seconds
+			>Remove nuke effect (causing psychological trauma)
+			>Recharge rate is better (Switching weapon set took 50% energy)
+			>To sum up, 2 drones drops 3 bombs dealing total 3000 damage (if drops all bombs on same spot), equevalent to Grandslam
+[Black Jack]
+    |-Melee mode: 
+	    >Precision beam adapts parent range	
+		>AA particle beam disable
+		>Retrofit: SAM disable
+[Daemon]
+    |-Flak: no longer ignore shield, 80% vs sheild
+	|-Gunship Mode: fix turn rate (turn rate: 0.7)	
+[Apollo II]
+    |-Range nerf from 480 tp 400		
+	|-AA rocket no longer ignore shield, nerf damage, decrease attack rate
+	|-Flak nerf damage, decrease attack rate
+	|-Can build stuff
+	|-Delta Shield
+	    |-Now active ability
+		|-Hp regen decrease from 0.3% to 0.2%
+#	|-Can produce $20 and 10U
+=Module=
+[Precision Beam]
+    |-Unit that can no longer install this module
+	    >AA Rocket Mech
+		>Heavy AA Mech
+		>Kashtan (Exp AA Mech)	
+=AEA=
+[Dreadnought]
+    |-No longer a building when deployed 
+        >Reason: Plasma beetle has 250% vs structure 
+----------------------------------------------------------------------------
+=New Toys=
+    |- >> [Gun Mech] T2
+=Revamp
+    |- >> [Black jack]
+=Units=
+[Mini Napalm]
+    |-Remove from AEA build list
+[Vigorous]
+    |-Push force removed	
+[Odogaron]
+    |-Module: Shuriken can no longer target air 
+[Mini Samurai]	
+    |-Fix mini samurai buff glitch 
+[Leyte]	
+    |-Drone nerf 
+	    |-Micro missile range from 400 to 310
+		|-Bomb range from 310 to 280 (depthcharge 150)
+	|-Micro	missile decrease retarget range from 300 to 250
+[Plasma Beetle]
+    |-Nerf beam damage by 40%
+    |-Bean have 100 armor pen
+[Glavenus]
+    |-Fix Namo launcher	
+	|-Added two module slots
+[Honey Badger]
+    |-Movement speed slightly reduce from 0.8 to 0.75	
+[Comanche]
+    |-Range nerf from 230 to 220
+[Bomber Mech]
+    |-50% less damage to structure removed	
+	|-Dead sprite fix
+	|-Death fall fix
+[Kashtan]
+    |-Ability 'Radar' can debuff cloak/invisibility	
+	    |-Unit affected: Ghost, Sniper, Phantom Scout,
+		  Okhotnik (forced to surface and unable to submerge)
+	|-Price increase from 28000 to 30000
+[Vagabond]
+    |-Building Decoy decrease energy cost by 50% 	
+[Shokaku]
+    |-Weapon Set III changed, 
+        |-Ion cluster Bomb remove, replace with cannons
+		|-Now it act like AC-130 gunship
+	|-When phasing no longer self regen and bonus shield remove
+	
+=AEA=
+[Helicopter]
+    |-Transported infantry able to attack (hardpoint)
+	    |-Except Mortar 
+[landmine]
+    |-Price from 900 to 800	
+	|-Added manual detotator 
+	|-Auto detonate queue time decrease from 10 to 2 seconds
+	|-Animation fix, (disabled if deactivated), more visible 
+[T1 missile airship]	
+    |-Buff range from 220 to 240
+[Dropship]
+    |-Price increase to 1000
+	|-Exit_moveAwayAmount lower from 140 to 10 
+	    |-Unloaded unit no longer move faraway 
+[Nautilus]
+    |-Buff range from 240 to 280
+[Exp Turtle]
+    |-Can now be targeted by subs
+
+#----------------------------------	
+the rest Update from AEA version 1.5.1f	
+#----------------------------------
+	
+=Module=
+ 	Added> PushForce retrofit (from light mg module)
+[Tesla gun]
+	|-Changed to Tesla Orb  
+[Turtle Core]
+    |-Uprade T2 buff +0.01 energy/tick	
+    |-Show energy cap
+[Laser defence]	
+    |-Show energy cap
+=Structures=	
+[Generator]
+    |-Increase Blast damage (maximum: 8000, AoE: 320)
+	|-Better nuke experience 
+	|-Nerf Hp from 600 to 300 (maximum hp: 600)
+	|-Now damage everything around it, including allies
+-BGC repair effect changed 	
+----------------------------------------------------------------------------
+=New Toys=
+    |- >> [Laser Turret] upgraded from Pop Turret
+	|- >> [Mini Napalm] T1
+
+=Units=
+[Lightning Bug]
+    |-Can fly while submerge
+[Beam Crab]
+    |-Vision increased
+    |-No longer auto attack	
+[Mini Samurai]
+    |-Price from 2100 to 1800
+[Mist]
+    |-Price from 900 to 575
+	|-Range increase from 3 to 17
+	|-Detonates on death
+	|-Fix disarm
+	|-Cannot attack while deploying
+	|-Invisible when deployed
+[Broken Mech]
+    |-Added 500 shield pool
+    |-Can now install sheild generator and turtle core
+[Plasma Beetle]
+    |-Increase plasma beetle turn rate 
+    |-Buff plasma ram damage to structure from 200% to 250%
+    |-Buff armor while ramming from 15 to 30
+    |-Ability: Plasma Ram change to global cast target point (Travel range still same)
+    |-Rotate faster and quicker cast time (1.8s) 
+    |-No longer takes ceneturies to rotate
+    |-No longer continue dealing damage when plasma ram stopped 
+    |-Quick Ram is much more faster to activate	
+	|-Added smol bug
+[Kashtan]
+    |-Cost 28000$, 1500 U
+	|-Ion Flak reduce damage by 40%
+    |-Ion Flak Increase inaccuracy from 10° to 15°
+	|-Ion secondary projectile reduce spawn chance from 60% to 30%
+	|-Nerf Missile 
+	|-Nerf Rearm time from 7 to 15 seconds
+[Okhotnik]
+    |-Cost 55OOO$, 2750 U
+[Shokaku]
+    |-Cost 57500$, 2000 U
+	|-Aichi drone phase mode
+	    |-Slightly reduce duration 
+		|-Nerf Movement from 3.1 to 2.5 (Phasing)
+		|-Nerf phase cooldown from 3 to 5 seconds
+	|-Meteor Bomb 
+	    |-Has 0.4 second acquisition time
+		|-50% Less damage to experientals 
+	>I'll like to add +2 drones init..... nvm	
+[Widow]
+    |-Upgrades cost uranium
+	|-Can now produce uranium [T1> 1U, T2> 2U, T3> 4U]
+	|-Can move while upgrading
+    |-Downgrade queue time reduce from 60s to 10s
+    |-Rocket modification II cost 24000$ and 1500 U	
+	    |-Downgrade has no refund
+		|-Deflection power nerf from 2 to 1
+[Shikishima]	
+    |-Added two active abilities 'Sword Wave' and 'Iai'
+	|-Better death animation
+	|-Nerf Nodachi Cooldown from 100 to 120
+	    |-Bonus movement speed nerf from 2.1 to 1.1
+		|-Nodachi Duration prolong (However Using 'Iai' diminishes the duration by half)
+		|-Casting 'Iai' Consume energy both nodachi and sword wave
+		|-Kill bonus energy remove
+	|-Cero total damage reduce from 800 to 400
+	    |-Life steal still untouch
+[Daemon]
+    |-Can enter to warp mech stargate wormhole (Gunship mode)
+[Apollo Mk I]
+    |-Added secondary auto cannon 	
+	|-Added 2 torpedo launchers
+	|-Stonks
+	|-Turn rate slightly slower
+[Apollo Mk II]
+    |-Can no longer transported by warp mech
+    |-Can enter to warp mech stargate wormhole
+[Vagabond]
+    |-Can summon Shikishima	by summoning circle
+[AEA Hacker]
+    |-Minor fix	
+[AEA Flying Fortress]
+    |-Ban hacker
+    |-Movement speed from 1.1 to 1.0
+    |-Builds nano factory units half as fast	
+[AEA Heavy AA mech]
+    |-Remove light plasma (No longer targets surface unit)		
+[AEA Tesla Tank]
+    |-Price 4200
+[AEA Experimental Mech]
+    |-Buff range from 310 to 320
+    |-Buff AA by 25% 
+[AEA Experimental Turtle]	
+    |-Enter Shell Mode ability no longer extend range (Fixed range: 310) and 20 armor
+        |-Nerf overall damage by 10% 
+	|-Shell mode have resistant to shikishima sword waves
+[AEA ZEUS]
+    |-Hp nerf from 8k to 7k	
+[AEA Sabar]
+    |-Movement speed from .7 to .8
+	
+=Module=
+[Light MG]
+    |-Retrofit: Tesla gun 
+        |-Damage: 40, attack rate: 2s, strong vs shield	
+	|-Offense module no longer move while attacking
+	
+=Structures=	
+[AEA Command Center]
+    |-Added new active ability to temporarily activate a shield for $3000 (to help defend against minigun mech drop)
+[Research Facility]
+    |-Added double and triple resource converter (Converter II and Converter III)
+	|-Added 'Reparatur Buffer' research
+[Dark Extractor]	
+    |-Fix contruction foot print
+	|-Can now target units (Dummy range: 310)
+	|-Tripled Shield pool
+[Pop turret T3]
+    |-Improved
+	|-Cost 8000 has 5500 HP and 300 range
+
+-Added enermy Players high-end experientals death reponses
+----------------------------------------------------------------------------
+=New Toys=
+    |- >> [Apollo I] build from T5 mech gantry and Vagabond
+	|- >> [Bomber Mech] Can only build from Langley 
+	|- >> [Odogaron 'Plasma Flamethrower mech'] build from T3 mech gantry and Tactical Mech
+
+=Units=
+[Basic Mech mk II]
+    |-Build speed reduce from 16 to 10 seconds
+[Langley]
+    |-Price reduce from 6700 to 3500
+[Lightning Bug]
+    |-Price reduce from 850 to 700
+	|-Strong as basic T1 interceptor (air only)
+	|-Lightning reduce to structure from 50% to 40%
+[Mist]
+    |-While Mobilized mist does not deal AoE 
+[Ritter Kampfer]
+    |-Price increase from 6300 to 7500	
+[Shokaku]
+    |-Drone Warp cooldown from 1 to 3 seconds
+	|-Weapon set IV: drop range reduce from 400 to 350
+[Daemon]
+    |-Railgun fix (can now severely damage Apollo II)
+[Apollo]
+    |-Limit from 5 to 2		
+	|-Increase Quad cannon range from 400 to 480
+	|-Secondary weapon "Ion Autocannon" nerf range from 450 to 320
+	|-High velocity roket can no longer extend range | nerf from 600 to fix range 480
+	|-Looks bigger	
+[Plasma Beetle]
+    |-Plasma emitter nerf by 40% damage
+	|-Does not uranium 
+[Ex-Minigun]
+    |-Fix aiming while moving
+    |-Buff shield regen by 50%	
+	|-Nerf warp cooldown from 150 to 180s
+	|-Added extra warp charge (can cast warp twice, 180 sec per charge)
+[Okhotnik]
+    |-Added 4 secondary tubes (for close range attack)
+=Module=
+    |-Light MG: price reduce from 900 to 700	
+    |-Retrofit: Acid Gun: added -40% damage penalty to structure
+	|-Added New Retrofit: Tesla Cannon, requires module I research (strong as tesla tonk)
+	|-T2 repair bot: can build structure >Baker mg, Pop turret, Mech gantry and wall
+
+=Structures=
+[Gateway]
+    |-Remove module restriction (no longer requires research facility and module research)
+    |-Area discharge increase damage from 200 to 250
+	|-Minor fix
+
+[Ping Towet]
+    |-Changed to radar	
+----------------------------------------------------------------------------
+=New Toy=
+    |-Orbital support mech (Vagabond)
+
+=Units=
+[Mist]
+    |-Stacking mist mine remove
+	|-Land Mine abilty, now Target Point/build 
+	|-Self build reduce from 4s to 8s (built from reparator mech)
+	|-Self build (landmine) reduce, equivalent to AEA landmine
+[Ritter Kampfer]
+    |-Tesla wall abilty
+	    |-Submerge if spawn on water, +30% range and connot target surface ship, 
+		  >can hit subs, block ships
+		|-Destroyed if spawn on LAVA
+		|-Reduce damage from 25 to 20
+		|-Reduce range from 310 to 180 
+	|-Can move over cliffs	
+[Reparatur mech]
+    |-Ubercharge repair speed to structure increase from 100% to 200%
+	|-Can build mist landmines and walls
+[Vigorous]
+    |-Can build Basic mech mk2, mini vls, mini mlrs and mini bertha 
+[Ex-Minigun Mech]
+    |-Warp Cast range increase from 250 to 290 (equal to weapon range)
+	|-Warp is now global cast (range still same)
+[Basilisk]
+    |-Added ability: Nuclear Pulse (Requires lvl:5 reactive armor to activate)
+        |-Triggers on death 
+	|-Increase armor while performing tail swipe and ramming 
+	|-Reactive Armor decay nerf from 5 to 10 per sec
+	|-Takes 20 sec to trigger armor decay
+[Shokaku]
+    |-Shokaku drone disable phase/warp if controled by player with waypoints (Move and attack)
+    |-Meteor bomb: added nuke explosion effect 	
+	|-Carrier command improved 
+[Daemon]
+    |-Railgun mode, increase turret traverse speed	
+[Warp mech]
+    |-Can build tactical mech and lightning bugs
+	|-Now cost 40000$ and 1000 U
+[Leyte]
+    |-Carrier command improved
+[Shikishima]
+    |-Increase melee range from 15 to 30 	
+	
+	
+=Structures=
+[Ping Tower]
+    |-Update ping every 10s, ping duration: 10s
+	|-Does not ping new units while in cooldown
+	|-No longer constantly ping units
+[Heavy Lightning Turret]
+    |-Increase turret traverse speed	
+[Thunderer Turret]
+    |-T1 increase range to 360 (equal to AEA t1 arty)	
+[Snipah Turret]
+    |-Projectile cannot be countered by all sort of laser defences	
+	
+AEA	
+- Leviathan feels stronger
+
+fix plasma beetle betrayal	
+----------------------------------------------------------------------------
+Change/Added
+[Langley]
+    |-Added easy multi-queue button
+[Electric Wall]
+    |-95% damage penalty vs structure	
+[Module >Retrofit >Bertha Cannon]
+    |-Revert bertha cannon to fix range 310
+[ShotGun Mech]
+    |-Fix pricision beam module
+[Ping Tower]
+    |-Infantry inmune to ping tower
+	|-Can detect stealth
+	
+few minor fix	
+remove warpmech warning when built	
+----------------------------------------------------------------------------
+=Units=
+[Type3 Mech]
+    |-Dual ion cannon damage reduce from 100 to 63 ()
+	|-Ion cluster missile change to SABOT anti-shield missile 
+	        |-> 60% less damage against Experimental units
+			|-Reduce Missile launch range from 280 to 250
+			|-> 100% vs Units, 250% vs shield, 30% vs structures
+	|-Mini Gun reduce damage
+[Strider]
+    |-Module removed
+[Tactical Mech]
+    |-Can build typhoon turret (requires research: Typhoon Turret)
+[Basilisk]
+    |-Reactive armor disabled
+    |-Added +30 armor
+    |-Increase price to 80000 and 4000 uranium	
+[Ex-Minigun Mech]	
+    |-Increase ammo size from 300 to 400
+[Kashtan]
+    |-Increase Ion flak damage from 5 to 20 | AoE: 30
+	        |-Unlike AEA flak has 100% hit and does wide area damage
+			  Ion flak deal more damage on single target but sacrificing the accuracy
+[Apollo MKII]
+    |-Increase vision
+	|-Longer arrival time: 180+s
+[Warp Mech]
+    |-Can properly transport units
+
+=Structures=	
+[Research Facility]
+    |-Research: Typhoon Turret locked if nuke off	
+	|-Demo strider research removed
+[Typhoon]
+    |-Locked if nuke off
+	
+=Module=
+    |-Minor fix
+	|-[light MG]
+	    |-Added EWS modification
+=added=
+    [Ping Tower]
+	    |-Detects enemy movement
+        |-Units can build:>> Tactical Mech and Widow	
+	[AEA PCW]
+        |-Nano build change to orbital drop	
+		|-Arrival time: 180s
+		
+some units balance by SkaarjLord!
+----------------------------------------------------------------------------
+=Units=
+[Amanda]
+    |-Fix amanda module 
+	|-Mg modification is now locked on amanda
+    |-Laser defense remove from selection
+[type3 mech]
+    |-Nerf ion cannon damage from 135 to 100
+	|-Ion cluster missile fixed
+	    |-Reduce Hp from 100 to 80
+	|-Fix unguided rocket 
+[Mini Samurai]
+    |-Reduce critical damage from 150% to 60%
+	|-Crit armor pen removed
+	|-Armor removed
+	|-Self regen reduce by half
+    |-Fix dash	
+	|-Fix attack
+[Mini MLRS]
+    |-fIX
+	
+=Structures=		
+[Gateway]
+    |-Fix double area discharge 
+	|-Added Thunder strike (Requires upgrade from research facility to enable)
+=added=
+    [Samurai X] (Sandbox only)
+	
+-Tyrant and Glavenus X-shell push force removed	
+----------------------------------------------------------------------------
+-added something new
+-minor fix
+-Added bugs to fix later
+----------------------------------------------------------------------------
+=Units=
+[Mini Samurai]
+    |-They die on water, cliff and lava if idle 
+	|-Increse movement speed
+[Plasma Beetle]
+    |-Cost 23000 credits and 600 uranium
+[Amanda]
+    |-1 Module removed	
+	|-Precision Beam remove from selection
+[Type3 Mech]
+    |-Changed
+	|-Ion cluster Missile travel distance reduce
+	|-Ion Cluster Missile cannot launch within 280rng
+	|-Slightly reduce movement speed
+	|-Added one ion cannon and mini gun
+[Konig]
+    |-Module slot 1, 2 and 3 no longer requires research facility to unlock
+    |-Increase shield pool from 1000 to 2000 
+[Widow]
+    |-Fix widow refund	
+		
+=Module=	
+    |-[Light Mg]
+	    |-Retrofit > Bertha Cannon 
+		    |-Can Adapt Parent range (min rng: 250, max rng: 310)
+		|-Ligh MG and SAM deals 2-3x dmg against ion cluster missile	
+	|-Fix selector 	
+	|-[Precision Beam]
+	    |-Reduce damage against structure
+
+=Structures=	
+[Gateway]
+    |-Fix Lightning Bug Spam
+	|-Can properly build darkdrone 
+	
+=Added=
+    [Honey Badger]
+----------------------------------------------------------------------------
+=Units=
+[Konig]
+    |-Slot 2-3, requirement removed
+	|-Increse fire rate
+	|-Price reduce
+=Module=	
+    |-Repair bot T2 increased repair rate
+
+I was playing and i found bug	
+few minor fix	
+----------------------------------------------------------------------------
+=Units=
+[Widow]
+    |-T2 +4 armour
+	|-T3 +8 armour
+	|-Hp reduce from 21000 to 18000
+[BlackJack]
+    |-Energy Charger module removed
+    |-Credit generation removed	
+    |-Added +4 Armour 
+	|-OverHeat added 3 pen
+    |-OverHeat can deal critical damage| 7 pen
+	|-BlackJack Build Limit: 10  per playah
+	|-Can buff nearby T1 mechs
+[Mini Samurai]
+    |-Basice Attack armor pen removed	
+[Langley]
+    |-Double nano repair speed (On units, structure remain untouch) 
+[Mini Mlrs]
+    |-AA moded can do AoE: 50 
+[Heavy Mobile Turret]
+    |-Has T2 module slot (two module)
+[Amanda]	
+	|-Added T2 mobule slot
+
+=Module=
+    |-[Light MG]
+	    |-Added Retrofit
+		        |->> SAM
+				|->> Acid Gun
+				|->> Bertha Cannon
+		|-Added modification (Requires Research: Module I)
+		        |->> Red Shuriken
+				|->> Precision Beam
+				|->> AA Particle beam
+		|-Fix attack range from 250 to 200
+		|-slightly reduce attack speed
+    |-[Red Shell/Shuriken]
+     	|-Replaced, New "Red Shuriken module" (Sprite Changed)
+		|-Increase Hp regen from 5 to 10 per sec
+		|-100% shield penetration
+		|-Reduce Module Hp from 2500 to 1500
+	
+=Structures=
+[Gateway]
+    |-Added T3 module slot (Three module)
+	    |-slot 1 > (Requires built Research Facility)   
+		|-slot 2 > (Requires Research: Module I)
+		|-slot 3 > (Requires Research: Module II)
+[Baker MG]
+    |-T2 upgrade cost reduce from 1500 to 1200
+	|-Slightly reduce range
+	|-Added T3 "Baker Beam"
+[Rock Chucker]
+    |-Removed from BGC build list
+    |-Still Available in sandbox	
+[Snipah turret]	
+    |-Upgraded can do AoE against air unit (Only Air Units)
+	|-Upgraded snipah Improve effects
+	|-T2 snipah has better sprite
+[BGC turret]	
+    |-Available in sandbox, bruh 
+[BGC Extractor]	
+    |-Added additinal upgrade tree "Upgrade T1+"
+	|-T1, T1+ and T2: > has T1 module slot (one module)
+	|-T3 and T4: > has T2 module slot (two module)
+	|-T5: > T3 module slot (Three module)
+	
+=Added=
+    [Units]	
+	    |-[Konig]
+		    |-Experimental Ion Mech
+	[Structures]
+	    |-[Thunderer Artillery Turret]
+	[Research]
+	    |-Demo Strider
+	
+-Even more strict limits on 
+    |-[Widow]
+    |-[Mini Samurai]
+    |-[Black Jack]
+	|-[Generator]
+
+-fix some minor bug	
+----------------------------------------------------------------------------
+=Units=
+[Faction Picker]
+    |-Changed and improved
+	|-The sprite still same XD
+[Strider]
+    |-Added t1 module slot (few module available)
+        |-Reduce movement speed when module installed 	
+[Widow]
+    |-Widow Build Limit: 6  per playah
+	|-Can build more things
+		|-Flak turret (T3 Widow can build T2 flak turret)
+		|-T2 Pop turret
+		|-T2 Baker MG
+		|-Research Facility
+		|-Experimental Gantry
+		|-Rama (Deployed)
+		|-Etc.
+[Tactical Mech]
+    |-Tactical Mech Build Limit: 6  per playah	
+	|-Fix Repair cranes 
+	|-Reorganize buttons
+	|-Can build more things
+	|-Added Reclaim
+	    |-When reclaiming, repair crane 2-3 are temporarily disabled
+	|-Added some useless stuff (might be useful) 
+[Reparatur Mech]	
+    |-Added Uber Charge (Increase repair rate by 600% (Units)| 100% (Structure))
+	|-Duration: 6s, cooldown: 45s
+[Kashtan]
+    |-Added T2 module slots
+	|-Radar cooldown decrease from 120 to 70s
+	|-Added Starting shield pool: 1000 (empty)
+[Devastator]	
+	|-Added T2 module slots
+	|-Added Starting shield pool: 1000 (empty)
+[Athena]
+    |-Chain lightning can bounce efficiently (limiting min range from 100 to 10)
+	|-Thunder Strike cast range reduce from 290 to 250
+	|-Reduce cast time from 2s to 0.5s
+[Medium Mobile Turret]
+    |-Adde T1 module slot
+	|-transport slot needed 'reduce' from 5 to 2
+[Leyte]
+    |-Can no longer build Comanche
+[Plasma Beetle]
+    |-Plasma ram bonus armor reduce from 20 to 15
+	|-Plasma emitter beam extend range bug slighty reduced (IDK why still able to extend :/ ) 
+[Shikishima]
+    |-Increase Nodachi cooldown from 70 to 100
+	|-When Nodachi is active bounus movement speed improved
+	|-Explode on death
+	|-Minor fix
+[Shokaku]
+    |-Aichi phase drone durability increase from 400 to 1500	
+[Warp Mech]
+    |-Minor fix
+	|-Added some useless conditions 
+    |-[Blackhole]
+        |-Reduce AoE from 900 to 430
+       	|-Increase Gravity pull to Air units
+[Glavenus]	
+    |-Range nerf from 700 to 600	
+[Apollo mkII]
+    |-Can now be tarnsported (Transport slot needed: 12)
+
+=Structures=
+[Baker MG]
+    |-Increas projectile velocity
+	|-Improve effects  	
+[Snipah Turret]
+    |-Increase build time (Now equal to AEA's Rocket Turret)
+	|-Fix footprint
+[Heavy Lightning Turret]
+    |-Slightly Reduce Lightning Orb travel distance
+[Typhoon]
+    |-Takes 20% energy each time switch valley (+80% for 27 round valley: 100% energy loss)
+[BGC extractor]
+    |-Description added 
+    |-Added T1 module
+	|-Added shield (Requires module)
+	    |-Starting shield pool: 500 (empty)
+        |-Plus 500 shield pool every upgrade
+    |-Fix T5 extractor passive (properly produce credits\5s)
+	|-Passive added effects
+	
+=Added=
+    [Units]
+	|-[Mini Samurai]
+	    |-Strong melee mech 
+		|-Build limit: 15
+		|-Requires research
+    |-[Langley] (leyte class)
+	    |-Can build BGC air units
+		|-Has 3 individual air factories
+		|-Slightly durable 
+    |-[Tyrant]
+        |-Heavy Assault Mobile Artillery Platform	
+		|-Its just 5 Glavenus in a single hull
+	|-[Acid turret]
+	    |-T2 turret (upgraded from pop turret)
+	    |-Colorized ground unit
+	|-[Rock Chucker]
+	    |-T2 turret (upgraded from pop turret)
+		|-An ancient weapon used by ancient beings
+ 	
+    [module]
+	    |-Added some new stuff
+	    |-Added 4 offense module
+		    |-Light MG (great against ion cluster missiles)
+			|-Red Shell (From super mario)
+			|-Precision Beam
+			|-AA particle beam
+		|-[Ion detomator]
+		    |-Improved	
+		|-[Repair bot]
+		    |-Has 2 upgrades
+		    |-T2 nerf and changed
+		|-[Repair Pulse]
+            |-Nerf heal
+         	|-Pulse can heal parent mech
+		|-Module with shield generation, added 500 starting shield
+                                  |-Note: Removing cost 500 shield
+	>BGC has 13 modules in total
+		|-Minor fix	(Maybe not)
+
+[Type3 Mech] Ion Cluster Missile counter unit list
+    |-AEA: >>>Flak, Heavy interceptors, Appache, Frigate, AA gunboats, Amphibious Warship, Naval Carrier, Experimental SAM tank
+    |-BGC: >>>Comanche, Broken mech, Ion Mech, Leyte Drones, vigorous, Widow, Light flying mech, Kashtan 
+	            |-[Module: Light MG]    
+	
+-Improve SoundFx on orbital units when landing
+-Some mech transport slot needed 'reduce'	
+-Added bugs to fix later
+-My Engrish is bad	
+----------------------------------------------------------------------------
+[Athena]
+    |-Increase range from 190 to 250.
+	
+[Mists]
+    |-Significantly improved all around. 
+	|-(Now work better as mobile mines) and can be detected by repairature mechs and disabled by repairature mechs or AEA combat engineers
+[Mini Bertha]	
+    |-Increase damage from 28 to 42 
+	|- 250% DMG vs structures
+[Repairature Mech]
+	|-Can now build tiny mechs. 
+	
+	
+#----
+Adjusted timings and prices of all the upgrades
+
+Tier 3 black guard extractor now generates 1 Uranium 
+
+heavy Lightning turret range 400 to 250  costing 15000 and 300 uranium 
+
+Tactical mech 18000 to 7400 and 24.3s now repair speed reduced. Significantly. Can now build multiple. Different things. And tier 3 mech factory. 
+
+Comanche removed from mech factory (but can be nano built from Leyte) 
+
+Mini vls damage increased from 70 to 120 but reduced damage to structures. 
+
+Strider faster 0.9 to 1.1 
+Beam crab price 600-500 
+
+Known bugs (the nano build feature on Leyte and tactical mech seems to be finicky. It only builds units at certain angles we will look for a workaround.
+here
+----------------------------------------------------------------------------
+[Typhoon]
+    |-Nerf Hp from 17500 to 7000
+[Lightning Bug]
+    |-Smaller size
+    |-Fix sound while in flight mode and no longer attack ground units
+[Leyte]
+    |-Smol fix |Meh|
+[Generator]
+    |-Upgrade cost for each upgrade increased
+    |-T5 generator reduce credit generation from $90 to $85	
+[Okhotnik]
+    |-SAM missile can do AoE damage	|110 direct damag|110 area damage|70 AoE
+	|-Better movement on land
+[Rama]
+    |-Added manual deployment	
+[Demolition Core]
+    |-Detonates if module is destroyed	
+	|-New Icon
+[Shield Generator]
+    |-No longer requires Research	
+[Module I & II research]
+    |-Reduce cost but increase research time
+[Comanche]
+    |-Fix Tech number	
+[Snipah]
+    |-Added Tier 2 upgrade
+[Experimental Gatling]
+    |-No longer one shot by type3's ion cluster missile	
+[Strider & Tactical Mech]
+    |-Smol fix	
+[Gateway]
+    |-Added auto-attack toggle button
+[Basic Mech mk.II]
+    |-2cell missile requires research facility	
+	
+	
+Added
+[Research: Dark drone]
+    |-Allows dark drone buildable in mech gantry
+[Research: Enhanced scope]
+    |-Gives snipah turret more vision and bonus range
+	|-Authorized to shoot down air units
+
+[Heavy Lightning Turret]
+    |-Zapy zapy
+[Athena]
+    |-T3 Lightning Mech	
+[Shokaku]
+    |-T4 Battlecarrier	
+[Warp Mech]
+    |-T5 Transport\Portal	
+
+----------------------------------------------------------------------------
+[Shikishima]
+    |-Fix shiki's build limit (Requires one Samurai soul)
+[Generator]
+    |-Fix build limit
+	|-Can no longer build by 'dark drone'
+	|-Can be build by gold dark drone (on T3 Mech Gantry)
+[Kashtan]
+    |-Radar I can buff nearby BGC AA mechs, boost range 20-30% 	
+	|-Kashtan buff: increase AA missile launch interval and range
+	|-Radar I can reveal mist mines within 800 radius 
+[light Flying Mech]
+    |-buff AA missile (equal to Apache\Comanche AA missile)
+    |-AA missiles rearm slightly reduce 
+[Apollo mk II]
+    |-Increase build time	
+[Plasma Beetle]	
+    |-Plasma Ram can no longer severely damage AEA's high end units (50% damage reduction)
+	>Experimental Mech
+	>Leviathan
+	>Titan
+	>Moo-Class Battleship
+	>PCW
+[leyte]
+    |-Bomb critical damage increased (deals 150% damage, 160% to hull, 50% to structure)
+    |-Crit chance nerf	
+	
+[AEA wall]
+    |-AEA wall has resitant to Blackguard unit	
+	*[Glavenus]
+	    |-T1 wall 30% resitant
+		|-T2 wall 60% resitant
+	*[Okhotnik]	
+	    |-T1 wall 20% resitant
+		|-T2 wall 40% resitant	    
+	*[Type2 mech]	
+	    |-T1 wall 10% resitant
+		|-T2 wall 40% resitant	
+	*[Leyte Drone micro missile]
+	    |-T1 wall 15% resitant
+		|-T2 wall 40% resitant		
+		
+Added
+[Mist]
+    |-T1 Suicide bot\Mine bot
+[Comanche]
+    |-T2
+    |-Just a Apachi re-sprite
+[Lightning Bug]
+    |-T1 
+    |-Triple changer mech	
+[Demolition core module]
+    |-BOOM
+	
+[Minor Fix]	
+----------------------------------------------------------------------------
+[Tactical Mech]
+    |-Reduce nano repair to all cranes
+	    |-small crane: nanoRepairSpeed: 1.35, nanoBuildSpeed: 0.8, range: 150
+		|-medium crane: nanoRepairSpeed: 1.2, nanoBuildSpeed: 1.9, range: 220
+		|-large crane: nanoRepairSpeed: 0.8, nanoBuildSpeed: 3.25, range: 270
+[Devastator]
+    |-reduce range from 500 to 440
+	|-No longer target air units
+    |-Increase uranium price: from 750 to 2000
+    |-Slightly reduce damage from shield and structure 	
+	|-Slightly reduce knock back push force	
+	
+----------------------------------------------------------------------------
+[Type3 Mech] Ion Cluster Missile counter unit list
+    |-AEA: >>>Flak, Heavy interceptors, Appache, Frigate, AA gunboats, Amphibious Warship, Naval Carrier, Experimental SAM tank
+    |-BGC: >>>Broken mech, Leyte Drones, vigorous, Widow, Light flying mech, Kashtan 
+
+
+[Leyte]
+    |-Drone rearm time reduce by 70%
+	|-Drone micro missile slightly nerf against structure 
+	|-Drone slightly reduce movement speed
+	|-Take 2 seconds to lock on target
+	
+[generator]
+    |-lower hp 
+added 
+[Research Facility]	
+
+[Tactical Mech]
+    |-Can repair multiple units
+-----------------------------------------------------------------------------
+[leyte]
+    |-Drone increase price from 500 to 800
+
+[Type3 Mech]
+    |-Ion Cluster Missile has 85% damage penalty to experientals (no longer deal critical damage in direct hit )
+	|                         60% damage penalty to Xan Commander
+	|-Reduce damage to structure from 50% to 40%
+    |-Reduce hp from 100 to 90	
+
+[module laser defense]
+    |-increase price
+	|-reduce range (T1=20 range, T2= 60 range)
+	
+Added T2 mech
+[Type2 Mech]
+    |-Similar system to Type3 
+	|-Has MIRV missile with 7 sub-missile
+	|-Missile can be intercept all kinds of AA
+
+[Experimental AA mech]
+    |-Has active radar
+
+	
+-----------------------------------------------------------------------------
+[Type3 Mech] annoying Ion Cluster Missile counter unit list
+    |-AEA: >>>Flak, Heavy interceptors, Appache, Frigate, AA gunboats.
+    |-BGC: >>>Broken mech, Leyte Drones, vigorous, Widow, Light flying mech 
+	
+[Mini MLRS]
+	|-Increase damage from 20 to 25
+	|-Increase AoE from 65 to 75
+[Broken Mech]
+    |-Added T1 module, 4 modules available 	
+	|-Reduce speed from 0.7 to 0.6 when equipped with module
+[Ion Mech]
+	|-Decrese hp from 1900 to 1800
+	|-Reduce speed from 0.7 to 0.6 when equipped with module
+[Leyte]
+	|-Drone Micro missile reduce life time from 600 to 350 
+	|-Carrier Micro missile reduce life time from 600 to 400 to 300 
+[Type3 Mech]	
+    |-Added T1 module, 5 modules available 	
+[Heav Mobile Turret]	
+    |-Added T1 module, 5 modules available 		
+[Shikishima] 
+	|-Can no longer water walk jutsu while nodachi is active (its my mess)	
+[Devastator]
+    |-Increase ammo from 8 to 10
+	|-Improve turret traverse speed
+	|-Faster reload (from 1.5s to 1s)
+	|-Increase sub-projectile AoE blast
+	|-Increase shell dispersion in burst mode(means lower accuracy)
+	|-Reduce speed from 0.4 to 0.35
+[Widow]	
+    |-Added T3 module, 6 modules available each	
+	
+[Module]
+    -Added-
+       |-Nano wave module
+       |-Laser shield module	
+	-challenges-
+       |-added T2 repair bot		
+       |-fix module refund
+	   |-fix nuke module
+-----------------------------------------------------------------------------	
+
+leyte drone price from 500 to 800
+ion cluster missile hit only air
+
+
+
+	

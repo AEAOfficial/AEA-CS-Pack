@@ -1,0 +1,4 @@
+
+#_stuff.template
+[core]
+borrowResourcesWhileAlive: generatorL=1

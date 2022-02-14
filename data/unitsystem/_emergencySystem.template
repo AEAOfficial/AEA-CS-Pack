@@ -1,0 +1,27 @@
+#_emergencySystem
+#ROOT:data\systems\_emergencySystem.template
+
+[core]
+#2% hp\sec for medium units and 1% hp\sec for large units
+@global regenPerSecond: 0
+#15% hp restored
+@global intanthp: 0
+#20% below 
+@global MaxhpPercentage: 0
+
+generation_resources:hp=${regenPerSecond/60}, ESysHalt=0.1
+generation_active: if self.resource(type='ESys', greaterThan=0) and not self.resource(type='ESysHalt', greaterThan=49.9)
+generation_delay: 1
+
+
+[resource_ESys]
+displayName: ESys
+hidden: true
+[resource_ESysHalt]
+displayName: Timer
+hidden: true
+
+[hiddenAction_HpLow]
+autoTrigger: if self.hp(lessThan=${MaxhpPercentage}) and not self.resource(type='ESys', greaterThan=0) and self.globalTeamTags(includes='ESystem')
+addResources: ESys=1, hp=${intanthp}
+playSoundAtUnit: ROOT:data\soundFx\emergency_esystem.ogg: 0.5
