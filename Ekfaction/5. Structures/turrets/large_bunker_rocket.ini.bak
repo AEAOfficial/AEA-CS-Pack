@@ -174,7 +174,7 @@ trailEffect: true
 
 #color: #FF1111
 
-image: root/projectile_rocket_large.png
+image: projectile_rocket_large.png
 drawSize: 1.025
 
 areaDamage: 750
@@ -251,7 +251,7 @@ ySpeedAbsoluteRandom:0.3
 atmospheric: true
 
 [effect_projectileGroundDust]
-image: root/rotorwash.png
+image: rotorwash.png
 createWhenOverLiquid: false
 life: 90
 fadeOut: true
@@ -272,7 +272,7 @@ xSpeedAbsoluteRandom:0.1
 ySpeedAbsoluteRandom:0.1
 
 [effect_projectileCrater]
-image: root/crater.png
+image: crater.png
 createWhenOverLiquid: false
 life: 3600
 fadeOut: true
@@ -310,7 +310,7 @@ ySpeedAbsoluteRandom:0.3
 atmospheric: true
 
 [effect_projectileWaterDust]
-image: root/rotorwash.png
+image: rotorwash.png
 createWhenOverLand: false
 life: 90
 fadeOut: true
@@ -332,7 +332,7 @@ ySpeedAbsoluteRandom:0.1
 
 [effect_projectileWaterSplash]
 
-image: root/sub_bubbles.png
+image: sub_bubbles.png
 createWhenOverLand: false
 life: 120
 fadeOut: true
